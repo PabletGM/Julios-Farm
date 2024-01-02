@@ -131,6 +131,7 @@ namespace CreatorKitCodeInternal {
                             m_Agent.isStopped = true;
                         }
                     }
+                    //sino esta en el area de ataque e queda en el sitio anterior
                     else
                     {
                         if (m_PursuitTimer > 0.0f)
@@ -144,7 +145,8 @@ namespace CreatorKitCodeInternal {
                             }
                         }
                     }
-                
+                    
+                    //si el tiempo de persecucion se ha acabado se reinicia la busqueda
                     if (m_PursuitTimer > 0)
                     {
                         m_Agent.SetDestination(playerPosition);
