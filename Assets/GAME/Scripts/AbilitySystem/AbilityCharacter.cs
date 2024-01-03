@@ -36,13 +36,17 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
         }
     }
 
+    //permiso para moverse y hacer habilidades
     protected bool canMove = true;
     protected bool canDoAbilties = true;
 
+    //tiempo de parada entre ataque y ataque
     protected float stoppedByExecuteAbilityTime = 0f;
 
     protected BaseAbility currentAbility;
+    //tiempo que lleva hecho de habilidad
     private float currentAbilityElapsedTime = 0;
+    //coolDown de ataque
     protected float attackAbilityCooldown = 0;
 
     private void Start()
@@ -70,6 +74,7 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
         passiveAbility.StartAbility(this);
     }
 
+    //si es el enemy ejecuta primary ability de ataque si esta en distancia de ataque
     protected void ExecutePrimaryAbility()
     {
         if (!canDoAbilties)
@@ -77,6 +82,7 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
             return;
         }
 
+        //si hay habilidad de ataque y no hay cooldown
         if (slotAttackAbility != null && attackAbilityCooldown <= 0f)
         {
             slotAttackAbility.StartAbility(this);

@@ -9,4 +9,5 @@ public class EnemyStats : GenericStats
     public float angularSpeed = 120f;
     public float stoppingDistance = 2f;
     public bool autoBraking = false;
+    public float aggroRadius = 5f;
 }

@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BasePrimaryAttack", menuName = "JuliosFarm/Abilities/BasePrimaryAttack")]
-public class BasePrimaryAttack : AttackAbility
+public class EnemyPrimaryAttack : BasePrimaryAttack
 {
     public override void StartAbility(AbilityCharacter character)
     {
-        //conectamos con StartAbility de AttackAbility
+        //conectamos con StartAbility de BasePrimaryAttack
         base.StartAbility(character);
-        
+
     }
 
     public override void OnReceiveAnimationEvent(AbilityCharacter character)
     {
-        
+        //Debug.Log("Deal Damage");
 
         //Vector3 rayOrigin = character.transform.position + new Vector3(0f, 0.5f, 0f);
 

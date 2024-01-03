@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GenericStats", menuName = "JuliosFarm/Stats/GenericStats")]
 public class GenericStats : ScriptableObject
 {
-
+    public float health;
     [Header("Movement parameters")]
     public FloatVariable speed;
     [Range(1f, 10f)]

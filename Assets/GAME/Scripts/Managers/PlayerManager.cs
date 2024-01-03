@@ -10,6 +10,22 @@ public class PlayerManager : MonoBehaviour
 
     private PlayerAbilityCharacter playerAbilityCharacter;
 
+    //Stats management
+    private float initHealth;
+
+    private float currentHealth;
+    public float CurrentHealth
+    {
+        set
+        {
+            currentHealth = value;
+        }
+        get
+        {
+            return currentHealth;
+        }
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,7 +42,8 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         playerAbilityCharacter = GetComponent<PlayerAbilityCharacter>();
-
+        initHealth = playerAbilityCharacter.CharacterStats.health;
+        currentHealth = initHealth;
         SetPlayerEnterPosition();
     }
 

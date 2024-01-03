@@ -19,6 +19,7 @@ public class AttackAbility : BaseAbility
     public override void StartAbility(AbilityCharacter character)
     {
         base.StartAbility(character);
+        //el movementStopTime el cronometro para bajar este es en el AbilityCharacter en el update
         if (movementStopTime > 0f)
         {
             character.StopCharacterMovement();
