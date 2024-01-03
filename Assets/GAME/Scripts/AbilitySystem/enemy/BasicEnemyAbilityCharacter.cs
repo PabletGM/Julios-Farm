@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class BasicEnemyAbilityCharacter : AbilityCharacter
 {
-    [Header("Enemy Parameters")]
-    [Header("Destroy Particles")]
-    public GameObject despawnParticles;
-    public GameObject particlesPivot;
+    //[Header("Enemy Parameters")]
+    //[Header("Destroy Particles")]
+    //public GameObject despawnParticles;
+    //public GameObject particlesPivot;
 
     protected NavMeshAgent agent;
 
@@ -17,7 +17,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
     protected float currentHealth;
 
-    IEnumerator DestroyEnemyCoroutine;
+    //IEnumerator DestroyEnemyCoroutine;
 
     //iniciamos abilityCharacter, enemyStats y variables del navmesh
     protected override void InitAbilityCharacter()
@@ -103,47 +103,47 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         return distanceToPlayer <= enemyStats.aggroRadius && !agent.isStopped;
     }
 
-    public override void TakeDamage(float damage, DamageEmiterType emiterType)
-    {
-        if (emiterType == DamageEmiterType.Enemy || currentHealth < 0f)
-        {
-            return;
-        }
+    //public override void TakeDamage(float damage, DamageEmiterType emiterType)
+    //{
+    //    if (emiterType == DamageEmiterType.Enemy || currentHealth < 0f)
+    //    {
+    //        return;
+    //    }
 
-        currentHealth -= damage;
-        if (currentHealth <= 0f)
-        {
-            ResetCurrentAbility();
-            canDoAbilties = false;
-            Animator.SetTrigger("IsDied");
+    //    currentHealth -= damage;
+    //    if (currentHealth <= 0f)
+    //    {
+    //        ResetCurrentAbility();
+    //        canDoAbilties = false;
+    //        Animator.SetTrigger("IsDied");
 
-            DestroyEnemyCoroutine = DestroyEnemy();
-            StartCoroutine(DestroyEnemyCoroutine);
-        }
-    }
+    //        DestroyEnemyCoroutine = DestroyEnemy();
+    //        StartCoroutine(DestroyEnemyCoroutine);
+    //    }
+    //}
 
-    private IEnumerator DestroyEnemy()
-    {
-        float timeToWait = 2.5f;
-        while (timeToWait >= 0)
-        {
-            yield return null;
-            timeToWait -= Time.deltaTime;
-        }
+    //private IEnumerator DestroyEnemy()
+    //{
+    //    float timeToWait = 2.5f;
+    //    while (timeToWait >= 0)
+    //    {
+    //        yield return null;
+    //        timeToWait -= Time.deltaTime;
+    //    }
 
-        DestroyEnemyCoroutine = null;
-        int poolIndex = ObjectPooler.instance.SearchPool(despawnParticles);
-        if (poolIndex != -1)
-        {
-            GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
-            particles.transform.position = particlesPivot.transform.position;
-            particles.SetActive(true);
-        }
-        //SceneEnemiesController.Instance.RemoveEnemyFromScene();
-        currentHealth = characterStats.health;
-        Animator.Rebind();
-        agent.isStopped = false;
-        canDoAbilties = true;
-        gameObject.SetActive(false);
-    }
+    //    DestroyEnemyCoroutine = null;
+    //    int poolIndex = ObjectPooler.instance.SearchPool(despawnParticles);
+    //    if (poolIndex != -1)
+    //    {
+    //        GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+    //        particles.transform.position = particlesPivot.transform.position;
+    //        particles.SetActive(true);
+    //    }
+    //    //SceneEnemiesController.Instance.RemoveEnemyFromScene();
+    //    currentHealth = characterStats.health;
+    //    Animator.Rebind();
+    //    agent.isStopped = false;
+    //    canDoAbilties = true;
+    //    gameObject.SetActive(false);
+    //}
 }
