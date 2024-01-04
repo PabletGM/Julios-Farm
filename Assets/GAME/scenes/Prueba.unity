@@ -16025,8 +16025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254ccaf3d3a11914093cf3b700cfd59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  lookAtTarget: {fileID: 14741206}
+  cam: {fileID: 963194227}
 --- !u!54 &847747514
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16150,7 +16149,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 999
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -36107,6 +36106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549394745342254541, guid: b74b36718b2fa8946a307381a120a835,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5549394745342254542, guid: b74b36718b2fa8946a307381a120a835,
         type: 3}

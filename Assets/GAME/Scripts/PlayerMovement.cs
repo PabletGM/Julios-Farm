@@ -7,42 +7,44 @@ using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
 
+    [SerializeField]
+    private Camera cam;
+    
+    private Animator anim;
+
+    [Header("NavMesh parameters")]
     private NavMeshAgent agent;
-
-    private int levelLayer;
-
-    [SerializeField]
-    private float speed = 10.0f;
-    private Vector3 lastRaycastResult;
-
-    [SerializeField]
-    private Transform lookAtTarget;
+    private float speed;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = speed;
-        agent.angularSpeed = 360.0f;
-        lastRaycastResult = transform.position;
-
-        levelLayer = 1 << LayerMask.NameToLayer("Level");
-
+        speed = agent.speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 pos = transform.position;
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitPoint;
 
-        Ray screenRay = CameraController.Instance.GameplayCamera.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hitPoint))
+            {
+                agent.SetDestination(hitPoint.point);
+            }
+        }
 
-        CharacterLookAt();
-        agent.SetDestination(lookAtTarget.position);
+        if(agent.velocity != Vector3.zero)
+        {
+            //animator walking == true
+        }
+        else if (agent.velocity == Vector3.zero)
+        {
+            //animator walking == false
+        }
     }
 
-    private void CharacterLookAt()
-    {
-        transform.LookAt(lookAtTarget, Vector3.up);
-    }
 }
