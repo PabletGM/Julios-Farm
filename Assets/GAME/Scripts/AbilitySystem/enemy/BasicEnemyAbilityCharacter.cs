@@ -17,6 +17,10 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
     protected float currentHealth;
 
+    [Header("Destino a atacar")]
+    [SerializeField]
+    private GameObject destinoAtacar;
+
     //IEnumerator DestroyEnemyCoroutine;
 
     //iniciamos abilityCharacter, enemyStats y variables del navmesh
@@ -39,6 +43,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
         //Get player reference
         playerManager = PlayerManager.instance;
+        //inicialmente que le persiga a la casa
+        agent.SetDestination(destinoAtacar.transform.position);
     }
 
     protected override void Update()
@@ -53,7 +59,10 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         base.Update();
 
         //calculamos distancia entre player y enemy
-        float distanceToPlayer = Vector3.Distance(transform.position, playerManager.transform.position);
+        //float distanceToPlayer = Vector3.Distance(transform.position, playerManager.transform.position);
+
+        //calculamos distancia entre enemy y edificio pero solo en ejeX
+        float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(destinoAtacar.transform.position.x, destinoAtacar.transform.position.y, destinoAtacar.transform.position.z));
         //mira si esta a distancia cercana del player
         if (IsNearToPlayer(distanceToPlayer))
         {
@@ -61,7 +70,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             if (IsPlayerAlive())
             {
                 //ponemos como objetivo del enemy la posicion del player
-                agent.SetDestination(playerManager.transform.position);
+                agent.SetDestination(destinoAtacar.transform.position);
                 //miramos si la distancia del player <= el attackRange del enemy
                 if (distanceToPlayer <= slotAttackAbility.attackRange)
                 {

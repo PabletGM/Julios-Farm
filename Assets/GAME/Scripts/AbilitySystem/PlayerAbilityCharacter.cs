@@ -43,6 +43,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
         {
             return;
         }
+
+        Debug.Log("daño a player");
     }
 
     //private void PlayerDied()

@@ -19,4 +19,4 @@ MonoBehaviour:
   angularSpeed: 120
   stoppingDistance: 1
   autoBraking: 0
-  aggroRadius: 30
+  aggroRadius: 200
