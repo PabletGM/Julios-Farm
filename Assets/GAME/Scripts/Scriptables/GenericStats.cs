@@ -6,6 +6,7 @@ using UnityEngine;
 public class GenericStats : ScriptableObject
 {
     public float health;
+    public float maxHealth;
     [Header("Movement parameters")]
     public FloatVariable speed;
     [Range(1f, 10f)]
@@ -14,6 +15,10 @@ public class GenericStats : ScriptableObject
     [Header("Attack Parameters")]
     public FloatVariable baseDamage;
 
+    private void Awake()
+    {
+        maxHealth = health;
+    }
 
     public virtual void ResetStats()
     {

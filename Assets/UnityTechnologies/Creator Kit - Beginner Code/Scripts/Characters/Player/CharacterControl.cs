@@ -242,8 +242,8 @@ namespace CreatorKitCodeInternal {
             m_Animator.SetFloat(m_SpeedParamID, m_Agent.velocity.magnitude / m_Agent.speed);
         
             //Keyboard shortcuts
-            if(Input.GetKeyUp(KeyCode.I))
-                UISystem.Instance.ToggleInventory();
+            //if(Input.GetKeyUp(KeyCode.I))
+            //    UISystem.Instance.ToggleInventory();
         }
 
         void GoToRespawn()

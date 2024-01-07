@@ -14,7 +14,7 @@ namespace CreatorKitCodeInternal
         public static UISystem Instance { get; private set; }
     
         [Header("Player")]
-        public CharacterControl PlayerCharacter;
+        public PlayerStats PlayerCharacter;
         public Slider PlayerHealthSlider;
         public Text MaxHealth;
         public Text CurrentHealth;
@@ -66,39 +66,38 @@ namespace CreatorKitCodeInternal
 
         void UpdatePlayerUI()
         {
-            CharacterData data = PlayerCharacter.Data;
         
-            PlayerHealthSlider.value = PlayerCharacter.Data.Stats.CurrentHealth / (float) PlayerCharacter.Data.Stats.stats.health;
-            MaxHealth.text = PlayerCharacter.Data.Stats.stats.health.ToString();
-            CurrentHealth.text = PlayerCharacter.Data.Stats.CurrentHealth.ToString();
+            PlayerHealthSlider.value = PlayerCharacter.health / (float) PlayerCharacter.health;
+            MaxHealth.text = PlayerCharacter.maxHealth.ToString();
+            CurrentHealth.text = PlayerCharacter.health.ToString();
         
-            if (PlayerCharacter.CurrentTarget != null)
-            {
-                UpdateEnemyUI(PlayerCharacter.CurrentTarget);
-            }
-            else
-            {
-                EnemyHealthSlider.gameObject.SetActive(false);
-            }
+            //if (PlayerCharacter.CurrentTarget != null)
+            //{
+            //    UpdateEnemyUI(PlayerCharacter.CurrentTarget);
+            //}
+            //else
+            //{
+            //    EnemyHealthSlider.gameObject.SetActive(false);
+            //}
 
-            int maxTimedEffect = data.Stats.TimedModifierStack.Count;
-            for (int i = 0; i < maxTimedEffect; ++i)
-            {
-                var effect = data.Stats.TimedModifierStack[i];
+            //int maxTimedEffect = data.Stats.TimedModifierStack.Count;
+            //for (int i = 0; i < maxTimedEffect; ++i)
+            //{
+            //    var effect = data.Stats.TimedModifierStack[i];
 
-                TimedModifierIcones[i].BackgroundImage.sprite = effect.EffectSprite;
-                TimedModifierIcones[i].gameObject.SetActive(true);
-                TimedModifierIcones[i].TimeSlider.value = effect.Timer / effect.Duration;
-            }
+            //    TimedModifierIcones[i].BackgroundImage.sprite = effect.EffectSprite;
+            //    TimedModifierIcones[i].gameObject.SetActive(true);
+            //    TimedModifierIcones[i].TimeSlider.value = effect.Timer / effect.Duration;
+            //}
 
-            for (int i = maxTimedEffect; i < TimedModifierIcones.Length; ++i)
-            {
-                TimedModifierIcones[i].gameObject.SetActive(false);
-            }
+            //for (int i = maxTimedEffect; i < TimedModifierIcones.Length; ++i)
+            //{
+            //    TimedModifierIcones[i].gameObject.SetActive(false);
+            //}
         
                 
-            var stats = data.Stats.stats;
-            StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
+            //var stats = data.Stats.stats;
+            //StatsText.text = $"Str : {stats.strength} Def : {stats.defense} Agi : {stats.agility}";
         }
 
         void UpdateEnemyUI(CharacterData enemy)
@@ -123,21 +122,21 @@ namespace CreatorKitCodeInternal
             }
         }
 
-        public void ToggleInventory()
-        {
-            if (InventoryWindow.gameObject.activeSelf)
-            {
-                ((Image)OpenInventoryButton.targetGraphic).sprite = m_ClosedInventorySprite;
-                InventoryWindow.gameObject.SetActive(false);
-                SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = CloseInventoryClip});
-            }
-            else
-            {
-                ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
-                InventoryWindow.gameObject.SetActive(true);
-                InventoryWindow.Load(PlayerCharacter.Data);
-                SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
-            }
-        }
+        //public void ToggleInventory()
+        //{
+        //    if (InventoryWindow.gameObject.activeSelf)
+        //    {
+        //        ((Image)OpenInventoryButton.targetGraphic).sprite = m_ClosedInventorySprite;
+        //        InventoryWindow.gameObject.SetActive(false);
+        //        SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = CloseInventoryClip});
+        //    }
+        //    else
+        //    {
+        //        ((Image)OpenInventoryButton.targetGraphic).sprite = m_OpenInventorySprite;
+        //        InventoryWindow.gameObject.SetActive(true);
+        //        InventoryWindow.Load(PlayerCharacter.Data);
+        //        SFXManager.PlaySound(SFXManager.Use.Sound2D, new SFXManager.PlayData(){ Clip = OpenInventoryClip});
+        //    }
+        //}
     }
 }
