@@ -112,24 +112,28 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         return distanceToPlayer <= enemyStats.aggroRadius && !agent.isStopped;
     }
 
-    //public override void TakeDamage(float damage, DamageEmiterType emiterType)
-    //{
-    //    if (emiterType == DamageEmiterType.Enemy || currentHealth < 0f)
-    //    {
-    //        return;
-    //    }
+    public override void TakeDamage(float damage, DamageEmiterType emiterType)
+    {
+        if (emiterType == DamageEmiterType.Enemy || currentHealth < 0f)
+        {
+            return;
+        }
 
-    //    currentHealth -= damage;
-    //    if (currentHealth <= 0f)
-    //    {
-    //        ResetCurrentAbility();
-    //        canDoAbilties = false;
-    //        Animator.SetTrigger("IsDied");
+        //si el emisor del daño es el player
+        else if(emiterType == DamageEmiterType.Player)
+        {    
+            currentHealth -= damage;
+            Debug.Log(currentHealth);
+            if (currentHealth <= 0f)
+            {
+                ResetCurrentAbility();
+                canDoAbilties = false;
+                Destroy(this.gameObject);  
+            }
+        }
 
-    //        DestroyEnemyCoroutine = DestroyEnemy();
-    //        StartCoroutine(DestroyEnemyCoroutine);
-    //    }
-    //}
+        
+    }
 
     //private IEnumerator DestroyEnemy()
     //{

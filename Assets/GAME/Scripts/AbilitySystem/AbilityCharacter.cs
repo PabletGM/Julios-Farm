@@ -158,5 +158,6 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(float damage, DamageEmiterType emiterType)
     {
+        
     }
 }

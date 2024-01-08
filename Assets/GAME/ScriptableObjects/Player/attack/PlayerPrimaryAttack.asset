@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513d493c33161184686ccd7af4ba6797, type: 3}
-  m_Name: EnemyPrimaryAttackNormal
+  m_Script: {fileID: 11500000, guid: 0b7f29df0d4c0164baafd2abc178d047, type: 3}
+  m_Name: PlayerPrimaryAttack
   m_EditorClassIdentifier: 
   isPassive: 0
   abilityDescription: 
@@ -21,6 +21,6 @@ MonoBehaviour:
   attackRange: 8
   attackLayerMask:
     serializedVersion: 2
-    m_Bits: 10240
-  damageEmiterType: 1
+    m_Bits: 128
+  damageEmiterType: 0
   movementStopTime: 1.5

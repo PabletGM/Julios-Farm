@@ -21,6 +21,6 @@ MonoBehaviour:
   attackRange: 5
   attackLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  damageEmiterType: 0
+    m_Bits: 10240
+  damageEmiterType: 1
   movementStopTime: 0

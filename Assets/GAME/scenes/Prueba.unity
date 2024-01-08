@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 3218439}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0.00000029667513, z: -0.00000012288685, w: 0.92387956}
-  m_LocalPosition: {x: -37.48967, y: 352.48865, z: -151.50554}
+  m_LocalPosition: {x: -45.00967, y: 352.48865, z: -156.36554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3045,7 +3045,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: 02af3baa7b9b95743b17093e5aef9dd1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -4762218391637408777, guid: 02af3baa7b9b95743b17093e5aef9dd1,
@@ -8227,6 +8228,59 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 511807858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &514640153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514640154}
+  - component: {fileID: 514640155}
+  m_Layer: 13
+  m_Name: AttackArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514640154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514640153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 847747518}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &514640155
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514640153}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2
+  m_Center: {x: 0, y: 0.57, z: 0}
 --- !u!1001 &514803188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11641,6 +11695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "enemyCactusPeque\xF1o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15149,7 +15208,8 @@ GameObject:
   - component: {fileID: 847747513}
   - component: {fileID: 847747521}
   - component: {fileID: 847747520}
-  m_Layer: 0
+  - component: {fileID: 847747524}
+  m_Layer: 13
   m_Name: Player Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15178,12 +15238,13 @@ Transform:
   m_GameObject: {fileID: 847747512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9190791, z: -0, w: -0.39407313}
-  m_LocalPosition: {x: 68.97, y: 0.07, z: 59.09}
+  m_LocalPosition: {x: 61.45, y: 0.07, z: 54.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1969867269}
   - {fileID: 139180913}
+  - {fileID: 514640154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 226.416, z: 0}
 --- !u!195 &847747519
@@ -15221,7 +15282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStats: {fileID: 11400000, guid: a849b9d58b8e6fa4f9f63c4dca6f4ab3, type: 2}
-  slotAttackAbility: {fileID: 0}
+  slotAttackAbility: {fileID: 11400000, guid: dc2d5a5088df7df4f843cd940c70c404, type: 2}
   passiveAbilities: []
 --- !u!114 &847747521
 MonoBehaviour:
@@ -15285,6 +15346,27 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &847747524
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847747512}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4702eae17f067b646ac1d42f2da2fc40, type: 3}
+  m_Controller: {fileID: 9100000, guid: c00f5850e45268046b0383656e36662b, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &849038985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17204,7 +17286,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0.00000029667513, z: -0.00000012288685, w: 0.92387956}
-  m_LocalPosition: {x: -37.48967, y: 352.48865, z: -151.50554}
+  m_LocalPosition: {x: -45.00967, y: 352.48865, z: -156.36554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19797,6 +19879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rake_Basic_Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 7022561314472484388, guid: e445cf79239d58a4a9b58b1d2ed99d63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20430,6 +20517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "enemyCactusPeque\xF1o"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31235,7 +31327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969867269}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Camera Target Nuevo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
