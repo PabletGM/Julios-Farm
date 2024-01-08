@@ -16,6 +16,10 @@ public class PlayerMovement : MonoBehaviour
     private NavMeshAgent agent;
     private float speed;
 
+    private Vector3 positionHitPoint;
+
+    private float positionHitPointOffset = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
             if(Physics.Raycast(ray, out hitPoint))
             {
+                positionHitPoint = hitPoint.point;
                 agent.SetDestination(hitPoint.point);
             }
         }
@@ -42,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("IsMoving", true);
         }
-        else if (agent.velocity == Vector3.zero)
+        //para quitar animacion correr que no tenga velocidad y que distancia entre punto al que va y player sea 0
+        else if (agent.velocity == Vector3.zero || Vector3.Distance(this.transform.position, positionHitPoint) <= positionHitPointOffset)
         {
             anim.SetBool("IsMoving", false);
         }
