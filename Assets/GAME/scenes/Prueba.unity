@@ -15229,6 +15229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
+  stats: {fileID: 11400000, guid: a849b9d58b8e6fa4f9f63c4dca6f4ab3, type: 2}
 --- !u!4 &847747518
 Transform:
   m_ObjectHideFlags: 0

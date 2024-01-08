@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private Camera cam;
-    
+
+    [SerializeField]
+    private PlayerStats stats;
+
     private Animator anim;
 
     [Header("NavMesh parameters")]
     private NavMeshAgent agent;
-    private float speed;
 
     private Vector3 positionHitPoint;
 
@@ -24,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        speed = agent.speed;
+        agent.speed = stats.speed.runTimeValue;
         anim = GetComponent<Animator>();
     }
 
@@ -43,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(agent.velocity != Vector3.zero)
+        
+        if (agent.velocity != Vector3.zero)
         {
             anim.SetBool("IsMoving", true);
         }
