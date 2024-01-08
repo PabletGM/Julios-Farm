@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("NavMesh parameters")]
     private NavMeshAgent agent;
-    private float speed;
+    private float speed = 10;
 
     private Vector3 positionHitPoint;
 
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        speed = agent.speed;
+        agent.speed = speed;
         anim = GetComponentInChildren<Animator>();
     }
 
