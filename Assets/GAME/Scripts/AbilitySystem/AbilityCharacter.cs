@@ -37,7 +37,7 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
     }
 
     //permiso para moverse y hacer habilidades
-    protected bool canMove = true;
+    public bool canMove = true;
     protected bool canDoAbilties = true;
 
     //tiempo de parada entre ataque y ataque

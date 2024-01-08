@@ -5,9 +5,22 @@ using UnityEngine;
 
 public class PlayerAbilityCharacter : AbilityCharacter
 {
-    //private PlayerMovement playerMovement;
+    private PlayerMovement playerMovement;
 
     private int layerEnemy;
+
+    public bool CanMovePlayer
+    {
+        get
+        {
+            return canMove;
+        }
+        set
+        {
+            canMove = value;
+        }
+    }
+    
     private void Awake()
     {
         //iniciar layer de player
@@ -18,17 +31,17 @@ public class PlayerAbilityCharacter : AbilityCharacter
     protected override void InitAbilityCharacter()
     {
         base.InitAbilityCharacter();
-        //playerMovement = GetComponent<PlayerMovement>();
-        //playerMovement.CanMove = true;
+        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement.CanMovement = true;
     }
 
 
     protected override void ResetCurrentAbility()
     {
-        //if (!playerMovement.CanMove)
-        //{
-        //    playerMovement.CanMove = true;
-        //}
+        if (!playerMovement.CanMovement)
+        {
+            playerMovement.CanMovement = true;
+        }
 
         base.ResetCurrentAbility();
     }
@@ -36,13 +49,13 @@ public class PlayerAbilityCharacter : AbilityCharacter
     public override void EnableCharacterMovement()
     {
         base.EnableCharacterMovement();
-        //playerMovement.CanMove = true;
+        playerMovement.CanMovement = true;
     }
 
     public override void StopCharacterMovement()
     {
         base.StopCharacterMovement();
-        //playerMovement.CanMove = false;
+        playerMovement.CanMovement = false;
     }
 
     public override void TakeDamage(float damage, DamageEmiterType emiterType)

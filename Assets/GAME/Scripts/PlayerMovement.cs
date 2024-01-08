@@ -1,12 +1,15 @@
 using CreatorKitCodeInternal;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
 
+    [SerializeField]
+    PlayerAbilityCharacter character;
     [SerializeField]
     private Camera cam;
 
@@ -22,6 +25,18 @@ public class PlayerMovement : MonoBehaviour
 
     private float positionHitPointOffset = 5;
 
+    public bool CanMovement
+    {
+        get
+        {
+            return character.CanMovePlayer;
+        }
+        set
+        {
+            character.CanMovePlayer = value;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +48,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        //si se pulsa y se puede mover
+        if(Input.GetMouseButtonDown(0) && CanMovement)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPoint;
