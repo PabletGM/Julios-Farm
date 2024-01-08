@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         speed = agent.speed;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -39,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(agent.velocity != Vector3.zero)
         {
-            //animator walking == true
+            anim.SetBool("IsMoving", true);
         }
         else if (agent.velocity == Vector3.zero)
         {
-            //animator walking == false
+            anim.SetBool("IsMoving", false);
         }
     }
 
