@@ -9,6 +9,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
 
     private int layerEnemy;
 
+    
+
     public bool CanMovePlayer
     {
         get
@@ -25,7 +27,10 @@ public class PlayerAbilityCharacter : AbilityCharacter
     {
         //iniciar layer de player
          layerEnemy= LayerMask.NameToLayer("Enemy");
-        
+
+       
+
+
     }
 
     protected override void InitAbilityCharacter()
@@ -33,6 +38,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
         base.InitAbilityCharacter();
         playerMovement = GetComponent<PlayerMovement>();
         playerMovement.CanMovement = true;
+        //empezar corroutine player atack
+        StartCoroutine(AtaqueAutomaticoPlayer());
     }
 
 
@@ -74,15 +81,28 @@ public class PlayerAbilityCharacter : AbilityCharacter
     }
 
     //al detectar al enemy le ataque
-    private void OnTriggerEnter(Collider other)
-    {
-        //si se detecta a si mismo que no lo haga
-        if(other.gameObject.layer == layerEnemy)
-        {
-            //Debug.Log("Attack");
-            ExecutePrimaryAbility();
-        }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //si detecta a enemy que lo haga
+    //    if(other.gameObject.layer == layerEnemy)
+    //    {
+    //        //Debug.Log("Attack");
+    //        /*ExecutePrimaryAbility();*/
+    //    }
         
+    //}
+
+    private IEnumerator AtaqueAutomaticoPlayer()
+    {
+        //se ejecuta todo el rato mientras player exista
+        while (this.gameObject!=null)
+        {
+            // Lógica de ataque aquí
+            ExecutePrimaryAbility();
+
+            // Esperar el tiempo entre ataques attackAbilityCooldown
+            yield return new WaitForSeconds(attackAbilityCooldown);
+        }
     }
 
     //private void PlayerDied()
