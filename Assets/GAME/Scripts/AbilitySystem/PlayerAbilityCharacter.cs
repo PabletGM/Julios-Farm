@@ -12,7 +12,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
     //Lista de enemigos que estan cerca del player
     private List<BasicEnemyAbilityCharacter> enemyNearPlayerList;
 
-
+    //TO DO--> CAMBIAR POR ATTACK RANGE DEL PLAYER PRIMARY ATTACK EN AttackAbility
+    private float attackRangePlayerGeneral = 6.5f;
     public bool CanMovePlayer
     {
         get
@@ -31,6 +32,7 @@ public class PlayerAbilityCharacter : AbilityCharacter
         layerEnemy= LayerMask.NameToLayer("Enemy");
         // Inicializar la lista en el Awake
         enemyNearPlayerList = new List<BasicEnemyAbilityCharacter>();
+
     }
 
     // Método para añadir un enemigo a la lista de enemiesNearPlayer
@@ -106,10 +108,9 @@ public class PlayerAbilityCharacter : AbilityCharacter
         Vector3 distanceFromPlayerToEnemy = this.transform.position - other.transform.position;
         float sqrtDist = distanceFromPlayerToEnemy.sqrMagnitude;
 
-        //cogemos el attackRange que es el radius del sphereCollider del attackArea del PlayerCharacter
-        float attackRange = this.gameObject.GetComponentInChildren<SphereCollider>().radius;
+        
         //si la distancia entre player y enemy supera un minimo le mete a la lista
-        if(sqrtDist <= attackRange * attackRange)
+        if(sqrtDist <= attackRangePlayerGeneral)
         {
             //añadir en lista
             AddEnemyListNearPlayer(other.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
@@ -123,10 +124,9 @@ public class PlayerAbilityCharacter : AbilityCharacter
         Vector3 distanceFromPlayerToEnemy = this.transform.position - other.transform.position;
         float sqrtDist = distanceFromPlayerToEnemy.sqrMagnitude;
 
-        //cogemos el attackRange que es el radius del sphereCollider del attackArea del PlayerCharacter
-        float attackRange = this.gameObject.GetComponentInChildren<SphereCollider>().radius;
+        
         //si la distancia entre player y enemy supera un minimo le mete a la lista
-        if (sqrtDist > attackRange * attackRange)
+        if (sqrtDist > attackRangePlayerGeneral)
         {
             //añadir en lista
             RemoveEnemyListNearPlayer(other.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
