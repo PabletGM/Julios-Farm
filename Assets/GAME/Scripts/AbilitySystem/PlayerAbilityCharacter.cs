@@ -27,10 +27,6 @@ public class PlayerAbilityCharacter : AbilityCharacter
     {
         //iniciar layer de player
          layerEnemy= LayerMask.NameToLayer("Enemy");
-
-       
-
-
     }
 
     protected override void InitAbilityCharacter()
@@ -74,7 +70,12 @@ public class PlayerAbilityCharacter : AbilityCharacter
         }
         else if(emiterType == DamageEmiterType.Enemy)
         {
-            Debug.Log("daño a player");
+            //PlayerManager.instance.CurrentHealth -= 1;
+            //Debug.Log(PlayerManager.instance.CurrentHealth);
+            //if (PlayerManager.instance.CurrentHealth <= 0)
+            //{
+            //    Debug.Log("Player Dead");
+            //}
         }
 
        

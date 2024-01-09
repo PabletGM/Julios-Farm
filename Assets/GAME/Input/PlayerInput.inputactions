@@ -1,0 +1,34 @@
+{
+    "name": "PlayerInput",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "349068a2-31f3-4b00-84b6-03edfe72384c",
+            "actions": [
+                {
+                    "name": "HoldMovement",
+                    "type": "Button",
+                    "id": "e06591d4-a5dd-44fd-9ebb-93f533cc8501",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "417d19f0-ae69-4b09-ad06-a69c0fadb403",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(pressPoint=0.01,behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

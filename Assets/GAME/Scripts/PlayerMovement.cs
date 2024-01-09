@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 positionHitPoint;
 
     private float positionHitPointOffset = 5;
+
+    private bool leftButtonPressed = false;
 
     public bool CanMovement
     {
@@ -49,19 +53,23 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //si se pulsa y se puede mover
-        if(Input.GetMouseButtonDown(0) && CanMovement)
+        if (CanMovement && leftButtonPressed)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPoint;
 
-            if(Physics.Raycast(ray, out hitPoint))
+            if (Physics.Raycast(ray, out hitPoint))
             {
                 positionHitPoint = hitPoint.point;
                 agent.SetDestination(hitPoint.point);
             }
         }
+        else if (!leftButtonPressed)
+        {
+            agent.SetDestination(this.transform.position);
+        }
 
-        
+
         if (agent.velocity != Vector3.zero)
         {
             anim.SetBool("IsMoving", true);
@@ -73,4 +81,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnHoldMovement(InputValue value)
+    {
+        leftButtonPressed = !leftButtonPressed;
+        Debug.Log("Movement");
+    }
 }
