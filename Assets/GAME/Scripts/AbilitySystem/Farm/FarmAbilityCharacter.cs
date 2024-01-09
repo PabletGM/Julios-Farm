@@ -45,7 +45,7 @@ public class FarmAbilityCharacter : AbilityCharacter
         else if (emiterType == DamageEmiterType.Enemy)
         {
             currentHealth -= damage;
-            Debug.Log(currentHealth);
+            //Debug.Log(currentHealth);
             //if (currentHealth <= 0f)
             //{
             //    ResetCurrentAbility();

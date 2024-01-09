@@ -29,14 +29,14 @@ public class GameController : MonoBehaviour
     public void AddEnemyAlive(BasicEnemyAbilityCharacter enemy)
     {
         enemyInGameList.Add(enemy);
-        Debug.Log(enemyInGameList.Count);
+        //Debug.Log(enemyInGameList.Count);
     }
 
     // Método para quitar un enemigo de la lista
     public void RemoveEnemyAlive(BasicEnemyAbilityCharacter enemy)
     {
         enemyInGameList.Remove(enemy);
-        Debug.Log(enemyInGameList.Count);
+        //Debug.Log(enemyInGameList.Count);
     }
 
 }
