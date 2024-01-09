@@ -123,12 +123,14 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         else if(emiterType == DamageEmiterType.Player)
         {    
             currentHealth -= damage;
-            Debug.Log(currentHealth);
+            //Debug.Log(currentHealth);
             if (currentHealth <= 0f)
             {
                 ResetCurrentAbility();
                 canDoAbilties = false;
-                Destroy(this.gameObject);  
+                Destroy(this.gameObject);
+                //se quita enemigo de la lista de enemigos in game
+                GameController.Instance.RemoveEnemyAlive(this);
             }
         }
 

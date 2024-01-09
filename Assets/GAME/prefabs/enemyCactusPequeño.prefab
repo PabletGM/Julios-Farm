@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 7865597788193439823}
   - component: {fileID: 891553188618245424}
   - component: {fileID: 7912180927812132716}
+  - component: {fileID: 2478560130400577682}
   - component: {fileID: 6306075008870805146}
   m_Layer: 7
   m_Name: "enemyCactusPeque\xF1o"
@@ -916,8 +917,21 @@ MonoBehaviour:
   characterStats: {fileID: 11400000, guid: c4d272bcc1dca35489148307a7be70e7, type: 2}
   slotAttackAbility: {fileID: 11400000, guid: 8421085f3155c894aa753bcaebe07654, type: 2}
   passiveAbilities: []
+  canMove: 1
   destinoAtacar: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
     type: 3}
+--- !u!114 &2478560130400577682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8074680643696254249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6981aab7775809943add7a530be95297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &6306075008870805146
 Rigidbody:
   m_ObjectHideFlags: 0
