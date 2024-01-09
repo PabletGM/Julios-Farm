@@ -6,9 +6,8 @@ using UnityEngine.AI;
 public class FarmAbilityCharacter : AbilityCharacter
 {
 
-    
-
     protected float currentHealth;
+    protected float maxHealth;
 
     //iniciamos abilityCharacter y farmStats
     protected override void InitAbilityCharacter()
@@ -16,8 +15,9 @@ public class FarmAbilityCharacter : AbilityCharacter
         base.InitAbilityCharacter();
 
         //Init agent paramenters 
-
-       currentHealth = characterStats.health;
+        maxHealth = characterStats.maxHealth;
+        currentHealth = characterStats.health;
+        UIManager.Instance.UpdateHealthBar(1f);
 
     }
 
@@ -45,7 +45,8 @@ public class FarmAbilityCharacter : AbilityCharacter
         else if (emiterType == DamageEmiterType.Enemy)
         {
             currentHealth -= damage;
-            Debug.Log(currentHealth);
+            UIManager.Instance.UpdateHealthBar(currentHealth/maxHealth);
+            Debug.Log("Max health = " + maxHealth + ", current health = " + currentHealth);
             //if (currentHealth <= 0f)
             //{
             //    ResetCurrentAbility();
