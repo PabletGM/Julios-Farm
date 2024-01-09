@@ -84,6 +84,5 @@ public class PlayerMovement : MonoBehaviour
     private void OnHoldMovement(InputValue value)
     {
         leftButtonPressed = !leftButtonPressed;
-        Debug.Log("Movement");
     }
 }
