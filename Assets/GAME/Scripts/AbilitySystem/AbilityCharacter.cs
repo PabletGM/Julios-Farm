@@ -71,8 +71,7 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
     public void AddPassiveAbility(BaseAbility passiveAbility)
     {
         passiveAbilities.Add(passiveAbility);
-        passiveAbility.StartAbility(this);
-        UIManager.Instance.listPassiveAbilitiesImages.Add(passiveAbility.abilityIcon);
+        passiveAbility.StartAbility(this);        
     }
 
     //si es el enemy ejecuta primary ability de ataque si esta en distancia de ataque

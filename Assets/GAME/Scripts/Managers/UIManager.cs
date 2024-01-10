@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image farmHealthBar;
 
-    public List<Sprite> listPassiveAbilitiesImages;
-
     public static UIManager Instance;
 
     private void Awake()
