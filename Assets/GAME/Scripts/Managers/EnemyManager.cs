@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.UI; 
 
 public class EnemyManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Image EnemyHealthBar;
+
+    
+
+    private void Update()
     {
-        
+        transform.LookAt(Vector3.forward);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
