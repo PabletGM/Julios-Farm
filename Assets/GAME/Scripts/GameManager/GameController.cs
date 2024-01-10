@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     //Lista de enemigos que están en juego
-    private List<BasicEnemyAbilityCharacter> enemyInGameList;
+    public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
     public static GameController Instance;
 
