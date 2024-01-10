@@ -16,6 +16,9 @@ public class AttackAbility : BaseAbility
 
     protected float totalDamageAmount;
 
+    [Header("Cada cuanto se hace animacion ataque Player")]
+    public float tiempoAtaqueAnimacion;
+
     public override void StartAbility(AbilityCharacter character)
     {
         base.StartAbility(character);

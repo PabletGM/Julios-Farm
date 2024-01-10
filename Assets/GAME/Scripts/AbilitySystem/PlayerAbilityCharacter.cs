@@ -95,8 +95,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
             //ataca cada cierto tiempo a todos los enemigos de la lista añadidos
             ExecutePrimaryAbility();
 
-            // Esperar el tiempo entre ataques attackAbilityCooldown
-            yield return new WaitForSeconds(attackAbilityCooldown);
+            // Esperar el tiempo entre ataques animacion attackAbilityCooldown
+            yield return new WaitForSeconds(slotAttackAbility.tiempoAtaqueAnimacion);
         }
     }
 
