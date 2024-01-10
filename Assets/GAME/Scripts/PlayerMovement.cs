@@ -45,13 +45,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = stats.speed.runTimeValue;
+        //agent.speed = stats.speed.runTimeValue;
         anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        agent.speed = stats.speed.runTimeValue;
         //si se pulsa y se puede mover
         if (CanMovement && leftButtonPressed)
         {

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseAbility : ScriptableObject
 {
     [Header("BaseAbility Parameters")]
     public bool isPassive = false;
     public string abilityDescription = "";
+    public Sprite abilityIcon;
 
     // 0 means instant ability
     public float duration = 0f;

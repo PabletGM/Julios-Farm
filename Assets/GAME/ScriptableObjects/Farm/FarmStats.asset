@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dec194471398e48964947ab013f80b, type: 3}
   m_Name: FarmStats
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 20
+  maxHealth: 20
   speed: {fileID: 0}
   rotationSpeed: 0
   baseDamage: {fileID: 0}

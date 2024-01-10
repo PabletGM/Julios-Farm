@@ -42,12 +42,11 @@ public class FarmAbilityCharacter : AbilityCharacter
         }
 
         //si el emisor del da�o es el player
-        else if (emiterType == DamageEmiterType.Enemy)
+        else if (emiterType == DamageEmiterType.Enemy && currentHealth > 0)
         {
             currentHealth -= damage;
 
             UIManager.Instance.UpdateHealthBar(currentHealth/maxHealth);
-            Debug.Log("Max health = " + maxHealth + ", current health = " + currentHealth);
 
             //if (currentHealth <= 0f)
             //{
