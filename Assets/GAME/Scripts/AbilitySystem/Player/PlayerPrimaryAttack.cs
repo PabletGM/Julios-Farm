@@ -5,16 +5,40 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerPrimaryAttack", menuName = "JuliosFarm/Abilities/PlayerPrimaryAttack")]
 public class PlayerPrimaryAttack : BasePrimaryAttack
 {
+    public int ticks;
+    private float interval;
+
     public override void StartAbility(AbilityCharacter character)
     {
         //conectamos con StartAbility de BasePrimaryAttack
         base.StartAbility(character);
         character.Animator.SetTrigger("AttackTrigger");
+        //numero de veces que se ejecuta en una duracion especifica
+        interval = duration / ticks;
+    }
+
+    public override void UpdateAbility(AbilityCharacter character, float deltaTime, float elapsedTime)
+    {
+        base.UpdateAbility(character, deltaTime, elapsedTime);
+
+        if (elapsedTime % interval <= deltaTime)
+        {
+            if ((elapsedTime / interval) < ticks)
+            {
+                //se ejecuta y hace daño 3 veces por segundo
+                MakeDamage(character.transform);
+            }
+        }
     }
 
     public override void OnReceiveAnimationEvent(AbilityCharacter character)
     {
-        //Debug.Log("Deal Damage");
+        //MakeDamage(character.transform);
+    }
+
+    private void MakeDamage(Transform character)
+    {
+        Debug.Log("Deal Damage");
 
         Vector3 rayOrigin = character.transform.position + new Vector3(0f, 0.5f, 0f);
 
@@ -36,4 +60,10 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
             }
         }
     }
+
+
+
+    //hace daño solo cada cierto tiempo pero el update ability se ejecuta siempre y cuando haga daño que ya busque la lista
+
+    //en el playerAbility preguntas si tienes pasiva si es loop, hacer daño cada x ticks como en el dash por ticks, en el momento del tick recorro la lista 
 }

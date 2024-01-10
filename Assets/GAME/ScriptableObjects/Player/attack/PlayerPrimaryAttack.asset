@@ -15,12 +15,13 @@ MonoBehaviour:
   isPassive: 0
   abilityDescription: 
   duration: 1
-  cooldown: 1
+  cooldown: 0.5
   damageAmount: 1
   attackRadius: 1
-  attackRange: 8
+  attackRange: 4
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 128
   damageEmiterType: 0
   movementStopTime: 0
+  ticks: 6

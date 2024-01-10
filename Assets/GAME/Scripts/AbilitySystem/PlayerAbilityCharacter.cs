@@ -9,11 +9,6 @@ public class PlayerAbilityCharacter : AbilityCharacter
 
     private int layerEnemy;
 
-    //Lista de enemigos que estan cerca del player
-    private List<BasicEnemyAbilityCharacter> enemyNearPlayerList;
-
-    //TO DO--> CAMBIAR POR ATTACK RANGE DEL PLAYER PRIMARY ATTACK EN AttackAbility
-    private float attackRangePlayerGeneral = 6.5f;
     public bool CanMovePlayer
     {
         get
@@ -30,24 +25,12 @@ public class PlayerAbilityCharacter : AbilityCharacter
     {
         //iniciar layer de player
         layerEnemy= LayerMask.NameToLayer("Enemy");
-        // Inicializar la lista en el Awake
-        enemyNearPlayerList = new List<BasicEnemyAbilityCharacter>();
+       
 
     }
 
     // Método para añadir un enemigo a la lista de enemiesNearPlayer
-    public void AddEnemyListNearPlayer(BasicEnemyAbilityCharacter enemy)
-    {
-        enemyNearPlayerList.Add(enemy);
-        Debug.Log(enemyNearPlayerList.Count);
-    }
-
-    // Método para quitar un enemigo de la lista de enemiesNearPlayer
-    public void RemoveEnemyListNearPlayer(BasicEnemyAbilityCharacter enemy)
-    {
-        enemyNearPlayerList.Remove(enemy);
-        Debug.Log(enemyNearPlayerList.Count);
-    }
+    
 
     protected override void InitAbilityCharacter()
     {
@@ -102,36 +85,7 @@ public class PlayerAbilityCharacter : AbilityCharacter
     }
 
     //al detectar al enemy le añada a la lista
-    private void OnTriggerEnter(Collider other)
-    {
-        //distancia entre player y enemy
-        Vector3 distanceFromPlayerToEnemy = this.transform.position - other.transform.position;
-        float sqrtDist = distanceFromPlayerToEnemy.sqrMagnitude;
-
-        
-        //si la distancia entre player y enemy supera un minimo le mete a la lista
-        if(sqrtDist <= attackRangePlayerGeneral)
-        {
-            //añadir en lista
-            AddEnemyListNearPlayer(other.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
-        }
-    }
-
-    //al no detectar el enemy le saca de la lista
-    private void OnTriggerExit(Collider other)
-    {
-        //distancia entre player y enemy
-        Vector3 distanceFromPlayerToEnemy = this.transform.position - other.transform.position;
-        float sqrtDist = distanceFromPlayerToEnemy.sqrMagnitude;
-
-        
-        //si la distancia entre player y enemy supera un minimo le mete a la lista
-        if (sqrtDist > attackRangePlayerGeneral)
-        {
-            //añadir en lista
-            RemoveEnemyListNearPlayer(other.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
-        }
-    }
+    
 
     private IEnumerator AtaqueAutomaticoPlayer()
     {

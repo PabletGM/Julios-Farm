@@ -15559,7 +15559,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -19777,7 +19777,7 @@ TerrainCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 0e646a0bfaf3b8c40a299eb2412ba510, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 7d737a27635890e44911f0a1d1876b6e, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1112068145
 Terrain:
@@ -19788,7 +19788,7 @@ Terrain:
   m_GameObject: {fileID: 1112068142}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 0e646a0bfaf3b8c40a299eb2412ba510, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 7d737a27635890e44911f0a1d1876b6e, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -22162,6 +22162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432ecc24e92172742a96e3410c8f960e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyInGameList: []
 --- !u!1 &1311900548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 958e086e44fc3e440b380fafd7a47f5c,
