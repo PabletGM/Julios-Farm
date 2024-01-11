@@ -36,7 +36,8 @@ public class PassiveUIManager : MonoBehaviour
 
 
         //hacemos parent de GameObject Passives
-        inst.transform.parent = this.gameObject.transform;
+        inst.transform.SetParent(this.gameObject.transform);
+        inst.transform.localScale = Vector3.one;
 
         //llamamos a SetIcon de el propio prefab
         inst.GetComponent<PassiveIconController>().SetIcon(icon);
