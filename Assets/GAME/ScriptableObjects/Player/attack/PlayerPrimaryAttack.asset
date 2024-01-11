@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPassive: 0
   abilityDescription: 
-  abilityIcon: {fileID: 0}
+  abilityIcon: {fileID: 21300000, guid: dd5e99205f718764d9283ccc98e6467f, type: 3}
   duration: 1
   cooldown: 0.5
   damageAmount: 1

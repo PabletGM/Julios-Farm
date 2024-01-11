@@ -22,6 +22,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     [SerializeField]
     private GameObject destinoAtacar;
 
+    [SerializeField] private EnemyManager enemyManager;
+
     //IEnumerator DestroyEnemyCoroutine;
 
     //iniciamos abilityCharacter, enemyStats y variables del navmesh
@@ -135,16 +137,24 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         if (emiterType == DamageEmiterType.Player)
         {    
             currentHealth -= damage;
-            Debug.Log("Take Damage");
-            EnemyManager.Instance.UpdateEnemyHealthBar(currentHealth / maxHealth);          // EnemyHealthBar UI
+            //Debug.Log("Take Damage");
+                    // EnemyHealthBar UI
             //Debug.Log(currentHealth);
             if (currentHealth <= 0f)
             {
                 ResetCurrentAbility();
                 canDoAbilties = false;
+                this.enabled = false;
+                this.gameObject.SetActive(false);
+                
                 Destroy(this.gameObject);
                 //se quita enemigo de la lista de enemigos in game
                 GameController.Instance.RemoveEnemyAlive(this);
+            }
+            else
+            {
+               
+                enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
             }
         }
 

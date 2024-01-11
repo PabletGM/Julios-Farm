@@ -51,6 +51,10 @@ public class EnemyManager : MonoBehaviour
 
     public void UpdateEnemyHealthBar(float fillAmount)
     {
-        EnemyHealthBar.fillAmount = fillAmount;
+        if(Instance != null)
+        {
+            EnemyHealthBar.fillAmount = fillAmount;
+        }
+       
     }
 }

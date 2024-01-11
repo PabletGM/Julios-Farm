@@ -27,8 +27,12 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
         {
             if ((elapsedTime / interval) < ticks)
             {
-                //se ejecuta y hace daño 3 veces por segundo
-                MakeDamage(character.transform);
+                if(character!=null)
+                {
+                    //se ejecuta y hace daño 3 veces por segundo
+                    MakeDamage(character.transform);
+                }
+                
             }
         }
     }
@@ -40,7 +44,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
 
     private void MakeDamage(Transform character)
     {
-        Debug.Log("Deal Damage");
+        //Debug.Log("Deal Damage");
         //cuando haga daño que ya busque la lista de enemigos y vea cuales están cerca según la posicion
 
         //coges la lista de enemigos en el juego
