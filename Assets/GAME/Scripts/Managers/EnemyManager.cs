@@ -9,11 +9,43 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private Image EnemyHealthBar;
 
-    public Transform cam; 
+    public Transform cam;       
 
-    private void LateUpdate()
+    //Stats management -- Health 
+    private float initHealth;
+
+    private float currentHealth;
+    public float CurrentHealth
     {
-        transform.LookAt(transform.position + cam.forward);
+        set
+        {
+            currentHealth = value;
+        }
+        get
+        {
+            return currentHealth;
+        }
     }
 
+    public static EnemyManager Instance;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+        private void LateUpdate()
+    {
+        transform.LookAt(transform.position + cam.forward);     //EnemyHealthBar LookAt Camera 
+    }
+
+    public void UpdateEnemyHealthBar(float fillAmount)
+    {
+        EnemyHealthBar.fillAmount = fillAmount;
+    }
 }

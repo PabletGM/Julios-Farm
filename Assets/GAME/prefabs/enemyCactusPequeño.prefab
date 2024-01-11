@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealthBar: {fileID: 5882921869788554046}
-  cam: {fileID: 0}
+  cam: {fileID: 195764495792410822, guid: 9a5e465cd9373464799505438878e281, type: 3}
 --- !u!1 &2083793031209922477
 GameObject:
   m_ObjectHideFlags: 0

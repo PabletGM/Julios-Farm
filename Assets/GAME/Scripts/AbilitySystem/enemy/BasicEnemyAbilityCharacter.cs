@@ -13,9 +13,10 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     protected NavMeshAgent agent;
 
     private PlayerManager playerManager;
-    private EnemyStats enemyStats;
+    protected EnemyStats enemyStats;
 
     protected float currentHealth;
+    protected float maxHealth; 
 
     [Header("Destino a atacar")]
     [SerializeField]
@@ -119,10 +120,14 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             return;
         }
 
+    
+
         //si el emisor del daño es el player
-        else if(emiterType == DamageEmiterType.Player)
+        if (emiterType == DamageEmiterType.Player)
         {    
             currentHealth -= damage;
+            Debug.Log("Take Damage");
+            EnemyManager.Instance.UpdateEnemyHealthBar(currentHealth / maxHealth);          // EnemyHealthBar UI
             //Debug.Log(currentHealth);
             if (currentHealth <= 0f)
             {
