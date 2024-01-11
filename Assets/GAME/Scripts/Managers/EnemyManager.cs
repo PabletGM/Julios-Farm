@@ -30,14 +30,14 @@ public class EnemyManager : MonoBehaviour
     public static EnemyManager Instance;
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+        //}
+        //else if (Instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void Start()
@@ -51,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 
     public void UpdateEnemyHealthBar(float fillAmount)
     {
-        if(Instance != null)
+        if(this.gameObject != null)
         {
             EnemyHealthBar.fillAmount = fillAmount;
         }

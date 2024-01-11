@@ -144,12 +144,15 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             {
                 ResetCurrentAbility();
                 canDoAbilties = false;
-                this.enabled = false;
-                this.gameObject.SetActive(false);
-                
-                Destroy(this.gameObject);
+
                 //se quita enemigo de la lista de enemigos in game
                 GameController.Instance.RemoveEnemyAlive(this);
+
+                //destruir
+                this.enabled = false;
+                this.gameObject.SetActive(false);
+                Destroy(this.gameObject);
+                
             }
             else
             {
