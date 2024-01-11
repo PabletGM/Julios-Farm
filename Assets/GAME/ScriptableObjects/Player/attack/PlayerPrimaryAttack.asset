@@ -25,5 +25,5 @@ MonoBehaviour:
     m_Bits: 128
   damageEmiterType: 0
   movementStopTime: 0
-  tiempoAtaqueAnimacion: 1
-  ticks: 1
+  tiempoAtaqueAnimacion: 0.2
+  ticks: 5
