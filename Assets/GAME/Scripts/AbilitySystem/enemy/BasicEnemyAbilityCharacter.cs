@@ -110,7 +110,15 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     //comprueba si la distancia entre player y enemy es < a el limite establecido y si tiene permiso para moverse(agent.isStopped = false)
     protected bool IsNearToPlayer(float distanceToPlayer)
     {
-        return distanceToPlayer <= enemyStats.aggroRadius && !agent.isStopped;
+        if(enemyStats!=null)
+        {
+            return distanceToPlayer <= enemyStats.aggroRadius && !agent.isStopped;
+        }
+        else
+        {
+            return false;
+        }
+       
     }
 
     public override void TakeDamage(float damage, DamageEmiterType emiterType)

@@ -17,7 +17,15 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
     [SerializeField]
     protected AttackAbility slotAttackAbility;
     [SerializeField]
-    protected List<BaseAbility> passiveAbilities;
+    public  List<BaseAbility> passiveAbilities;
+
+    public List<BaseAbility> PassiveAbilities
+    {
+        get
+        {
+            return passiveAbilities;
+        }
+    }
 
     private Rigidbody rb;
     public Rigidbody Rigidbody
@@ -71,8 +79,12 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
     public void AddPassiveAbility(BaseAbility passiveAbility)
     {
         passiveAbilities.Add(passiveAbility);
-        passiveAbility.StartAbility(this);        
+        passiveAbility.StartAbility(this);
+        //llama a metodo del PassiveUIManager y le pasa el icono de la pasiva
+        PassiveUIManager.instance.AddPassiveIconToCanvas(passiveAbility.abilityIcon);
     }
+
+    //metodo que elimine todas las pasivas de golpe si queremos
 
     //si es el enemy ejecuta primary ability de ataque si esta en distancia de ataque
     protected void ExecutePrimaryAbility()
