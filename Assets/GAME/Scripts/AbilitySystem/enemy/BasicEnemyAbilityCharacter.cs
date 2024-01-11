@@ -35,6 +35,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         if (enemyStats != null)
         {
             currentHealth = enemyStats.health;
+            maxHealth = enemyStats.maxHealth;
 
             agent.speed = enemyStats.speed.runTimeValue;
             agent.angularSpeed = enemyStats.angularSpeed;
