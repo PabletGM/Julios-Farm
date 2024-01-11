@@ -39,7 +39,12 @@ public class EnemyManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-        private void LateUpdate()
+
+    private void Start()
+    {
+        currentHealth = initHealth;
+    }
+    private void LateUpdate()
     {
         transform.LookAt(transform.position + cam.forward);     //EnemyHealthBar LookAt Camera 
     }

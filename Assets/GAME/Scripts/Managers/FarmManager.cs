@@ -40,7 +40,6 @@ public class FarmManager : MonoBehaviour
     private void Start()
     {
         currentHealth = initHealth;
-        SetPlayerEnterPosition();
     }
 
     public void SetPlayerEnterPosition()

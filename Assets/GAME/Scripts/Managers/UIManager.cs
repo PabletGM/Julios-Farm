@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-       // DontDestroyOnLoad(gameObject);
     }
 
     public void UpdateHealthBar(float fillAmount)
