@@ -9,11 +9,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     private Image EnemyHealthBar;
 
-    
+    public Transform cam; 
 
-    private void Update()
+    private void LateUpdate()
     {
-        transform.LookAt(Vector3.forward);
+        transform.LookAt(transform.position + cam.forward);
     }
 
 }
