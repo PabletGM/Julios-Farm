@@ -20,11 +20,7 @@ public class PassiveUIManager : MonoBehaviour
         else if (instance != this)
         {
             Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-
-        
-        
+        }      
     }
 
     public void AddPassiveIconToCanvas(Sprite icon)
