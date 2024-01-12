@@ -7,9 +7,6 @@ public class PlayerAbilityCharacter : AbilityCharacter
 {
     private PlayerMovement playerMovement;
 
-    [SerializeField]
-    private GameObject enemyPrefab;
-
     public bool CanMovePlayer
     {
         get
