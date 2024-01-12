@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
                 enemyGO.transform.rotation = spawnPoints[i].rotation;
                 enemyGO.SetActive(true);
                 //SceneEnemiesController.Instance.AddEnemyToScene();
-                GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
+                //GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
             }
         }
     }
