@@ -42,21 +42,5 @@ public class FarmManager : MonoBehaviour
         currentHealth = initHealth;
     }
 
-    public void SetPlayerEnterPosition()
-    {
-        if (RoomEnterPoint.instance != null)
-        {
-            transform.position = RoomEnterPoint.instance.transform.position;
-            transform.rotation = RoomEnterPoint.instance.transform.rotation;
-            if (CameraManager.instance != null)
-            {
-                CameraManager.instance.ResetCamera();
-            }
-        }
-    }
-
-    //public void PlayerDied()
-    //{
-    //    UIManager.Instance.ShowGameOverCanvas();
-    //}
+    
 }
