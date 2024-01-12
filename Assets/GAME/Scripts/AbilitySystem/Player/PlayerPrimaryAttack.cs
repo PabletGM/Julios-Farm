@@ -54,7 +54,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
         {
             //si su posicion del enemy - posicion del player <= attackRange ---> está cerca
             float distancePlayerEnemy = Vector3.Distance(enemyInGame[i].transform.position, character.transform.position);
-            if (distancePlayerEnemy <= attackRange)
+            if (distancePlayerEnemy <= attackRange.runTimeValue)
             {
                 //está cerca de player
                 enemyInGame[i].TakeDamage(totalDamageAmount, damageEmiterType);

@@ -7,7 +7,7 @@ public class AttackAbility : BaseAbility
     [Header("Attack Parameters")]
     public float damageAmount = 1;
     public float attackRadius;
-    public float attackRange;
+    public FloatVariable attackRange;
     public LayerMask attackLayerMask;
     public DamageEmiterType damageEmiterType;
 

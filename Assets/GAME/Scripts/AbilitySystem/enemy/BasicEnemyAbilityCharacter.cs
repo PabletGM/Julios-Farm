@@ -78,7 +78,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 //ponemos como objetivo del enemy la posicion del player
                 agent.SetDestination(destinoAtacar.transform.position);
                 //miramos si la distancia del player <= el attackRange del enemy
-                if (distanceToPlayer <= slotAttackAbility.attackRange)
+                if (distanceToPlayer <= slotAttackAbility.attackRange.runTimeValue)
                 {
                     //hacemos ataque del enemy
                     ExecutePrimaryAbility();
