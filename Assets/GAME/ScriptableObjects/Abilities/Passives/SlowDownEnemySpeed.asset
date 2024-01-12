@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 329f230a5df3bd04cb620611bc2c1f8c, type: 3}
-  m_Name: SpeedIncrease
+  m_Name: SlowDownEnemySpeed
   m_EditorClassIdentifier: 
   isPassive: 1
-  abilityDescription: Increases Player Movement Speed
-  abilityIcon: {fileID: 21300000, guid: a86119f2051f1f44cad7499591ea13d8, type: 3}
+  abilityDescription: Slows Down Enemy Movement Speed
+  abilityIcon: {fileID: 21300000, guid: 2a6f35e783349304bb9082a26653ba1e, type: 3}
   duration: 0
   cooldown: 0
-  variableToChange: {fileID: 11400000, guid: 966c05ce20bdd4741aaa859b8e2559b3, type: 2}
-  multiplier: 1.2
+  variableToChange: {fileID: 11400000, guid: d447aac56801db24196d79329c3b91be, type: 2}
+  multiplier: 0.7

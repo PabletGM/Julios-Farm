@@ -7,7 +7,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
 {
     private PlayerMovement playerMovement;
 
-    private int layerEnemy;
+    [SerializeField]
+    private GameObject enemyPrefab;
 
     public bool CanMovePlayer
     {
@@ -23,10 +24,7 @@ public class PlayerAbilityCharacter : AbilityCharacter
     
     private void Awake()
     {
-        //iniciar layer de player
-        layerEnemy= LayerMask.NameToLayer("Enemy");
-       
-
+        
     }
 
     // Método para añadir un enemigo a la lista de enemiesNearPlayer

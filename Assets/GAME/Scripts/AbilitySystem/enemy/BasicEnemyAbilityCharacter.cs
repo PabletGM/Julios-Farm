@@ -39,7 +39,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             currentHealth = enemyStats.health;
             maxHealth = enemyStats.maxHealth;
 
-            agent.speed = enemyStats.speed.runTimeValue;
+            //agent.speed = enemyStats.speed.runTimeValue;
             agent.angularSpeed = enemyStats.angularSpeed;
             agent.stoppingDistance = enemyStats.stoppingDistance;
             agent.autoBraking = enemyStats.autoBraking;
@@ -58,6 +58,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         {
             return;
         }
+        agent.speed = enemyStats.speed.runTimeValue;
+        Debug.Log(agent.speed);
 
         //funcionalidad del update del AbilityCharacter
         base.Update();
