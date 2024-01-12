@@ -59,7 +59,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             return;
         }
         agent.speed = enemyStats.speed.runTimeValue;
-        Debug.Log(agent.speed);
+        //Debug.Log(agent.speed);
 
         //funcionalidad del update del AbilityCharacter
         base.Update();
@@ -153,7 +153,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 //destruir
                 this.enabled = false;
                 this.gameObject.SetActive(false);
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
                 
             }
             else

@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
                 enemyGO.transform.position = spawnPoints[i].position;
                 enemyGO.transform.rotation = spawnPoints[i].rotation;
                 enemyGO.SetActive(true);
+                GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
                 //SceneEnemiesController.Instance.AddEnemyToScene();
                 //GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
             }

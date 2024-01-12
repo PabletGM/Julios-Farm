@@ -7,6 +7,11 @@ public class EnemyAddRemoveList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //AddEnemyToList();
+    }
+
+    public void AddEnemyToList()
+    {
         //se añade a la lista de enemigos totales in Game
         GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());    /*< --EnemySpawner*/
     }
