@@ -9,10 +9,15 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private GameObject EnemyPrefab;
+
+    [SerializeField]
+    private float timeToSpawn = 5f;
+    private float timeSinceSpawn; 
+
     // Start is called before the first frame update
     void Start()
     {
-        int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefab);
+        int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefab);        
         if (poolIndex != -1)
         {
             for (int i = 0; i < spawnPoints.Count; i++)
@@ -27,4 +32,14 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+    //void Update()
+    //{
+    //  timeSinceSpawn += Time.deltaTime;
+    //  if (timeSinceSpawn >= timeToSpawn)
+    //   {
+    //   GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
+    //   enemyGO.transform.position = this.transform.position;
+    //   timeSinceSpawn = 0;
+    //   }
+    //}
 }
