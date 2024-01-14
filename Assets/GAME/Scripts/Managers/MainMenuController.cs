@@ -7,6 +7,11 @@ public class MainMenuController : MonoBehaviour
 {
     public void NewGame()
     {
+        Invoke("actionNewGame", 1f);
+    }
+
+    private void actionNewGame()
+    {
         SceneLoaderManager.instance.LoadFirstScene();
     }
 
