@@ -84,8 +84,14 @@ public class FarmAbilityCharacter : AbilityCharacter
         }
     }
 
-    public void UpdateCurrentShield(float currentShield)
+    public void UpdateCurrentShield(float currentshield)
+    {
+        currentShield = currentshield;
+    }
+
+    public void InitialCurrentShield()
     {
         currentShield = characterStats.shield.runTimeValue;
     }
+
 }

@@ -8,7 +8,6 @@ public class AddShield : BaseAbility
     [Header("Modify Parameters")]
     public FloatVariable variableToChange;
     public float amountToAdd = 1f;
-    private float initialShield = 4f;
 
     public override void StartAbility(AbilityCharacter character)
     {
@@ -17,6 +16,6 @@ public class AddShield : BaseAbility
             variableToChange.runTimeValue += amountToAdd;
         }
         UIManager.Instance.UpdateShieldBar(1f);
-        FarmAbilityCharacter.Instance.UpdateCurrentShield(4f);
+        FarmAbilityCharacter.Instance.InitialCurrentShield();
     }
 }
