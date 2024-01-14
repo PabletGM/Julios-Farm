@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameController : MonoBehaviour
     public static GameController Instance;
 
     private int actualRound = 0;
+
+    private string mainMenu = "MainMenu"; 
 
     //ronda actual en la que nos encontramos
     public int ActualRound
@@ -171,5 +174,9 @@ public class GameController : MonoBehaviour
         //Debug.Log(enemyInGameList.Count);
     }
 
+    public void RedirectMainMenu()
+    {
+        SceneManager.LoadScene(mainMenu);
+    }
 
 }

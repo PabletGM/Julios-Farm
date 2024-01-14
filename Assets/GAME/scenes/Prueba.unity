@@ -38313,6 +38313,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1239896046887350182, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 85760590ceb3a2d4fbfc72c71698b3b9,
+        type: 2}
+    - target: {fileID: 1239896046887350182, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1309290472}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedirectMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631535340231301523, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2432117821273433384, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: id
