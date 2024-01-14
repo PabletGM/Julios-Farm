@@ -7,7 +7,23 @@ public class FarmAbilityCharacter : AbilityCharacter
 {
 
     protected float currentHealth;
+    protected float maxShield;
     protected float maxHealth;
+    protected float currentShield;
+
+    public static FarmAbilityCharacter Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     //iniciamos abilityCharacter y farmStats
     protected override void InitAbilityCharacter()
@@ -17,7 +33,10 @@ public class FarmAbilityCharacter : AbilityCharacter
         //Init agent paramenters 
         maxHealth = characterStats.maxHealth;
         currentHealth = characterStats.health;
+        UpdateCurrentShield(0f);
+        maxShield = characterStats.maxShield.runTimeValue;
         UIManager.Instance.UpdateHealthBar(1f);
+        UIManager.Instance.UpdateShieldBar(0f);
 
     }
 
@@ -44,9 +63,17 @@ public class FarmAbilityCharacter : AbilityCharacter
         //si el emisor del da�o es el player
         else if (emiterType == DamageEmiterType.Enemy && currentHealth > 0)
         {
-            currentHealth -= damage;
-
-            UIManager.Instance.UpdateHealthBar(currentHealth/maxHealth);
+            Debug.Log(currentShield);
+            if(currentShield > 0)
+            {
+                currentShield -= damage;
+                UIManager.Instance.UpdateShieldBar(currentShield / maxShield);
+            }
+            else
+            {
+                currentHealth -= damage;
+                UIManager.Instance.UpdateHealthBar(currentHealth / maxHealth);
+            }
 
             //if (currentHealth <= 0f)
             //{
@@ -55,7 +82,10 @@ public class FarmAbilityCharacter : AbilityCharacter
             //    Destroy(this.gameObject);
             //}
         }
+    }
 
-
+    public void UpdateCurrentShield(float currentShield)
+    {
+        currentShield = characterStats.shield.runTimeValue;
     }
 }

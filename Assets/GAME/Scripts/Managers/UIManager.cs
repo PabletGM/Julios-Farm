@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +10,15 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image farmHealthBar;
 
+    [SerializeField]
+    private Image farmShieldBar;
+
     public static UIManager Instance;
 
     [SerializeField] private GameObject GameOverCanvas;
 
     [SerializeField] private GameObject MainCanvas;
+
 
     private void Awake()
     {
@@ -42,5 +47,11 @@ public class UIManager : MonoBehaviour
         GameOverCanvas.SetActive(true);
         //quitar canvas player
         MainCanvas.SetActive(true);
+    }
+
+    public void UpdateShieldBar(float fillAmount)
+    {
+        farmShieldBar.fillAmount = fillAmount;
+        Debug.Log("FarmShield UI " + farmShieldBar.fillAmount);
     }
 }

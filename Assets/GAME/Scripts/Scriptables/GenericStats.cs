@@ -7,6 +7,8 @@ public class GenericStats : ScriptableObject
 {
     public float health;
     public float maxHealth;
+    public FloatVariable shield;
+    public FloatVariable maxShield;
     [Header("Movement parameters")]
     public FloatVariable speed;
     [Range(1f, 10f)]

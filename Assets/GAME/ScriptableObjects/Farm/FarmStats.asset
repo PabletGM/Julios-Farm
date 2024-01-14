@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   maxHealth: 20
+  shield: {fileID: 11400000, guid: e2f909089e7b9884285d54ba4670c88b, type: 2}
+  maxShield: {fileID: 11400000, guid: 2efe2f83efbc7bc4ba6719f263e8e5c5, type: 2}
   speed: {fileID: 0}
   rotationSpeed: 0
   baseDamage: {fileID: 0}
