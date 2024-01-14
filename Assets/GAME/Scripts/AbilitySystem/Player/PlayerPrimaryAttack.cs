@@ -56,8 +56,12 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
             float distancePlayerEnemy = Vector3.Distance(enemyInGame[i].transform.position, character.transform.position);
             if (distancePlayerEnemy <= attackRange.runTimeValue)
             {
-                //está cerca de player
-                enemyInGame[i].TakeDamage(totalDamageAmount, damageEmiterType);
+                if (enemyInGame[i] != null)
+                {
+                    //está cerca de player
+                    enemyInGame[i].TakeDamage(totalDamageAmount, damageEmiterType);
+                }
+                
             }
         }
 
