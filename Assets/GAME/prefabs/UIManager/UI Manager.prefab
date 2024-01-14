@@ -51,6 +51,7 @@ MonoBehaviour:
   farmShieldBar: {fileID: 9190135204980327225}
   GameOverCanvas: {fileID: 4266870539564751297}
   MainCanvas: {fileID: 6096891597139669733}
+  enemiesLeftNumber: {fileID: 7288885982596685243}
 --- !u!1 &243230482380956107
 GameObject:
   m_ObjectHideFlags: 0

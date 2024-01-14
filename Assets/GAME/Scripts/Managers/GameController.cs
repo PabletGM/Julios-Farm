@@ -164,6 +164,8 @@ public class GameController : MonoBehaviour
     public void AddEnemyAlive(BasicEnemyAbilityCharacter enemy)
     {
         enemyInGameList.Add(enemy);
+        //actualizamos en pantalla
+        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
         //Debug.Log(enemyInGameList.Count);
     }
 
@@ -171,7 +173,14 @@ public class GameController : MonoBehaviour
     public void RemoveEnemyAlive(BasicEnemyAbilityCharacter enemy)
     {
         enemyInGameList.Remove(enemy);
+        //actualizamos en pantalla
+        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
         //Debug.Log(enemyInGameList.Count);
+    }
+
+    public int TotalEnemiesAlive()
+    {
+        return enemyInGameList.Count;
     }
 
     public void RedirectMainMenu()

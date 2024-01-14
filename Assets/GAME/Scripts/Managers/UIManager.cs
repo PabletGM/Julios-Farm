@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject GameOverCanvas;
 
     [SerializeField] private GameObject MainCanvas;
+    
+    private GameController gameController;
+
+    [SerializeField] private TMP_Text enemiesLeftNumber;
 
 
     private void Awake()
@@ -30,6 +35,8 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        gameController = GameController.Instance;
     }
 
     public void UpdateHealthBar(float fillAmount)
@@ -53,5 +60,10 @@ public class UIManager : MonoBehaviour
     {
         farmShieldBar.fillAmount = fillAmount;
         Debug.Log("FarmShield UI " + farmShieldBar.fillAmount);
+    }
+
+    public void UpdateEnemiesLeft(int totalEnemiesInGame)
+    {
+        enemiesLeftNumber.text = Convert.ToString(totalEnemiesInGame);
     }
 }
