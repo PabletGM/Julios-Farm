@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text enemiesLeftNumber;
 
+    [SerializeField] private TMP_Text roundNumber;
+
 
     private void Awake()
     {
@@ -65,5 +67,10 @@ public class UIManager : MonoBehaviour
     public void UpdateEnemiesLeft(int totalEnemiesInGame)
     {
         enemiesLeftNumber.text = Convert.ToString(totalEnemiesInGame);
+    }
+
+    public void UpdateRoundNumber(int actualRound)
+    {
+        roundNumber.text = Convert.ToString(actualRound);
     }
 }

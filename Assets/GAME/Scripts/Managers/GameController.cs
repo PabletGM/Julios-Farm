@@ -52,6 +52,8 @@ public class GameController : MonoBehaviour
     public void AddRoundToGame()
     {
         actualRound++;
+        //modificar en UIManager
+        UIManager.Instance.UpdateRoundNumber(actualRound);
         //cuando se le añade hacemos el comportamiento en cada ronda
         BehaviourOnEachRound();
     }
