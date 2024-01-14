@@ -37808,6 +37808,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2432117821273433384, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: id
+      value: FadeOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432117821273433384, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4325228815011067094, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -37847,6 +37857,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720231796508917331, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720231796508917331, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.468
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720231796508917331, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720231796508917331, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 5594591920177446072, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
