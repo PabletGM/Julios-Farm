@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561c018161d977a4dba4c8b8dd7465c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PassiveAbility: {fileID: 11400000, guid: d561da0c367f28b4cbac43196d1bfcef, type: 2}
+  PassiveAbility: {fileID: 11400000, guid: 8dd5a1503ce0d8f48a627459b789c883, type: 2}
 --- !u!1001 &8479449843766569191
 PrefabInstance:
   m_ObjectHideFlags: 0
