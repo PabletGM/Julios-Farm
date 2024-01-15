@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private Camera cam;
 
     [SerializeField]
-    private LayerMask ignoreLayer;
+    private LayerMask floorLayer;
 
     [SerializeField]
     private PlayerStats stats;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitPoint;
 
-            if (Physics.Raycast(ray, out hitPoint, 1000f, ~ignoreLayer))
+            if (Physics.Raycast(ray, out hitPoint, 1000f, floorLayer))
             {
                 positionHitPoint = hitPoint.point;
                 agent.SetDestination(hitPoint.point);

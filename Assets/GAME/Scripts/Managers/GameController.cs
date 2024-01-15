@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour
     //Lista de enemigos que están en juego
     public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
+    //[Header("Enemies per round")]
+    //[SerializeField]
+    //private int enemies
+
     public static GameController Instance;
 
     private int actualRound = 0;
