@@ -22818,7 +22818,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 13.178385, y: 13.178385, z: 13.178385}
+  m_LocalScale: {x: 13.6449, y: 13.6449, z: 13.6449}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 34777123}
@@ -36701,6 +36701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Atacar_Casa
+      objectReference: {fileID: 0}
+    - target: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1504093334935306080, guid: 995fda3136cb0a248a10828fd92571e6,
         type: 3}
