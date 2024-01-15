@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour
     public void UpdateShieldBar(float fillAmount)
     {
         farmShieldBar.fillAmount = fillAmount;
-        Debug.Log("FarmShield UI " + farmShieldBar.fillAmount);
+        //Debug.Log("FarmShield UI " + farmShieldBar.fillAmount);
     }
 
     public void UpdateEnemiesLeft(int totalEnemiesInGame)
