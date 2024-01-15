@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPassive: 1
   abilityDescription: Creates a shield around the farm
-  abilityIcon: {fileID: 21300000, guid: 70d33d3e0775e5f4b93354ffacc97c5e, type: 3}
+  abilityIcon: {fileID: 21300000, guid: f2e6312aa5f046443ab32d6d2c8ccb5c, type: 3}
   duration: 0
   cooldown: 0
   variableToChange: {fileID: 11400000, guid: e2f909089e7b9884285d54ba4670c88b, type: 2}
