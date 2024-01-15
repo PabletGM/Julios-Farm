@@ -8,7 +8,10 @@ public class EnemySpawner : MonoBehaviour
     private List<Transform> spawnPoints;
 
     [SerializeField]
-    private GameObject EnemyPrefab;
+    private GameObject EnemyPrefabSimple;
+
+    [SerializeField]
+    private GameObject EnemyPrefabBoss;
 
     [SerializeField]
     private float timeToSpawn = 5f;
@@ -17,7 +20,12 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefab);        
+        InstantiateEnemyNormal();
+    }
+
+    public void InstantiateEnemyNormal()
+    {
+        int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
         if (poolIndex != -1)
         {
             for (int i = 0; i < spawnPoints.Count; i++)
@@ -32,6 +40,8 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
+
+
     //void Update()
     //{
     //  timeSinceSpawn += Time.deltaTime;
