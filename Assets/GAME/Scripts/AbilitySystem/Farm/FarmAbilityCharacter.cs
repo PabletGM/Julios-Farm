@@ -63,7 +63,6 @@ public class FarmAbilityCharacter : AbilityCharacter
         //si el emisor del da�o es el player
         else if (emiterType == DamageEmiterType.Enemy && currentHealth > 0)
         {
-            Debug.Log(currentShield);
             if(currentShield > 0)
             {
                 currentShield -= damage;
