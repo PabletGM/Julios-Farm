@@ -11,6 +11,9 @@ public class FarmAbilityCharacter : AbilityCharacter
     protected float maxHealth;
     protected float currentShield;
 
+    [SerializeField]
+    private GameObject farmShield;
+
     public static FarmAbilityCharacter Instance;
 
     private void Awake()
@@ -50,6 +53,7 @@ public class FarmAbilityCharacter : AbilityCharacter
 
         //funcionalidad del update del AbilityCharacter
         base.Update();
+        
     }
 
 
@@ -67,6 +71,10 @@ public class FarmAbilityCharacter : AbilityCharacter
             {
                 currentShield -= damage;
                 UIManager.Instance.UpdateShieldBar(currentShield / maxShield);
+                if(currentShield <= 0f)
+                {
+                    farmShield.SetActive(false);
+                }
             }
             else
             {
@@ -91,6 +99,7 @@ public class FarmAbilityCharacter : AbilityCharacter
     public void InitialCurrentShield()
     {
         currentShield = characterStats.shield.runTimeValue;
+        farmShield.SetActive(true);
     }
 
 }
