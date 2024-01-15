@@ -15612,6 +15612,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 847747520}
   cam: {fileID: 963194227}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 11937
   stats: {fileID: 11400000, guid: a849b9d58b8e6fa4f9f63c4dca6f4ab3, type: 2}
 --- !u!4 &847747518
 Transform:
