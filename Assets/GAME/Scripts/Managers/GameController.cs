@@ -43,7 +43,7 @@ public class GameController : MonoBehaviour
         enemyInGameList = new List<BasicEnemyAbilityCharacter>();
 
         //ponemos por defecto que estamos en Ronda1;
-        AddRoundToGame();
+        //AddRoundToGame();
     }
 
 

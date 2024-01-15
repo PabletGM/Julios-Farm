@@ -23,5 +23,7 @@ public class PassiveItemHolder : MonoBehaviour
     {
         //destruimos resto de pasivas para que no se puedan coger
         AbilitiesPerRound.Instance.PasivaCogidaParaLaRondaDestruirResto();
+        //pasar de ronda en GameController
+        GameController.Instance.AddRoundToGame();
     }
 }
