@@ -24,6 +24,26 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
     [SerializeField] private EnemyManager enemyManager;
 
+    public bool CanDoAbilities 
+    {
+        get
+        {
+            return canDoAbilties;
+        }
+        set {canDoAbilties = value;}
+    }
+
+    public float MaxHealth
+    {
+        get
+        {
+            return maxHealth;
+        }
+        set { maxHealth = value; }
+    }
+
+
+
     //IEnumerator DestroyEnemyCoroutine;
 
     //iniciamos abilityCharacter, enemyStats y variables del navmesh
@@ -152,6 +172,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
                 //destruir
                 this.enabled = false;
+                //vida a tope para el futuro respawn
+                RecuperarSaludParaFuturoRespawn();
                 this.gameObject.SetActive(false);
                 //Destroy(this.gameObject);
                 
@@ -164,6 +186,12 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         }
 
         
+    }
+
+    public void RecuperarSaludParaFuturoRespawn()
+    {
+        currentHealth = maxHealth;
+        enemyManager.UpdateEnemyHealthBar(maxHealth);
     }
 
     //private IEnumerator DestroyEnemy()

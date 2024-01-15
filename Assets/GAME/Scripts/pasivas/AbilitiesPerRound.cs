@@ -39,7 +39,7 @@ public class AbilitiesPerRound : MonoBehaviour
 
     }
 
-
+    //funcionalidad
     public void MetodoFuncionalidadCrear3PasivasRonda()
     {
         // Llamada al método para obtener 3 números sin repetición de pasivasTotales

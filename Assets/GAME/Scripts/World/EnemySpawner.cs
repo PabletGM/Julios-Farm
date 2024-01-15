@@ -13,16 +13,23 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject EnemyPrefabBoss;
 
+
+    private int enemiesPerSpawner = 3;
+
     [SerializeField]
-    private float timeToSpawn = 5f;
-    private float timeSinceSpawn; 
+    private float timeToSpawn = 3f;
+    private float timeSinceSpawn;
+
+    private bool permisoSpawnearEnemy = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        InstantiateEnemyNormal();
+        
+       
     }
 
+    //llama a funcionalidad crear 3 enemigos de golpe
     public void InstantiateEnemyNormal()
     {
         int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
@@ -30,26 +37,69 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < spawnPoints.Count; i++)
             {
-                GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
-                enemyGO.transform.position = spawnPoints[i].position;
-                enemyGO.transform.rotation = spawnPoints[i].rotation;
-                enemyGO.SetActive(true);
-                GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
+                StartCoroutine(CrearEnemigoPorLugar(enemiesPerSpawner, poolIndex, i));
                 //SceneEnemiesController.Instance.AddEnemyToScene();
                 //GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
             }
         }
     }
 
-
-    //void Update()
+    //funcionalidad crear enemigos
+    //private void CrearEnemigoPorLugar(int numeroDeEnemigos, int poolIndex, int spawnPointNumber)
     //{
-    //  timeSinceSpawn += Time.deltaTime;
-    //  if (timeSinceSpawn >= timeToSpawn)
-    //   {
-    //   GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
-    //   enemyGO.transform.position = this.transform.position;
-    //   timeSinceSpawn = 0;
-    //   }
+    //    //crea "numeroEnemigos" enemies
+    //    for(int i = 0; i < numeroDeEnemigos; i++)
+    //    {
+    //        GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
+    //        enemyGO.transform.position = spawnPoints[spawnPointNumber].position;
+    //        enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
+    //        enemyGO.SetActive(true);
+    //        GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
+    //        permisoSpawnearEnemy = false;
+    //    }
+        
     //}
+
+    private IEnumerator CrearEnemigoPorLugar(int numeroDeEnemigos, int poolIndex, int spawnPointNumber)
+    {
+        //todo el rato
+        while (true)
+        {
+            //Funcionalidad
+            if(permisoSpawnearEnemy)
+            {
+                GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
+                enemyGO.transform.position = spawnPoints[spawnPointNumber].position;
+                enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
+                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().enabled =true;
+                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;
+                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().RecuperarSaludParaFuturoRespawn();
+                enemyGO.SetActive(true);
+                GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
+                permisoSpawnearEnemy = false;
+            }
+
+
+            // Esperar un segundo antes de repetir
+            yield return null;
+        }
+    }
+
+ 
+
+
+    //contador para dar permiso y spawnear bicho
+    void Update()
+    {
+        //aumentar timer
+        timeSinceSpawn += Time.deltaTime;
+        //comprobamos si ha llegado al maximo
+        if (timeSinceSpawn >= timeToSpawn)
+        {
+            //damos permiso
+            permisoSpawnearEnemy = true;
+            //reiniciar timer
+            timeSinceSpawn = 0;
+        }
+    }
 }
