@@ -9,9 +9,13 @@ public class GameController : MonoBehaviour
     //Lista de enemigos que están en juego
     public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
-    //[Header("Enemies per round")]
-    //[SerializeField]
-    //private int enemies
+    [Header("Enemies per round")]
+    public int enemiesRoundZero = 0;
+    public int enemiesRoundOne;
+    public int enemiesRoundTwo;
+    public int enemiesRoundThree;
+    public int enemiesRoundFour;
+    public int enemiesRoundFive;
 
     public static GameController Instance;
 
@@ -110,6 +114,8 @@ public class GameController : MonoBehaviour
     {
         //activamos muro1
         placesToPutMurosBloqueoCamino[0].SetActive(true);
+        //actualizamos el UI
+        UpdateTotalEnemiesInRound(enemiesRoundOne);
         //desactivaos resto
         QuitarRestoDeMurosExceptoElDeTuRonda(0);
     }
@@ -118,6 +124,8 @@ public class GameController : MonoBehaviour
     {
         //activamos muro1
         placesToPutMurosBloqueoCamino[1].SetActive(true);
+        //actualizamos el UI
+        UpdateTotalEnemiesInRound(enemiesRoundTwo);
         //desactivaos resto
         QuitarRestoDeMurosExceptoElDeTuRonda(1);
     }
@@ -126,6 +134,8 @@ public class GameController : MonoBehaviour
     {
         //activamos muro3
         placesToPutMurosBloqueoCamino[2].SetActive(true);
+        //actualizamos el UI
+        UpdateTotalEnemiesInRound(enemiesRoundThree);
         //desactivaos resto
         QuitarRestoDeMurosExceptoElDeTuRonda(2);
     }
@@ -134,6 +144,8 @@ public class GameController : MonoBehaviour
     {
         //activamos muro4
         placesToPutMurosBloqueoCamino[3].SetActive(true);
+        //actualizamos el UI
+        UpdateTotalEnemiesInRound(enemiesRoundFour);
         //desactivaos resto
         QuitarRestoDeMurosExceptoElDeTuRonda(3);
     }
@@ -142,6 +154,8 @@ public class GameController : MonoBehaviour
     {
         //activamos muro5
         placesToPutMurosBloqueoCamino[4].SetActive(true);
+        //actualizamos el UI
+        UpdateTotalEnemiesInRound(enemiesRoundFive);
         //desactivaos resto
         QuitarRestoDeMurosExceptoElDeTuRonda(4);
     }
@@ -171,8 +185,12 @@ public class GameController : MonoBehaviour
     {
         enemyInGameList.Add(enemy);
         //actualizamos en pantalla
-        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
         //Debug.Log(enemyInGameList.Count);
+    }
+
+    public void UpdateTotalEnemiesInRound(int totalEnemiesInRound)
+    {
+        UIManager.Instance.UpdateEnemiesLeft(totalEnemiesInRound);
     }
 
     // Método para quitar un enemigo de la lista
