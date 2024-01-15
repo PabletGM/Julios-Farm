@@ -212,4 +212,9 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
     }
 
+    public void EfectoPasivaIniciarFuncionalidadEnemySpawner()
+    {
+        EnemySpawner.Instance.InstantiateEnemyNormal();
+    }
+
 }

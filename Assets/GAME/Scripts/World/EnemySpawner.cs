@@ -16,33 +16,40 @@ public class EnemySpawner : MonoBehaviour
 
     private int enemiesPerSpawner = 3;
 
-    [SerializeField]
-    private float timeToSpawn = 3f;
+    [HideInInspector]
+    public float timeToSpawn = 3f;
     private float timeSinceSpawn;
 
     private bool permisoSpawnearEnemy = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-       
-    }
+    public static EnemySpawner Instance;
 
-    //llama a funcionalidad crear 3 enemigos de golpe
-    public void InstantiateEnemyNormal()
+    private void Awake()
     {
-        int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
-        if (poolIndex != -1)
+        if (Instance == null)
         {
-            for (int i = 0; i < spawnPoints.Count; i++)
-            {
-                StartCoroutine(CrearEnemigoPorLugar(enemiesPerSpawner, poolIndex, i));
-                //SceneEnemiesController.Instance.AddEnemyToScene();
-                //GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
-            }
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
         }
     }
+
+        //llama a funcionalidad crear 3 enemigos de golpe
+        public void InstantiateEnemyNormal()
+        {
+            int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
+            if (poolIndex != -1)
+            {
+                for (int i = 0; i < spawnPoints.Count; i++)
+                {
+                    StartCoroutine(CrearEnemigoPorLugar(enemiesPerSpawner, poolIndex, i));
+                    //SceneEnemiesController.Instance.AddEnemyToScene();
+                    //GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
+                }
+            }
+        }
 
     //funcionalidad crear enemigos
     //private void CrearEnemigoPorLugar(int numeroDeEnemigos, int poolIndex, int spawnPointNumber)

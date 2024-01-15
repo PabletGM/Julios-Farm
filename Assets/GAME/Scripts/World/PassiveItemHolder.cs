@@ -25,5 +25,6 @@ public class PassiveItemHolder : MonoBehaviour
         AbilitiesPerRound.Instance.PasivaCogidaParaLaRondaDestruirResto();
         //pasar de ronda en GameController
         GameController.Instance.AddRoundToGame();
+        GameController.Instance.EfectoPasivaIniciarFuncionalidadEnemySpawner();
     }
 }

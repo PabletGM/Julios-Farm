@@ -51,13 +51,14 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     {
         base.InitAbilityCharacter();
 
+        
         //Init agent paramenters 
         agent = GetComponent<NavMeshAgent>();
         enemyStats = (EnemyStats)characterStats;
         if (enemyStats != null)
         {
-            currentHealth = enemyStats.health;
             maxHealth = enemyStats.maxHealth;
+            RecuperarSaludParaFuturoRespawn();
 
             //agent.speed = enemyStats.speed.runTimeValue;
             agent.angularSpeed = enemyStats.angularSpeed;
