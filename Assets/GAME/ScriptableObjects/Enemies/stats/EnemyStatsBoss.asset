@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f3c5bac77224847a34f8b53de1d095, type: 3}
   m_Name: EnemyStatsBoss
   m_EditorClassIdentifier: 
-  health: 20
-  maxHealth: 20
+  health: 50
+  maxHealth: 50
   shield: {fileID: 0}
   maxShield: {fileID: 0}
   speed: {fileID: 11400000, guid: 36e62e328e98e1042b5a2d77d6520013, type: 2}

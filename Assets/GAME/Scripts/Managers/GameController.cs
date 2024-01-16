@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class GameController : MonoBehaviour
 {
@@ -212,12 +213,13 @@ public class GameController : MonoBehaviour
     {
         enemyInGameList.Add(enemy);
         //actualizamos en pantalla
-        //Debug.Log(enemyInGameList.Count);
+        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
+        Debug.Log(enemyInGameList.Count);
     }
 
     public void UpdateTotalEnemiesInRound(int totalEnemiesInRound)
     {
-        UIManager.Instance.UpdateEnemiesLeft(totalEnemiesInRound);
+        //UIManager.Instance.UpdateEnemiesLeft(totalEnemiesInRound);
     }
 
     // Método para quitar un enemigo de la lista
