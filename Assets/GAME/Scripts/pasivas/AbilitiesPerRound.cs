@@ -29,11 +29,7 @@ public class AbilitiesPerRound : MonoBehaviour
 
     void Start()
     {
-        
-
         MetodoFuncionalidadCrear3PasivasRonda();
-
-
     }
 
     //funcionalidad

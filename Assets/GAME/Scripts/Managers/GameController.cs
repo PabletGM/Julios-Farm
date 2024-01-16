@@ -68,7 +68,9 @@ public class GameController : MonoBehaviour
 
     private int actualRound = 0;
 
-    private string mainMenu = "MainMenu"; 
+    private string mainMenu = "MainMenu";
+
+    private bool breakTime = false;
 
     //ronda actual en la que nos encontramos
     public int ActualRound
@@ -119,7 +121,7 @@ public class GameController : MonoBehaviour
     //comportamiento de cada ronda
     private void BehaviourOnEachRound()
     {
-        if (actualRound < maxRounds)
+        if (actualRound <= maxRounds)
         {
             switch (actualRound)
             {
@@ -278,6 +280,18 @@ public class GameController : MonoBehaviour
         return enemyInGameList.Count;
     }
 
+    public void BreakTime(bool BreakTime)
+    {
+        breakTime = BreakTime;
+    }
+
+    public void IsGameWon()
+    {
+        if (actualRound == maxRounds + 1 && breakTime)
+        {
+            Debug.Log("Win");
+        }
+    }
     public void RedirectMainMenu()
     {
         SceneManager.LoadScene(mainMenu);

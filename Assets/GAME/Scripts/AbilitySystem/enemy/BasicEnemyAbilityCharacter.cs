@@ -175,6 +175,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 if(GameController.Instance.enemyInGameList.Count == 0)
                 {
                     AbilitiesPerRound.Instance.MetodoFuncionalidadCrear3PasivasRonda();
+                    GameController.Instance.BreakTime(true);
+                    GameController.Instance.IsGameWon();
                 }
 
                 //destruir
