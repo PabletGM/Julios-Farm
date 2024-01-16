@@ -10,12 +10,18 @@ public class GameController : MonoBehaviour
     public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
     [Header("Enemies per round")]
-    public int enemiesRoundZero = 0;
     public int enemiesRoundOne;
     public int enemiesRoundTwo;
     public int enemiesRoundThree;
     public int enemiesRoundFour;
     public int enemiesRoundFive;
+
+    [Header("Time to spawn enemies per round")]
+    public float enemiesRoundOneTimeToSpawn;
+    public float enemiesRoundTwoTimeToSpawn;
+    public float enemiesRoundThreeTimeToSpawn;
+    public float enemiesRoundFourTimeToSpawn;
+    public float enemiesRoundFiveTimeToSpawn;
 
     public static GameController Instance;
 
@@ -117,7 +123,15 @@ public class GameController : MonoBehaviour
         //actualizamos el UI
         UpdateTotalEnemiesInRound(enemiesRoundOne);
         //desactivaos resto
-        QuitarRestoDeMurosExceptoElDeTuRonda(0);
+        QuitWallsOfTheRound(0);
+        //elegir tiempo de spawneo de enemigos
+        ChangeSpawnTimeEachRound(enemiesRoundOne, enemiesRoundOneTimeToSpawn);
+    }
+
+    //actualizar spawner
+    private void ChangeSpawnTimeEachRound(int numEnemiesRound, float timeToSpawn)
+    {
+        EnemySpawner.Instance.ChangeSpawnEachRound(numEnemiesRound, timeToSpawn);
     }
 
     private void BehaviourRound2()
@@ -127,7 +141,9 @@ public class GameController : MonoBehaviour
         //actualizamos el UI
         UpdateTotalEnemiesInRound(enemiesRoundTwo);
         //desactivaos resto
-        QuitarRestoDeMurosExceptoElDeTuRonda(1);
+        QuitWallsOfTheRound(1);
+        //elegir tiempo de spawneo de enemigos
+        ChangeSpawnTimeEachRound(enemiesRoundTwo, enemiesRoundTwoTimeToSpawn);
     }
 
     private void BehaviourRound3()
@@ -137,7 +153,9 @@ public class GameController : MonoBehaviour
         //actualizamos el UI
         UpdateTotalEnemiesInRound(enemiesRoundThree);
         //desactivaos resto
-        QuitarRestoDeMurosExceptoElDeTuRonda(2);
+        QuitWallsOfTheRound(2);
+        //elegir tiempo de spawneo de enemigos
+        ChangeSpawnTimeEachRound(enemiesRoundThree, enemiesRoundThreeTimeToSpawn);
     }
 
     private void BehaviourRound4()
@@ -147,7 +165,9 @@ public class GameController : MonoBehaviour
         //actualizamos el UI
         UpdateTotalEnemiesInRound(enemiesRoundFour);
         //desactivaos resto
-        QuitarRestoDeMurosExceptoElDeTuRonda(3);
+        QuitWallsOfTheRound(3);
+        //elegir tiempo de spawneo de enemigos
+        ChangeSpawnTimeEachRound(enemiesRoundFour, enemiesRoundFourTimeToSpawn);
     }
 
     private void BehaviourRound5()
@@ -157,11 +177,13 @@ public class GameController : MonoBehaviour
         //actualizamos el UI
         UpdateTotalEnemiesInRound(enemiesRoundFive);
         //desactivaos resto
-        QuitarRestoDeMurosExceptoElDeTuRonda(4);
+        QuitWallsOfTheRound(4);
+        //elegir tiempo de spawneo de enemigos
+        ChangeSpawnTimeEachRound(enemiesRoundFour, enemiesRoundFourTimeToSpawn);
     }
 
     //desactiva todos los muros excepto el del parametro que pasas
-    private void QuitarRestoDeMurosExceptoElDeTuRonda(int muroCorrecto)
+    private void QuitWallsOfTheRound(int muroCorrecto)
     {
         for(int i = 0; i < placesToPutMurosBloqueoCamino.Length; i++) 
         { 
