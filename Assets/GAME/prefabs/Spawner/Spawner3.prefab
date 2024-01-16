@@ -49,7 +49,8 @@ MonoBehaviour:
   - {fileID: 7052978133674210602}
   EnemyPrefabSimple: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
     type: 3}
-  EnemyPrefabBoss: {fileID: 0}
+  EnemyPrefabBoss: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+    type: 3}
   timeToSpawn: 5
 --- !u!1 &4561883962825581593
 GameObject:

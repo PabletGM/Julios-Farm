@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
         //llama a funcionalidad crear 3 enemigos de golpe
         public void InstantiateEnemyNormal()
         {
-            int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
+            int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabBoss);
             if (poolIndex != -1)
             {
                 //Iniciar Spawners
