@@ -21908,18 +21908,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyInGameList: []
-  enemiesRoundZero: 0
-  enemiesRoundOne: 0
-  enemiesRoundTwo: 0
-  enemiesRoundThree: 0
-  enemiesRoundFour: 0
-  enemiesRoundFive: 0
+  enemiesRoundOne: 4
+  enemiesRoundTwo: 6
+  enemiesRoundThree: 8
+  enemiesRoundFour: 10
+  enemiesRoundFive: 12
+  enemiesRoundOneTimeToSpawn: 3
+  enemiesRoundTwoTimeToSpawn: 2.75
+  enemiesRoundThreeTimeToSpawn: 2.5
+  enemiesRoundFourTimeToSpawn: 2.25
+  enemiesRoundFiveTimeToSpawn: 2
   placesToPutMurosBloqueoCamino:
   - {fileID: 1697043263}
   - {fileID: 1970641573}
   - {fileID: 593061314}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7124411084706937525, guid: 2431d8f8c14d24447b0ac293c3c105c2, type: 3}
+  - {fileID: 5435938311758987556, guid: 0664b9eef6f90cd458bf3b20f77ddc6c, type: 3}
 --- !u!1 &1311900548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 958e086e44fc3e440b380fafd7a47f5c,
