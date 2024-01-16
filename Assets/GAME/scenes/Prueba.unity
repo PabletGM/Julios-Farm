@@ -16915,7 +16915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 935879308}
   m_Layer: 0
-  m_Name: pasillo2
+  m_Name: pasillo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32313,6 +32313,10 @@ MonoBehaviour:
   - prefab: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
       type: 3}
     amountToPool: 9
+    pooledObjects: []
+  - prefab: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+      type: 3}
+    amountToPool: 1
     pooledObjects: []
 --- !u!1 &1996416775
 GameObject:

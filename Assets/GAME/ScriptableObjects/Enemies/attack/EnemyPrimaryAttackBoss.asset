@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPassive: 0
   abilityDescription: 
+  abilityIcon: {fileID: 0}
   duration: 1
   cooldown: 1
   damageAmount: 1
   attackRadius: 1
-  attackRange: 5
+  attackRange: {fileID: 11400000, guid: c339ab88e65f33549b4a742e7404ed70, type: 2}
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 10240
   damageEmiterType: 1
-  movementStopTime: 0
+  movementStopTime: 1.5
+  tiempoAtaqueAnimacion: 0
