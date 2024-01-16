@@ -50,7 +50,7 @@ public class FarmAbilityCharacter : AbilityCharacter
         {
             return;
         }
-
+        Debug.Log("Max Shield = " + maxShield + ", currentShield = " + currentShield);
         //funcionalidad del update del AbilityCharacter
         base.Update();
         
@@ -73,6 +73,7 @@ public class FarmAbilityCharacter : AbilityCharacter
                 UIManager.Instance.UpdateShieldBar(currentShield / maxShield);
                 if(currentShield <= 0f)
                 {
+                    maxShield = 0f;
                     farmShield.SetActive(false);
                 }
             }
@@ -99,6 +100,7 @@ public class FarmAbilityCharacter : AbilityCharacter
     public void InitialCurrentShield()
     {
         currentShield = characterStats.shield.runTimeValue;
+        maxShield = characterStats.maxShield.runTimeValue;
         farmShield.SetActive(true);
     }
 

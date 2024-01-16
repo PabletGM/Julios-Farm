@@ -31,7 +31,6 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
                 {
                     //se ejecuta y hace daño 3 veces por segundo
                     MakeDamage(character.transform);
-                    Debug.Log("Deal Damage");
                 }
                 
             }

@@ -6,14 +6,16 @@ using UnityEngine;
 public class AddShield : BaseAbility
 {
     [Header("Modify Parameters")]
-    public FloatVariable variableToChange;
-    public float amountToAdd = 1f;
+    public FloatVariable shield;
+    public float amountToAdd;
+    public FloatVariable maxShield;
 
     public override void StartAbility(AbilityCharacter character)
     {
-        if (variableToChange != null)
+        if (shield != null && maxShield != null)
         {
-            variableToChange.runTimeValue += amountToAdd;
+            shield.runTimeValue += amountToAdd;
+            maxShield.runTimeValue = shield.runTimeValue;
         }
         UIManager.Instance.UpdateShieldBar(1f);
         FarmAbilityCharacter.Instance.InitialCurrentShield();

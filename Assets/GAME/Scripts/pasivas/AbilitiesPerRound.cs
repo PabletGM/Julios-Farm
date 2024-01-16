@@ -29,10 +29,7 @@ public class AbilitiesPerRound : MonoBehaviour
 
     void Start()
     {
-        //inicializar lista ronda pasivas
-        pasivasRondaDisponibles = new List<GameObject>();
-
-        AñadirPasivasTotalesList();
+        
 
         MetodoFuncionalidadCrear3PasivasRonda();
 
@@ -42,6 +39,11 @@ public class AbilitiesPerRound : MonoBehaviour
     //funcionalidad
     public void MetodoFuncionalidadCrear3PasivasRonda()
     {
+        //inicializar lista ronda pasivas
+        pasivasRondaDisponibles = new List<GameObject>();
+
+        AñadirPasivasTotalesList();
+
         // Llamada al método para obtener 3 números sin repetición de pasivasTotales
         pasivasRondaDisponibles = SeleccionarNumeros(pasivasTotalesList, 3);
         //ver que pasivas han tocado
