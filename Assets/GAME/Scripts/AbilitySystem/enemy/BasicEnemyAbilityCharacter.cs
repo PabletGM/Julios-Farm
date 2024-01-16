@@ -70,6 +70,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         playerManager = PlayerManager.instance;
         //inicialmente que le persiga a la casa
         agent.SetDestination(destinoAtacar.transform.position);
+        Animator.SetFloat("CycleOffset", Random.Range(0f, 1f));
+
     }
 
     protected override void Update()
