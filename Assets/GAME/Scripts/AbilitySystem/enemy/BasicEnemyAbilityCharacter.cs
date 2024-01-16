@@ -172,6 +172,10 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
                 //se quita enemigo de la lista de enemigos in game
                 GameController.Instance.RemoveEnemyAlive(this);
+                if(GameController.Instance.enemyInGameList.Count == 0)
+                {
+                    AbilitiesPerRound.Instance.MetodoFuncionalidadCrear3PasivasRonda();
+                }
 
                 //destruir
                 this.enabled = false;
