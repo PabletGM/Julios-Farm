@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddc6c587c7838145b1b14e32cfbcb9a, type: 3}
   m_Name: EnemyStatsNormal
   m_EditorClassIdentifier: 
-  health: 4
-  maxHealth: 4
+  health: 10
+  maxHealth: 10
+  shield: {fileID: 0}
+  maxShield: {fileID: 0}
   speed: {fileID: 11400000, guid: d447aac56801db24196d79329c3b91be, type: 2}
   rotationSpeed: 0
   baseDamage: {fileID: 11400000, guid: a57fa7215272ee3448e7e939dea24139, type: 2}
