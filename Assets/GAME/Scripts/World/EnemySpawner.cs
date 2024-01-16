@@ -26,8 +26,6 @@ public class EnemySpawner : MonoBehaviour
     private int numTotalEnemiesRound;
 
     private int numeroEnemiesCreadosSpawn1 = 0;
-    private int numeroEnemiesCreadosSpawn2 = 0;
-    private int numeroEnemiesCreadosSpawn3= 0;
 
     private void Awake()
     {
@@ -49,8 +47,6 @@ public class EnemySpawner : MonoBehaviour
         timeToSpawn = timetoSpawn;
         //reiniciamos numero enemiesCreados
         numeroEnemiesCreadosSpawn1 = 0;
-        numeroEnemiesCreadosSpawn2 = 0;
-        numeroEnemiesCreadosSpawn3 = 0;
     }
 
         //llama a funcionalidad crear 3 enemigos de golpe
@@ -63,12 +59,6 @@ public class EnemySpawner : MonoBehaviour
 
                     //para cada spawner hará el numeroEnemigosCreados = numTotalEnemiesRound
                     StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 0, numeroEnemiesCreadosSpawn1));
-                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 1, numeroEnemiesCreadosSpawn2));
-                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 2, numeroEnemiesCreadosSpawn3));
-                   
-
-
-
             }
         }
 
