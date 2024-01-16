@@ -23025,8 +23025,8 @@ Transform:
   - {fileID: 1729032551}
   - {fileID: 1513770875}
   - {fileID: 1686908767}
-  - {fileID: 1968135557}
   - {fileID: 935879308}
+  - {fileID: 1968135557}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1423554445
@@ -31752,7 +31752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1968135557}
   m_Layer: 0
-  m_Name: pasillo1
+  m_Name: pasillo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
