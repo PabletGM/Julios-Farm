@@ -287,7 +287,7 @@ public class GameController : MonoBehaviour
 
     public void IsGameWon()
     {
-        if (actualRound == maxRounds + 1 && breakTime)
+        if (actualRound == maxRounds && breakTime)
         {
             Debug.Log("Win");
         }
