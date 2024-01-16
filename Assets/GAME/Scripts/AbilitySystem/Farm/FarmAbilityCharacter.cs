@@ -50,7 +50,6 @@ public class FarmAbilityCharacter : AbilityCharacter
         {
             return;
         }
-        Debug.Log("Max Shield = " + maxShield + ", currentShield = " + currentShield);
         //funcionalidad del update del AbilityCharacter
         base.Update();
         
