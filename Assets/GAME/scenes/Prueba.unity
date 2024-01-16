@@ -22169,11 +22169,9 @@ MonoBehaviour:
   enemiesRoundFiveTimeToSpawnSmall: 1.5
   enemiesRoundFiveTimeToSpawnBig: 5
   placesToPutMurosBloqueoCamino:
-  - {fileID: 1697043263}
   - {fileID: 1970641573}
   - {fileID: 593061314}
-  - {fileID: 7124411084706937525, guid: 2431d8f8c14d24447b0ac293c3c105c2, type: 3}
-  - {fileID: 5435938311758987556, guid: 0664b9eef6f90cd458bf3b20f77ddc6c, type: 3}
+  - {fileID: 1697043263}
   SpawnsEnemyNormal:
   - {fileID: 8617285244501174342}
   - {fileID: 869043812527244602}

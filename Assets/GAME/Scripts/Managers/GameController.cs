@@ -166,11 +166,13 @@ public class GameController : MonoBehaviour
     {
         //activamos muro1
         placesToPutMurosBloqueoCamino[0].SetActive(true);
+        //activamos muro3
+        placesToPutMurosBloqueoCamino[2].SetActive(true);
         //actualizamos el UI
         int enemiesTotalRound1 = enemiesRoundOneSmallRoad1 + enemiesRoundOneSmallRoad2 + enemiesRoundOneSmallRoad3 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound1);
         //desactivaos resto
-        QuitWallsOfTheRound(0);
+        QuitWallsOfTheRound(0,2);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundOneSmallRoad1, enemiesRoundOneSmallRoad2, enemiesRoundOneSmallRoad3, enemiesRoundOneTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundOneBigRoad1, enemiesRoundOneBigRoad2, enemiesRoundOneBigRoad3, enemiesRoundOneTimeToSpawnBig);
@@ -180,13 +182,13 @@ public class GameController : MonoBehaviour
 
     private void BehaviourRound2()
     {
-        //activamos muro1
+        //activamos muro2
         placesToPutMurosBloqueoCamino[1].SetActive(true);
         //actualizamos el UI
         int enemiesTotalRound2 = enemiesRoundTwoSmallRoad1 + enemiesRoundTwoSmallRoad2 + enemiesRoundTwoSmallRoad3 + enemiesRoundTwoBigRoad1 + enemiesRoundTwoBigRoad1 + enemiesRoundTwoBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound2);
-        //desactivaos resto
-        QuitWallsOfTheRound(1);
+        //desactivaos resto, si es -1 es que no tiene muroCorrecto2
+        QuitWallsOfTheRound(1, -1);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundTwoSmallRoad1, enemiesRoundTwoSmallRoad2, enemiesRoundTwoSmallRoad3, enemiesRoundTwoTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundTwoBigRoad1, enemiesRoundTwoBigRoad2, enemiesRoundTwoBigRoad3, enemiesRoundTwoTimeToSpawnBig);
@@ -194,13 +196,15 @@ public class GameController : MonoBehaviour
 
     private void BehaviourRound3()
     {
-        //activamos muro3
-        placesToPutMurosBloqueoCamino[2].SetActive(true);
+        //activamos muro1
+        placesToPutMurosBloqueoCamino[0].SetActive(true);
+        //activamos muro2
+        placesToPutMurosBloqueoCamino[1].SetActive(true);
         //actualizamos el UI
         int enemiesTotalRound3 = enemiesRoundThreeSmallRoad1 + enemiesRoundThreeSmallRoad2 + enemiesRoundThreeSmallRoad3 + enemiesRoundThreeBigRoad1 + enemiesRoundThreeBigRoad1 + enemiesRoundThreeBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound3);
         //desactivaos resto
-        QuitWallsOfTheRound(2);
+        QuitWallsOfTheRound(0, 1);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundThreeSmallRoad1, enemiesRoundThreeSmallRoad2, enemiesRoundThreeSmallRoad3, enemiesRoundThreeTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundThreeBigRoad1, enemiesRoundThreeBigRoad2, enemiesRoundThreeBigRoad3, enemiesRoundThreeTimeToSpawnBig);
@@ -208,12 +212,14 @@ public class GameController : MonoBehaviour
 
     private void BehaviourRound4()
     {
-        //activamos muro4
-        placesToPutMurosBloqueoCamino[3].SetActive(true);
+        //activamos muro3
+        placesToPutMurosBloqueoCamino[2].SetActive(true);
+        //activamos muro2
+        placesToPutMurosBloqueoCamino[1].SetActive(true);
         int enemiesTotalRound4 = enemiesRoundFourSmallRoad1 + enemiesRoundFourSmallRoad2 + enemiesRoundFourSmallRoad3 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound4);
         //desactivaos resto
-        QuitWallsOfTheRound(3);
+        QuitWallsOfTheRound(1,2);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundFourSmallRoad1, enemiesRoundFourSmallRoad2, enemiesRoundFourSmallRoad3, enemiesRoundFourTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundFourBigRoad1, enemiesRoundFourBigRoad2, enemiesRoundFourBigRoad3, enemiesRoundFourTimeToSpawnBig);
@@ -221,24 +227,23 @@ public class GameController : MonoBehaviour
 
     private void BehaviourRound5()
     {
-        //activamos muro5
-        placesToPutMurosBloqueoCamino[4].SetActive(true);
+
         int enemiesTotalRound5 = enemiesRoundFiveSmallRoad1 + enemiesRoundFiveSmallRoad2 + enemiesRoundFiveSmallRoad3 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound5);
         //desactivaos resto
-        QuitWallsOfTheRound(4);
+        QuitWallsOfTheRound(-1,-1);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundFiveSmallRoad1, enemiesRoundFiveSmallRoad2, enemiesRoundFiveSmallRoad3, enemiesRoundFiveTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundFiveBigRoad1, enemiesRoundFiveBigRoad2, enemiesRoundFiveBigRoad3, enemiesRoundFiveTimeToSpawnBig);
     }
 
     //desactiva todos los muros excepto el del parametro que pasas
-    private void QuitWallsOfTheRound(int muroCorrecto)
+    private void QuitWallsOfTheRound(int muroCorrecto1, int muroCorrecto2)
     {
         for(int i = 0; i < placesToPutMurosBloqueoCamino.Length; i++) 
         { 
             //si es muro correcto
-            if(i == muroCorrecto)
+            if(i == muroCorrecto1 || i == muroCorrecto2)
             {
                 placesToPutMurosBloqueoCamino[i].SetActive(true);
             }
