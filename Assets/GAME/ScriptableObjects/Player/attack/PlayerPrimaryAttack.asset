@@ -17,7 +17,7 @@ MonoBehaviour:
   abilityIcon: {fileID: 21300000, guid: dd5e99205f718764d9283ccc98e6467f, type: 3}
   duration: 0.1
   cooldown: 0.5
-  damageAmount: 1
+  damageAmount: 10
   attackRadius: 1
   attackRange: {fileID: 11400000, guid: 2137942b0c7953e4e983fa662011245a, type: 2}
   attackLayerMask:
