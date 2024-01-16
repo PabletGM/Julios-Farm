@@ -10,8 +10,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject EnemyPrefabSimple;
 
-    [SerializeField]
-    private GameObject EnemyPrefabBoss;
 
 
 
@@ -52,7 +50,8 @@ public class EnemySpawner : MonoBehaviour
         //llama a funcionalidad crear 3 enemigos de golpe
         public void InstantiateEnemyNormal()
         {
-            int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabBoss);
+            int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
+
             if (poolIndex != -1)
             {
                 //Iniciar Spawners
