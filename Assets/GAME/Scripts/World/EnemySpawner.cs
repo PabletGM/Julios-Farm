@@ -25,7 +25,9 @@ public class EnemySpawner : MonoBehaviour
 
     private int numTotalEnemiesRound;
 
-    private int numeroEnemiesCreados = 0;
+    private int numeroEnemiesCreadosSpawn1 = 0;
+    private int numeroEnemiesCreadosSpawn2 = 0;
+    private int numeroEnemiesCreadosSpawn3= 0;
 
     private void Awake()
     {
@@ -46,7 +48,9 @@ public class EnemySpawner : MonoBehaviour
         //cambiar timeToSpawn enemy
         timeToSpawn = timetoSpawn;
         //reiniciamos numero enemiesCreados
-        numeroEnemiesCreados = 0;
+        numeroEnemiesCreadosSpawn1 = 0;
+        numeroEnemiesCreadosSpawn2 = 0;
+        numeroEnemiesCreadosSpawn3 = 0;
     }
 
         //llama a funcionalidad crear 3 enemigos de golpe
@@ -55,24 +59,28 @@ public class EnemySpawner : MonoBehaviour
             int poolIndex = ObjectPooler.instance.SearchPool(EnemyPrefabSimple);
             if (poolIndex != -1)
             {
-                for (int i = 0; i < spawnPoints.Count; i++)
-                {
-                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, i));
-                    //SceneEnemiesController.Instance.AddEnemyToScene();
-                    //GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());
-                }
+                //Iniciar Spawners
+
+                    //para cada spawner hará el numeroEnemigosCreados = numTotalEnemiesRound
+                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 0, numeroEnemiesCreadosSpawn1));
+                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 1, numeroEnemiesCreadosSpawn2));
+                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 2, numeroEnemiesCreadosSpawn3));
+                   
+
+
+
             }
         }
 
    
 
-    private IEnumerator CrearEnemigoPorLugar(int numeroDeEnemigosTotal, int poolIndex, int spawnPointNumber)
+    private IEnumerator CrearEnemigoPorLugar(int numeroDeEnemigosTotal, int poolIndex, int spawnPointNumber, int numeroEnemiesCreadosSpawnX)
     {
         //todo el rato
         while (true)
         {
             //Funcionalidad y si no se ha pasado con el numero de enemies creados
-            if(permisoSpawnearEnemy && numeroEnemiesCreados < numeroDeEnemigosTotal)
+            if(permisoSpawnearEnemy && numeroEnemiesCreadosSpawnX < numeroDeEnemigosTotal)
             {
                 GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
                 enemyGO.transform.position = spawnPoints[spawnPointNumber].position;
@@ -84,7 +92,7 @@ public class EnemySpawner : MonoBehaviour
                 GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
                 permisoSpawnearEnemy = false;
                 //aumentar numero de enemigos creados
-                numeroEnemiesCreados++;
+                numeroEnemiesCreadosSpawnX++;
             }
 
 
