@@ -5,6 +5,8 @@ using static UnityEngine.UI.Image;
 
 public class AbilitiesPerRound : MonoBehaviour
 {
+    [SerializeField]
+    private Transform spawnPassivesTransform;
     [Header("Posibles Pasivas a coger en cada ronda")]
     [SerializeField]
     private GameObject[] pasivasTotales;
@@ -13,11 +15,11 @@ public class AbilitiesPerRound : MonoBehaviour
 
     [Header("Posicion para spawnear las pasivas")]
     [SerializeField]
-    private Vector3 posicionesCadaPasivaSpawn1;
+    private Vector3 offsetPasiva1;
     [SerializeField]
-    private Vector3 posicionesCadaPasivaSpawn2;
+    private Vector3 offsetPasiva2;
     [SerializeField]
-    private Vector3 posicionesCadaPasivaSpawn3;
+    private Vector3 offsetPasiva3;
 
     [Header("Objeto Padre de las pasivas de cada ronda")]
     [SerializeField]
@@ -68,8 +70,7 @@ public class AbilitiesPerRound : MonoBehaviour
 
     private void SpawnArrayVectoresPosicionesPasivas()
     {
-        int i = 0;
-        for (i = 0; i < pasivasRondaDisponibles.Count; i++)
+        for (int i = 0; i < pasivasRondaDisponibles.Count; i++)
         {
             //activamos pasiva
             pasivasRondaDisponibles[i].gameObject.SetActive(true);
@@ -78,23 +79,23 @@ public class AbilitiesPerRound : MonoBehaviour
             {
                 case 0:
                 {
-                    pasivasRondaDisponibles[i].gameObject.transform.position = posicionesCadaPasivaSpawn1;
+                    pasivasRondaDisponibles[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasiva1;
                     break;
                 }
                 case 1:
                 {
-                    pasivasRondaDisponibles[i].gameObject.transform.position = posicionesCadaPasivaSpawn2;
+                    pasivasRondaDisponibles[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasiva2;
                     break;
                 }
                 case 2:
                 {
-                    pasivasRondaDisponibles[i].gameObject.transform.position = posicionesCadaPasivaSpawn3;
+                    pasivasRondaDisponibles[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasiva3;
                     break;
                 }
 
             }
             //se le hace padre de la jerarquia
-            pasivasRondaDisponibles[i].gameObject.transform.parent = parentPasivasEachRound.transform;
+            //pasivasRondaDisponibles[i].gameObject.transform.parent = parentPasivasEachRound.transform;
         }
     }
 
