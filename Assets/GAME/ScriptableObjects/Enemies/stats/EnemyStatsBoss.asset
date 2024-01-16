@@ -20,6 +20,6 @@ MonoBehaviour:
   rotationSpeed: 0
   baseDamage: {fileID: 11400000, guid: c339ab88e65f33549b4a742e7404ed70, type: 2}
   angularSpeed: 120
-  stoppingDistance: 2
+  stoppingDistance: 1
   autoBraking: 0
   aggroRadius: 200

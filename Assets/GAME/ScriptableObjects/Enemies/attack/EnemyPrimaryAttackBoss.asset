@@ -19,7 +19,7 @@ MonoBehaviour:
   cooldown: 1
   damageAmount: 1
   attackRadius: 1
-  attackRange: {fileID: 11400000, guid: c339ab88e65f33549b4a742e7404ed70, type: 2}
+  attackRange: {fileID: 11400000, guid: ece9c384dd2e8e1409e50cfe1f630cf7, type: 2}
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 10240
