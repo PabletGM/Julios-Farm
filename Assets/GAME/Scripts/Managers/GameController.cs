@@ -38,6 +38,8 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject[] placesToPutMurosBloqueoCamino;
 
+    [SerializeField] private EnemySpawner[] Spawns;
+
     //numero de rondas totales
     private int maxRounds = 5;
 
@@ -131,7 +133,10 @@ public class GameController : MonoBehaviour
     //actualizar spawner
     private void ChangeSpawnTimeEachRound(int numEnemiesRound, float timeToSpawn)
     {
-        EnemySpawner.Instance.ChangeSpawnEachRound(numEnemiesRound, timeToSpawn);
+        for(int i = 0; i < Spawns.Length; i++)
+        {
+            Spawns[i].ChangeSpawnEachRound(numEnemiesRound, timeToSpawn);
+        }
     }
 
     private void BehaviourRound2()
@@ -236,7 +241,10 @@ public class GameController : MonoBehaviour
 
     public void EfectoPasivaIniciarFuncionalidadEnemySpawner()
     {
-        EnemySpawner.Instance.InstantiateEnemyNormal();
+        for (int i = 0; i < Spawns.Length; i++)
+        {
+            Spawns[i].InstantiateEnemyNormal();
+        }
     }
 
 }
