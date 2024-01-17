@@ -46069,11 +46069,21 @@ PrefabInstance:
       propertyPath: WinGameCanvas
       value: 
       objectReference: {fileID: 1377742906}
+    - target: {fileID: 1443452959841308388, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2678946657748225973, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1309290472}
+    - target: {fileID: 2789157606490027489, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3778714179373956477, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: m_Color.a
@@ -46269,6 +46279,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508538422398209580, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 0.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508538422398209580, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278252287
       objectReference: {fileID: 0}
     - target: {fileID: 8237100961814578071, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
