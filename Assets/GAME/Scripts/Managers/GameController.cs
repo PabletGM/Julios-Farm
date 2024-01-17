@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private EnemySpawnerBoss[] SpawnsEnemyBoss;
 
     //numero de rondas totales
-    private int maxRounds = 1;
+    private int maxRounds = 5;
 
     private void Awake()
     {
