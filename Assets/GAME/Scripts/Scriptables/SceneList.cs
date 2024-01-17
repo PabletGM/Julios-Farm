@@ -24,6 +24,7 @@ public class SceneList : ScriptableObject
 
     private void OnValidate()
     {
+#if UNITY_EDITOR
         sceneNames.Clear();
         if (sceneAssets.Count > 0)
         {
@@ -40,5 +41,6 @@ public class SceneList : ScriptableObject
         {
             firstSceneName = firstScene.name;
         }
+#endif
     }
 }

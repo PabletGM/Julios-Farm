@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     private GameObject EnemyPrefabSimple;
 
 
+    private int offsetRangeEnemies = 4;
+
 
 
     [HideInInspector]
@@ -72,7 +74,9 @@ public class EnemySpawner : MonoBehaviour
             if(permisoSpawnearEnemy && numeroEnemiesCreadosSpawnX < numeroDeEnemigosTotal)
             {
                 GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
-                enemyGO.transform.position = spawnPoints[spawnPointNumber].position;
+                int offsetRandomX = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
+                int offsetRandomY = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
+                enemyGO.transform.position = spawnPoints[spawnPointNumber].position +  new Vector3(offsetRandomX, offsetRandomY,0);
                 enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().enabled =true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;

@@ -10,7 +10,7 @@ public class EnemySpawnerBoss : MonoBehaviour
     [SerializeField]
     private GameObject EnemyPrefabBoss;
 
-
+    private int offsetRangeEnemies = 4;
 
     [HideInInspector]
     public float timeToSpawn = 3f;
@@ -71,7 +71,9 @@ public class EnemySpawnerBoss : MonoBehaviour
             if(permisoSpawnearEnemy && numeroEnemiesCreadosSpawnX < numeroDeEnemigosTotal)
             {
                 GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
-                enemyGO.transform.position = spawnPoints[spawnPointNumber].position;
+                int offsetRandomX = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
+                int offsetRandomY = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
+                enemyGO.transform.position = spawnPoints[spawnPointNumber].position + new Vector3(offsetRandomX, offsetRandomY, 0);
                 enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().enabled =true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;
