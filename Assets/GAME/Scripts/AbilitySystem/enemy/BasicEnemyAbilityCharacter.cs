@@ -24,6 +24,9 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
     [SerializeField] private EnemyManager enemyManager;
 
+    [HideInInspector]
+    public IEnumerator hitEfect;
+
     public bool CanDoAbilities 
     {
         get
@@ -160,13 +163,24 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
         //si el emisor del daño es el player
         if (emiterType == DamageEmiterType.Player)
-        {    
+        {
+            //asocio la corutina
+            AsociarHitEffectCoroutine();
+            //vemos que no es nula
+            if (hitEfect != null)
+            {
+                //la ejecutamos
+                StartCoroutine(hitEfect);
+            }
             currentHealth -= damage;
+
             //Debug.Log("Take Damage");
                     // EnemyHealthBar UI
             //Debug.Log(currentHealth);
             if (currentHealth <= 0f)
             {
+                StopCoroutine(hitEfect);
+                hitEfect = null;
                 ResetCurrentAbility();
                 canDoAbilties = false;
 
@@ -199,6 +213,11 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     {
         currentHealth = maxHealth;
         enemyManager.UpdateEnemyHealthBar(maxHealth);
+    }
+
+    public void AsociarHitEffectCoroutine()
+    {
+        hitEfect = this.gameObject.GetComponent<hitEffect>().HitEffect();
     }
 
     //private IEnumerator DestroyEnemy()

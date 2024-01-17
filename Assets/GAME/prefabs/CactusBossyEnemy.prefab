@@ -386,6 +386,7 @@ GameObject:
   - component: {fileID: 2992757628831574652}
   - component: {fileID: 3104655113890127053}
   - component: {fileID: 3095703111177510861}
+  - component: {fileID: 5587661163347857136}
   m_Layer: 7
   m_Name: CactusBossyEnemy
   m_TagString: Untagged
@@ -533,6 +534,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5587661163347857136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5667712714323555562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc075ca1180493043bd97f2989b6a676, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  renderComponent: {fileID: 2695995029398501216}
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  damageColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &5819974319043974593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1076,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51ed1a96caabdfb43a94013d75c97f28, type: 3}
+--- !u!137 &2695995029398501216 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -9029778509527700621, guid: 51ed1a96caabdfb43a94013d75c97f28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2865927052972858387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7115517772539934473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 51ed1a96caabdfb43a94013d75c97f28,
