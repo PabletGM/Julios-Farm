@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private EnemySpawnerBoss[] SpawnsEnemyBoss;
 
     //numero de rondas totales
-    private int maxRounds = 5;
+    private int maxRounds = 1;
 
     private void Awake()
     {
@@ -263,7 +263,6 @@ public class GameController : MonoBehaviour
         enemyInGameList.Add(enemy);
         //actualizamos en pantalla
         UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
-        Debug.Log(enemyInGameList.Count);
     }
 
     public void UpdateTotalEnemiesInRound(int totalEnemiesInRound)
@@ -294,7 +293,7 @@ public class GameController : MonoBehaviour
     {
         if (actualRound == maxRounds && breakTime)
         {
-            Debug.Log("Win");
+            UIManager.Instance.ShowYouWinCanvas();
         }
     }
     public void RedirectMainMenu()
