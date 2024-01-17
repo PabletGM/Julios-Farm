@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
         playerAbilityCharacter = GetComponent<PlayerAbilityCharacter>();
         initHealth = playerAbilityCharacter.CharacterStats.health;
         currentHealth = initHealth;
-        SetPlayerEnterPosition();
+        //SetPlayerEnterPosition();
     }
 
     public GenericStats GetPlayerStats()
@@ -52,18 +52,18 @@ public class PlayerManager : MonoBehaviour
         return playerAbilityCharacter.CharacterStats;
     }
 
-    public void SetPlayerEnterPosition()
-    {
-        if (RoomEnterPoint.instance != null)
-        {
-            transform.position = RoomEnterPoint.instance.transform.position;
-            transform.rotation = RoomEnterPoint.instance.transform.rotation;
-            if (CameraManager.instance != null)
-            {
-                CameraManager.instance.ResetCamera();
-            }
-        }
-    }
+   //// public void SetPlayerEnterPosition()
+   // {
+   //     if (RoomEnterPoint.instance != null)
+   //     {
+   //         transform.position = RoomEnterPoint.instance.transform.position;
+   //         transform.rotation = RoomEnterPoint.instance.transform.rotation;
+   //         if (CameraManager.instance != null)
+   //         {
+   //             CameraManager.instance.ResetCamera();
+   //         }
+   //     }
+   // }
 
     //public void PlayerDied()
     //{
