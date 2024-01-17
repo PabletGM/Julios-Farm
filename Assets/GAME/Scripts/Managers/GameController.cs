@@ -262,12 +262,12 @@ public class GameController : MonoBehaviour
     {
         enemyInGameList.Add(enemy);
         //actualizamos en pantalla
-        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
+        //UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
     }
 
     public void UpdateTotalEnemiesInRound(int totalEnemiesInRound)
     {
-        //UIManager.Instance.UpdateEnemiesLeft(totalEnemiesInRound);
+        UIManager.Instance.UpdateTotalEnemies(totalEnemiesInRound);
     }
 
     // Método para quitar un enemigo de la lista
@@ -275,7 +275,7 @@ public class GameController : MonoBehaviour
     {
         enemyInGameList.Remove(enemy);
         //actualizamos en pantalla
-        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
+        UIManager.Instance.RemoveOneEnemy();
         //Debug.Log(enemyInGameList.Count);
     }
 
