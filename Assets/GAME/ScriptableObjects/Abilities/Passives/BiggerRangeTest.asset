@@ -18,4 +18,4 @@ MonoBehaviour:
   duration: 0
   cooldown: 0
   variableToChange: {fileID: 11400000, guid: 2137942b0c7953e4e983fa662011245a, type: 2}
-  multiplier: 1.3
+  multiplier: 1.2
