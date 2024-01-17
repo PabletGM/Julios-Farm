@@ -197,7 +197,7 @@ public class GameController : MonoBehaviour
     private void BehaviourRound3()
     {
         //activamos muro1
-        placesToPutMurosBloqueoCamino[0].SetActive(true);
+        //placesToPutMurosBloqueoCamino[0].SetActive(true);
         //activamos muro2
         placesToPutMurosBloqueoCamino[1].SetActive(true);
         //actualizamos el UI
@@ -215,7 +215,7 @@ public class GameController : MonoBehaviour
         //activamos muro3
         placesToPutMurosBloqueoCamino[2].SetActive(true);
         //activamos muro2
-        placesToPutMurosBloqueoCamino[1].SetActive(true);
+       //placesToPutMurosBloqueoCamino[1].SetActive(true);
         int enemiesTotalRound4 = enemiesRoundFourSmallRoad1 + enemiesRoundFourSmallRoad2 + enemiesRoundFourSmallRoad3 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound4);
         //desactivaos resto
@@ -262,12 +262,12 @@ public class GameController : MonoBehaviour
     {
         enemyInGameList.Add(enemy);
         //actualizamos en pantalla
-        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
+        //UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
     }
 
     public void UpdateTotalEnemiesInRound(int totalEnemiesInRound)
     {
-        //UIManager.Instance.UpdateEnemiesLeft(totalEnemiesInRound);
+        UIManager.Instance.UpdateTotalEnemies(totalEnemiesInRound);
     }
 
     // Método para quitar un enemigo de la lista
@@ -275,7 +275,7 @@ public class GameController : MonoBehaviour
     {
         enemyInGameList.Remove(enemy);
         //actualizamos en pantalla
-        UIManager.Instance.UpdateEnemiesLeft(TotalEnemiesAlive());
+        UIManager.Instance.RemoveOneEnemy();
         //Debug.Log(enemyInGameList.Count);
     }
 

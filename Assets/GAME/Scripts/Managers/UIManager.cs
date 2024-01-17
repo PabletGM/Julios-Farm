@@ -28,6 +28,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TMP_Text roundNumber;
 
+    private int totalEnemies;
+
 
     private void Awake()
     {
@@ -71,10 +73,22 @@ public class UIManager : MonoBehaviour
         //Debug.Log("FarmShield UI " + farmShieldBar.fillAmount);
     }
 
-    public void UpdateEnemiesLeft(int totalEnemiesInGame)
+    public void UpdateTotalEnemies(int totalEnemiesInGame)
     {
-        enemiesLeftNumber.text = Convert.ToString(totalEnemiesInGame);
+        totalEnemies = totalEnemiesInGame;
+        enemiesLeftNumber.text = Convert.ToString(totalEnemies);
     }
+
+    public void RemoveOneEnemy()
+    {
+        totalEnemies -= 1;
+        enemiesLeftNumber.text = Convert.ToString(totalEnemies);
+    }
+
+    //public void UpdateEnemiesLeft(int totalEnemiesInGame)
+    //{
+    //    enemiesLeftNumber.text = Convert.ToString(totalEnemiesInGame);
+    //}
 
     public void UpdateRoundNumber(int actualRound)
     {
