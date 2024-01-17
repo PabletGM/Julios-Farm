@@ -21,7 +21,6 @@ public class hitEffect : MonoBehaviour
 
     private void Start()
     {
-        //renderComponent = GetComponent<Renderer>();
         _material = renderComponent.material;
         materialPropertyBlock = new MaterialPropertyBlock();
         

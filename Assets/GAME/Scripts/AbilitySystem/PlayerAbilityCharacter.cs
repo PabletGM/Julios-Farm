@@ -68,12 +68,7 @@ public class PlayerAbilityCharacter : AbilityCharacter
         }
         else if(emiterType == DamageEmiterType.Enemy)
         {
-            //PlayerManager.instance.CurrentHealth -= 1;
-            //Debug.Log(PlayerManager.instance.CurrentHealth);
-            //if (PlayerManager.instance.CurrentHealth <= 0)
-            //{
-            //    Debug.Log("Player Dead");
-            //}
+           
         }
 
        
@@ -95,21 +90,4 @@ public class PlayerAbilityCharacter : AbilityCharacter
         }
     }
 
-    //private void PlayerDied()
-    //{
-    //    ResetCurrentAbility();
-    //    canDoAbilties = false;
-    //    //playerMovement.CanMove = false;
-
-    //    Animator.SetTrigger("IsDied");
-
-    //    StartCoroutine(ShowPlayerDied());
-    //}
-
-    //IEnumerator ShowPlayerDied()
-    //{
-    //    yield return new WaitForSeconds(1f);
-    //    CharacterStats.ResetStats();
-    //    PlayerManager.instance.PlayerDied();
-    //}
 }

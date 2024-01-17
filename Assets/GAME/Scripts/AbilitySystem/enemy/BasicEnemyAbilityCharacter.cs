@@ -5,10 +5,7 @@ using UnityEngine.AI;
 
 public class BasicEnemyAbilityCharacter : AbilityCharacter
 {
-    //[Header("Enemy Parameters")]
-    //[Header("Destroy Particles")]
-    //public GameObject despawnParticles;
-    //public GameObject particlesPivot;
+   
 
     protected NavMeshAgent agent;
 
@@ -47,8 +44,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
 
 
-    //IEnumerator DestroyEnemyCoroutine;
-
+   
     //iniciamos abilityCharacter, enemyStats y variables del navmesh
     protected override void InitAbilityCharacter()
     {
@@ -85,13 +81,11 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             return;
         }
         agent.speed = enemyStats.speed.runTimeValue;
-        //Debug.Log(agent.speed);
 
         //funcionalidad del update del AbilityCharacter
         base.Update();
 
-        //calculamos distancia entre player y enemy
-        //float distanceToPlayer = Vector3.Distance(transform.position, playerManager.transform.position);
+        
 
         //calculamos distancia entre enemy y edificio pero solo en ejeX
         float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(destinoAtacar.transform.position.x, destinoAtacar.transform.position.y, destinoAtacar.transform.position.z));
@@ -174,9 +168,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             }
             currentHealth -= damage;
 
-            //Debug.Log("Take Damage");
-                    // EnemyHealthBar UI
-            //Debug.Log(currentHealth);
+
             if (currentHealth <= 0f)
             {
                 StopCoroutine(hitEfect);
@@ -220,28 +212,5 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         hitEfect = this.gameObject.GetComponent<hitEffect>().HitEffect();
     }
 
-    //private IEnumerator DestroyEnemy()
-    //{
-    //    float timeToWait = 2.5f;
-    //    while (timeToWait >= 0)
-    //    {
-    //        yield return null;
-    //        timeToWait -= Time.deltaTime;
-    //    }
-
-    //    DestroyEnemyCoroutine = null;
-    //    int poolIndex = ObjectPooler.instance.SearchPool(despawnParticles);
-    //    if (poolIndex != -1)
-    //    {
-    //        GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
-    //        particles.transform.position = particlesPivot.transform.position;
-    //        particles.SetActive(true);
-    //    }
-    //    //SceneEnemiesController.Instance.RemoveEnemyFromScene();
-    //    currentHealth = characterStats.health;
-    //    Animator.Rebind();
-    //    agent.isStopped = false;
-    //    canDoAbilties = true;
-    //    gameObject.SetActive(false);
-    //}
+  
 }

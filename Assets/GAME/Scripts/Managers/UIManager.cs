@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
     public void UpdateShieldBar(float fillAmount)
     {
         farmShieldBar.fillAmount = fillAmount;
-        //Debug.Log("FarmShield UI " + farmShieldBar.fillAmount);
+
     }
 
     public void UpdateTotalEnemies(int totalEnemiesInGame)
@@ -100,10 +100,7 @@ public class UIManager : MonoBehaviour
         enemiesLeftNumber.text = Convert.ToString(totalEnemies);
     }
 
-    //public void UpdateEnemiesLeft(int totalEnemiesInGame)
-    //{
-    //    enemiesLeftNumber.text = Convert.ToString(totalEnemiesInGame);
-    //}
+   
 
     public void UpdateRoundNumber(int actualRound)
     {

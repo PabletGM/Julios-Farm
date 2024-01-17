@@ -82,12 +82,7 @@ public class FarmAbilityCharacter : AbilityCharacter
                 UIManager.Instance.UpdateHealthBar(currentHealth / maxHealth);
             }
 
-            //if (currentHealth <= 0f)
-            //{
-            //    ResetCurrentAbility();
-            //    canDoAbilties = false;
-            //    Destroy(this.gameObject);
-            //}
+           
         }
     }
 

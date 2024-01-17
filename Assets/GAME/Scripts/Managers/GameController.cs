@@ -102,8 +102,7 @@ public class GameController : MonoBehaviour
         // Inicializar la lista en el Awake
         enemyInGameList = new List<BasicEnemyAbilityCharacter>();
 
-        //ponemos por defecto que estamos en Ronda1;
-        //AddRoundToGame();
+       
     }
 
 
@@ -278,7 +277,6 @@ public class GameController : MonoBehaviour
         enemyInGameList.Remove(enemy);
         //actualizamos en pantalla
         UIManager.Instance.RemoveOneEnemy();
-        //Debug.Log(enemyInGameList.Count);
     }
 
     public int TotalEnemiesAlive()

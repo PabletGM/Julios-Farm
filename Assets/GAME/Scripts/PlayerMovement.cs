@@ -48,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //agent.speed = stats.speed.runTimeValue;
         anim = GetComponent<Animator>();
     }
 

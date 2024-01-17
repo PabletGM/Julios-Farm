@@ -14,8 +14,7 @@ public class EnemyPrimaryAttackNormal : EnemyPrimaryAttack
 
     public override void OnReceiveAnimationEvent(AbilityCharacter character)
     {
-        //Debug.Log("Deal Damage");
-        //Debug.Log("Deal Damage");
+
 
         Vector3 rayOrigin = character.transform.position + new Vector3(0f, 0.5f, 0f);
 

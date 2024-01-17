@@ -14,7 +14,7 @@ public class PassiveItemHolder : MonoBehaviour
         {
             EfectoCogerPassive();
             character.AddPassiveAbility(PassiveAbility);
-            //Destroy(gameObject);
+
         }
     }
 

@@ -24,17 +24,7 @@ public class EnemySpawnerBoss : MonoBehaviour
 
     private int numeroEnemiesCreadosSpawn1 = 0;
 
-    //private void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //    }
-    //    else if (Instance != this)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    
 
     public void ChangeSpawnEachRound(int numEnemiesRound,float timetoSpawn)
     {

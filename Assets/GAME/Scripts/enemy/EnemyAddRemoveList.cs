@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class EnemyAddRemoveList : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        //AddEnemyToList();
-    }
+  
 
     public void AddEnemyToList()
     {
@@ -16,9 +12,5 @@ public class EnemyAddRemoveList : MonoBehaviour
         GameController.Instance.AddEnemyAlive(this.gameObject.GetComponent<BasicEnemyAbilityCharacter>());    /*< --EnemySpawner*/
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }
