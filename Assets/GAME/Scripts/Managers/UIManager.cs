@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     
     private GameController gameController;
 
+    [SerializeField] private GameObject enemiesLeftGameObject;
+
     [SerializeField] private TMP_Text enemiesLeftNumber;
 
     [SerializeField] private TMP_Text roundNumber;
@@ -43,6 +45,9 @@ public class UIManager : MonoBehaviour
         }
 
         gameController = GameController.Instance;
+
+        //ocultamos el Enemies Text Left en la UI en la primera ronda
+        HideEnemiesLeft();
     }
 
     public void UpdateHealthBar(float fillAmount)
@@ -65,6 +70,16 @@ public class UIManager : MonoBehaviour
     public void ShowYouWinCanvas()
     {
         WinGameCanvas.SetActive(true);
+    }
+
+    public void ShowEnemiesLeft()
+    {
+        enemiesLeftGameObject.SetActive(true);
+    }
+
+    public void HideEnemiesLeft()
+    {
+        enemiesLeftGameObject.SetActive(false);
     }
 
     public void UpdateShieldBar(float fillAmount)
