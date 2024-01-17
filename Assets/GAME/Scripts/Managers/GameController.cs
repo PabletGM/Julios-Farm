@@ -197,7 +197,7 @@ public class GameController : MonoBehaviour
     private void BehaviourRound3()
     {
         //activamos muro1
-        placesToPutMurosBloqueoCamino[0].SetActive(true);
+        //placesToPutMurosBloqueoCamino[0].SetActive(true);
         //activamos muro2
         placesToPutMurosBloqueoCamino[1].SetActive(true);
         //actualizamos el UI
@@ -215,7 +215,7 @@ public class GameController : MonoBehaviour
         //activamos muro3
         placesToPutMurosBloqueoCamino[2].SetActive(true);
         //activamos muro2
-        placesToPutMurosBloqueoCamino[1].SetActive(true);
+       //placesToPutMurosBloqueoCamino[1].SetActive(true);
         int enemiesTotalRound4 = enemiesRoundFourSmallRoad1 + enemiesRoundFourSmallRoad2 + enemiesRoundFourSmallRoad3 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound4);
         //desactivaos resto
