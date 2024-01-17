@@ -18,5 +18,5 @@ MonoBehaviour:
   duration: 0
   cooldown: 0
   shield: {fileID: 11400000, guid: e2f909089e7b9884285d54ba4670c88b, type: 2}
-  amountToAdd: 5
+  amountToAdd: 8
   maxShield: {fileID: 11400000, guid: 2efe2f83efbc7bc4ba6719f263e8e5c5, type: 2}

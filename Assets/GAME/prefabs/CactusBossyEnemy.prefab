@@ -546,7 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc075ca1180493043bd97f2989b6a676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
   renderComponent: {fileID: 2695995029398501216}
   baseColor: {r: 0, g: 0, b: 0, a: 0}
   damageColor: {r: 1, g: 0, b: 0, a: 0}

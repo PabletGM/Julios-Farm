@@ -16,7 +16,7 @@ public class hitEffect : MonoBehaviour
     protected Color damageColor;
 
     private float hitTimeEffect = 0;
-    private float totalHitTimeEffect = 0.4f;
+    private float totalHitTimeEffect = 0.25f;
 
 
     private void Start()
