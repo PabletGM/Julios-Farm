@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject GameOverCanvas;
 
+    [SerializeField] private GameObject WinGameCanvas;
+
     [SerializeField] private GameObject MainCanvas;
     
     private GameController gameController;
@@ -56,6 +58,11 @@ public class UIManager : MonoBehaviour
         GameOverCanvas.SetActive(true);
         //quitar canvas player
         MainCanvas.SetActive(true);
+    }
+
+    public void ShowYouWinCanvas()
+    {
+        WinGameCanvas.SetActive(true);
     }
 
     public void UpdateShieldBar(float fillAmount)

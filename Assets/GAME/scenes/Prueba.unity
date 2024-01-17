@@ -23313,6 +23313,12 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0.46600002, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &1377742906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2789157606490027489, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8369403693305256504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1382873994
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46058,11 +46064,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1372978284208823816, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: WinGameCanvas
+      value: 
+      objectReference: {fileID: 1377742906}
     - target: {fileID: 2678946657748225973, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1309290472}
+    - target: {fileID: 3778714179373956477, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4063756530190520084, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: hasOnStart
@@ -46113,10 +46129,46 @@ PrefabInstance:
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4146979810570591208, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 334507725370067433, guid: 85760590ceb3a2d4fbfc72c71698b3b9,
+        type: 2}
+    - target: {fileID: 4146979810570591208, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266870539564751297, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616356834930378972, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: AparecerWinGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663671599714776532, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5209956596130948323, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -1.7504883
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611379933066778415, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1309290472}
+    - target: {fileID: 5611379933066778415, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RedirectMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6058569884542652693, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
@@ -46192,6 +46244,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188594269647589908, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_Name
+      value: WinGameText
       objectReference: {fileID: 0}
     - target: {fileID: 7288885982596685243, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
