@@ -206,7 +206,7 @@ public class GameController : MonoBehaviour
         int enemiesTotalRound3 = enemiesRoundThreeSmallRoad1 + enemiesRoundThreeSmallRoad2 + enemiesRoundThreeSmallRoad3 + enemiesRoundThreeBigRoad1 + enemiesRoundThreeBigRoad1 + enemiesRoundThreeBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound3);
         //desactivaos resto
-        QuitWallsOfTheRound(0, 1);
+        QuitWallsOfTheRound(-1, 1);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundThreeSmallRoad1, enemiesRoundThreeSmallRoad2, enemiesRoundThreeSmallRoad3, enemiesRoundThreeTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundThreeBigRoad1, enemiesRoundThreeBigRoad2, enemiesRoundThreeBigRoad3, enemiesRoundThreeTimeToSpawnBig);
@@ -221,7 +221,7 @@ public class GameController : MonoBehaviour
         int enemiesTotalRound4 = enemiesRoundFourSmallRoad1 + enemiesRoundFourSmallRoad2 + enemiesRoundFourSmallRoad3 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound4);
         //desactivaos resto
-        QuitWallsOfTheRound(1,2);
+        QuitWallsOfTheRound(-1,2);
         //elegir tiempo de spawneo de enemigos
         ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundFourSmallRoad1, enemiesRoundFourSmallRoad2, enemiesRoundFourSmallRoad3, enemiesRoundFourTimeToSpawnSmall);
         ChangeSpawnTimeEachRoundBoss(enemiesRoundFourBigRoad1, enemiesRoundFourBigRoad2, enemiesRoundFourBigRoad3, enemiesRoundFourTimeToSpawnBig);
