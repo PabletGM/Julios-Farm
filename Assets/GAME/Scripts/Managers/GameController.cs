@@ -114,6 +114,8 @@ public class GameController : MonoBehaviour
         actualRound++;
         //modificar en UIManager
         UIManager.Instance.UpdateRoundNumber(actualRound);
+        //enseñamos el Enemies Left Text en la UI al empezar la ronda
+        UIManager.Instance.ShowEnemiesLeft();
         //cuando se le añade hacemos el comportamiento en cada ronda
         BehaviourOnEachRound();
     }
@@ -295,6 +297,14 @@ public class GameController : MonoBehaviour
         {
             UIManager.Instance.ShowYouWinCanvas();
         }
+    }
+
+    public void EndRound()
+    {
+        AbilitiesPerRound.Instance.MetodoFuncionalidadCrear3PasivasRonda();
+        breakTime = true;
+        IsGameWon();
+        UIManager.Instance.HideEnemiesLeft();
     }
     public void RedirectMainMenu()
     {

@@ -35612,6 +35612,12 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0.074, y: 0.015000001, z: -4.017}
   m_TimeToStationary: 0.5
+--- !u!1 &2135084014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 513662987483126854, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8369403693305256504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2137518095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46155,6 +46161,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 513662987483126854, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1260958747134533753, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -46165,6 +46176,11 @@ PrefabInstance:
       propertyPath: WinGameCanvas
       value: 
       objectReference: {fileID: 1377742906}
+    - target: {fileID: 1372978284208823816, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: enemiesLeftGameObject
+      value: 
+      objectReference: {fileID: 2135084014}
     - target: {fileID: 1443452959841308388, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: m_Color.a
