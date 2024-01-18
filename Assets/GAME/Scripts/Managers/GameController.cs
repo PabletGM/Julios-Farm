@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
         set { actualRound = value; }
     }
 
-    [SerializeField] private GameObject[] placesToPutMurosBloqueoCamino;
+    [SerializeField] private GameObject[] roundWalls;
 
     [SerializeField] private EnemySpawner[] SpawnsEnemyNormal;
     [SerializeField] private EnemySpawnerBoss[] SpawnsEnemyBoss;
@@ -166,9 +166,9 @@ public class GameController : MonoBehaviour
     private void BehaviourRound1()
     {
         //activamos muro1
-        placesToPutMurosBloqueoCamino[0].SetActive(true);
+        roundWalls[0].SetActive(true);
         //activamos muro3
-        placesToPutMurosBloqueoCamino[2].SetActive(true);
+        roundWalls[2].SetActive(true);
         //actualizamos el UI
         int enemiesTotalRound1 = enemiesRoundOneSmallRoad1 + enemiesRoundOneSmallRoad2 + enemiesRoundOneSmallRoad3 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound1);
@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour
     private void BehaviourRound2()
     {
         //activamos muro2
-        placesToPutMurosBloqueoCamino[1].SetActive(true);
+        roundWalls[1].SetActive(true);
         //actualizamos el UI
         int enemiesTotalRound2 = enemiesRoundTwoSmallRoad1 + enemiesRoundTwoSmallRoad2 + enemiesRoundTwoSmallRoad3 + enemiesRoundTwoBigRoad1 + enemiesRoundTwoBigRoad1 + enemiesRoundTwoBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound2);
@@ -200,7 +200,7 @@ public class GameController : MonoBehaviour
         //activamos muro1
         //placesToPutMurosBloqueoCamino[0].SetActive(true);
         //activamos muro2
-        placesToPutMurosBloqueoCamino[1].SetActive(true);
+        roundWalls[1].SetActive(true);
         //actualizamos el UI
         int enemiesTotalRound3 = enemiesRoundThreeSmallRoad1 + enemiesRoundThreeSmallRoad2 + enemiesRoundThreeSmallRoad3 + enemiesRoundThreeBigRoad1 + enemiesRoundThreeBigRoad1 + enemiesRoundThreeBigRoad1;
         UpdateTotalEnemiesInRound(enemiesTotalRound3);
@@ -214,7 +214,7 @@ public class GameController : MonoBehaviour
     private void BehaviourRound4()
     {
         //activamos muro3
-        placesToPutMurosBloqueoCamino[2].SetActive(true);
+        roundWalls[2].SetActive(true);
         //activamos muro2
        //placesToPutMurosBloqueoCamino[1].SetActive(true);
         int enemiesTotalRound4 = enemiesRoundFourSmallRoad1 + enemiesRoundFourSmallRoad2 + enemiesRoundFourSmallRoad3 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1 + enemiesRoundFourBigRoad1;
@@ -239,19 +239,19 @@ public class GameController : MonoBehaviour
     }
 
     //desactiva todos los muros excepto el del parametro que pasas
-    private void QuitWallsOfTheRound(int muroCorrecto1, int muroCorrecto2)
+    private void QuitWallsOfTheRound(int correctWall1, int correctWall2)
     {
-        for(int i = 0; i < placesToPutMurosBloqueoCamino.Length; i++) 
+        for(int i = 0; i < roundWalls.Length; i++) 
         { 
             //si es muro correcto
-            if(i == muroCorrecto1 || i == muroCorrecto2)
+            if(i == correctWall1 || i == correctWall2)
             {
-                placesToPutMurosBloqueoCamino[i].SetActive(true);
+                roundWalls[i].SetActive(true);
             }
             //sino se desactiva
             else
             {
-                placesToPutMurosBloqueoCamino[i].SetActive(false);
+                roundWalls[i].SetActive(false);
             }
         }
     }
@@ -299,7 +299,7 @@ public class GameController : MonoBehaviour
 
     public void EndRound()
     {
-        AbilitiesPerRound.Instance.MetodoFuncionalidadCrear3PasivasRonda();
+        AbilitiesPerRound.Instance.spawnRoundPassives();
         breakTime = true;
         IsGameWon();
         UIManager.Instance.HideEnemiesLeft();
@@ -309,7 +309,7 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(mainMenu);
     }
 
-    public void EfectoPasivaIniciarFuncionalidadEnemySpawnerSimpleEnemy()
+    public void initializeEnemySpawner()
     {
         SpawnsEnemyNormal[0].InstantiateEnemyNormal();
         SpawnsEnemyNormal[1].InstantiateEnemyNormal();

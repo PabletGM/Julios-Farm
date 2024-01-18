@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     public float timeToSpawn = 3f;
     private float timeSinceSpawn;
 
-    private bool permisoSpawnearEnemy = false;
+    private bool allowSpawnEnemy = false;
 
     public static EnemySpawner Instance;
 
@@ -49,19 +49,19 @@ public class EnemySpawner : MonoBehaviour
                 //Iniciar Spawners
 
                     //para cada spawner hará el numeroEnemigosCreados = numTotalEnemiesRound
-                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 0, numeroEnemiesCreadosSpawn1));
+                    StartCoroutine(CreateEnemyPerPlace(numTotalEnemiesRound, poolIndex, 0, numeroEnemiesCreadosSpawn1));
             }
         }
 
    
 
-    private IEnumerator CrearEnemigoPorLugar(int numeroDeEnemigosTotal, int poolIndex, int spawnPointNumber, int numeroEnemiesCreadosSpawnX)
+    private IEnumerator CreateEnemyPerPlace(int amountOfEnemiesTotal, int poolIndex, int spawnPointNumber, int numeroEnemiesCreadosSpawnX)
     {
         //todo el rato
         while (true)
         {
             //Funcionalidad y si no se ha pasado con el numero de enemies creados
-            if(permisoSpawnearEnemy && numeroEnemiesCreadosSpawnX < numeroDeEnemigosTotal)
+            if(allowSpawnEnemy && numeroEnemiesCreadosSpawnX < amountOfEnemiesTotal)
             {
                 GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
                 float offsetRandomX = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
@@ -70,14 +70,14 @@ public class EnemySpawner : MonoBehaviour
                 enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().enabled =true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;
-                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().RecuperarSaludParaFuturoRespawn();
+                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().resetHealthRespawn();
 
                 //activas corrutina
                 EnemyPrefabSimple.GetComponent<BasicEnemyAbilityCharacter>().AsociarHitEffectCoroutine();
                         
                 enemyGO.SetActive(true);
                 GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
-                permisoSpawnearEnemy = false;
+                allowSpawnEnemy = false;
                 //aumentar numero de enemigos creados
                 numeroEnemiesCreadosSpawnX++;
             }
@@ -100,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
         if (timeSinceSpawn >= timeToSpawn)
         {
             //damos permiso
-            permisoSpawnearEnemy = true;
+            allowSpawnEnemy = true;
             //reiniciar timer
             timeSinceSpawn = 0;
         }

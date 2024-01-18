@@ -22,7 +22,7 @@ public class EnemySpawnerBoss : MonoBehaviour
 
     private int numTotalEnemiesRound;
 
-    private int numeroEnemiesCreadosSpawn1 = 0;
+    private int numberEnemiesCreadosSpawn1 = 0;
 
     
 
@@ -33,7 +33,7 @@ public class EnemySpawnerBoss : MonoBehaviour
         //cambiar timeToSpawn enemy
         timeToSpawn = timetoSpawn;
         //reiniciamos numero enemiesCreados
-        numeroEnemiesCreadosSpawn1 = 0;
+        numberEnemiesCreadosSpawn1 = 0;
     }
 
         //llama a funcionalidad crear 3 enemigos de golpe
@@ -46,7 +46,7 @@ public class EnemySpawnerBoss : MonoBehaviour
                 //Iniciar Spawners
 
                     //para cada spawner hará el numeroEnemigosCreados = numTotalEnemiesRound
-                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 0, numeroEnemiesCreadosSpawn1));
+                    StartCoroutine(CrearEnemigoPorLugar(numTotalEnemiesRound, poolIndex, 0, numberEnemiesCreadosSpawn1));
             }
         }
 
@@ -67,7 +67,7 @@ public class EnemySpawnerBoss : MonoBehaviour
                 enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().enabled =true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;
-                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().RecuperarSaludParaFuturoRespawn();
+                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().resetHealthRespawn();
 
                 //activas corrutina
                 EnemyPrefabBoss.GetComponent<BasicEnemyAbilityCharacter>().AsociarHitEffectCoroutine();

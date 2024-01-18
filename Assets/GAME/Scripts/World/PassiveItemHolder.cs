@@ -12,22 +12,22 @@ public class PassiveItemHolder : MonoBehaviour
         PlayerAbilityCharacter character = other.GetComponent<PlayerAbilityCharacter>();
         if (character != null)
         {
-            EfectoCogerPassive();
+            gettingPassive();
             character.AddPassiveAbility(PassiveAbility);
 
         }
     }
 
     //efecto de la pasiva al cogerla
-    private void EfectoCogerPassive()
+    private void gettingPassive()
     {
         //destruimos resto de pasivas para que no se puedan coger
-        AbilitiesPerRound.Instance.PasivaCogidaParaLaRondaDestruirResto();
+        AbilitiesPerRound.Instance.destroyOtherPassives();
         //pasar de ronda en GameController
         GameController.Instance.AddRoundToGame();
         GameController.Instance.BreakTime(false);
         //aparecer enemigos funcionalidad spawnEnemy
-        GameController.Instance.EfectoPasivaIniciarFuncionalidadEnemySpawnerSimpleEnemy();
+        GameController.Instance.initializeEnemySpawner();
         GameController.Instance.EfectoPasivaIniciarFuncionalidadEnemySpawnerBossEnemy();
     }
 }

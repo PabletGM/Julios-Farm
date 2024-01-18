@@ -22963,7 +22963,7 @@ MonoBehaviour:
   enemiesRoundFourTimeToSpawnBig: 8
   enemiesRoundFiveTimeToSpawnSmall: 1.5
   enemiesRoundFiveTimeToSpawnBig: 8
-  placesToPutMurosBloqueoCamino:
+  roundWalls:
   - {fileID: 1970641573}
   - {fileID: 593061314}
   - {fileID: 1697043263}
@@ -24990,16 +24990,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPassivesTransform: {fileID: 956342022}
-  pasivasTotales:
+  allPassives:
   - {fileID: 1562310387}
   - {fileID: 1053309827}
   - {fileID: 1715072729}
   - {fileID: 1460058451}
   - {fileID: 244729943}
-  offsetPasiva1: {x: 3, y: 0, z: -3}
-  offsetPasiva2: {x: -3, y: 0, z: 2}
-  offsetPasiva3: {x: 0, y: 0, z: 0}
-  parentPasivasEachRound: {fileID: 1482036749}
+  offsetPasive1: {x: 0, y: 0, z: 0}
+  offsetPasive2: {x: 0, y: 0, z: 0}
+  offsetPasive3: {x: 0, y: 0, z: 0}
+  parentPassivesEachRound: {fileID: 1482036749}
 --- !u!1001 &1489913811
 PrefabInstance:
   m_ObjectHideFlags: 0

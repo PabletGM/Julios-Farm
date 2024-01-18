@@ -57,7 +57,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         if (enemyStats != null)
         {
             maxHealth = enemyStats.maxHealth;
-            RecuperarSaludParaFuturoRespawn();
+            resetHealthRespawn();
 
             //agent.speed = enemyStats.speed.runTimeValue;
             agent.angularSpeed = enemyStats.angularSpeed;
@@ -186,7 +186,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 //destruir
                 this.enabled = false;
                 //vida a tope para el futuro respawn
-                RecuperarSaludParaFuturoRespawn();
+                resetHealthRespawn();
                 this.gameObject.SetActive(false);
                 //Destroy(this.gameObject);
                 
@@ -201,7 +201,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         
     }
 
-    public void RecuperarSaludParaFuturoRespawn()
+    public void resetHealthRespawn()
     {
         currentHealth = maxHealth;
         enemyManager.UpdateEnemyHealthBar(maxHealth);

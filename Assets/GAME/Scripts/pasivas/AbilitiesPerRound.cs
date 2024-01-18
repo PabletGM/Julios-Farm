@@ -9,46 +9,46 @@ public class AbilitiesPerRound : MonoBehaviour
     private Transform spawnPassivesTransform;
     [Header("Posibles Pasivas a coger en cada ronda")]
     [SerializeField]
-    private GameObject[] pasivasTotales;
+    private GameObject[] allPassives; 
 
-    private List<GameObject> pasivasTotalesList;
+    private List<GameObject> listAllPasives;
 
     [Header("Posicion para spawnear las pasivas")]
     [SerializeField]
-    private Vector3 offsetPasiva1;
+    private Vector3 offsetPasive1;
     [SerializeField]
-    private Vector3 offsetPasiva2;
+    private Vector3 offsetPasive2;
     [SerializeField]
-    private Vector3 offsetPasiva3;
+    private Vector3 offsetPasive3;
 
     [Header("Objeto Padre de las pasivas de cada ronda")]
     [SerializeField]
-    private GameObject parentPasivasEachRound;
+    private GameObject parentPassivesEachRound;
 
-    private List<GameObject> pasivasRondaDisponibles;
+    private List<GameObject> passivesAvailables;
 
     public static AbilitiesPerRound Instance;
 
     void Start()
     {
-        MetodoFuncionalidadCrear3PasivasRonda();
+        spawnRoundPassives();
     }
 
     //funcionalidad
-    public void MetodoFuncionalidadCrear3PasivasRonda()
+    public void spawnRoundPassives()
     {
         //inicializar lista ronda pasivas
-        pasivasRondaDisponibles = new List<GameObject>();
+        passivesAvailables = new List<GameObject>();
 
         AñadirPasivasTotalesList();
 
         // Llamada al método para obtener 3 números sin repetición de pasivasTotales
-        pasivasRondaDisponibles = SeleccionarNumeros(pasivasTotalesList, 3);
+        passivesAvailables = SelectNumbers(listAllPasives, 3);
 
        
 
         //spawnear las 3 pasivas en una posicion del array del Vector3
-        SpawnArrayVectoresPosicionesPasivas();
+        SpawnPositionPassives();
     }
 
     private void Awake()
@@ -65,28 +65,28 @@ public class AbilitiesPerRound : MonoBehaviour
 
     }
 
-    private void SpawnArrayVectoresPosicionesPasivas()
+    private void SpawnPositionPassives()
     {
-        for (int i = 0; i < pasivasRondaDisponibles.Count; i++)
+        for (int i = 0; i < passivesAvailables.Count; i++)
         {
             //activamos pasiva
-            pasivasRondaDisponibles[i].gameObject.SetActive(true);
+            passivesAvailables[i].gameObject.SetActive(true);
             //dar posicion
             switch (i)
             {
                 case 0:
                 {
-                    pasivasRondaDisponibles[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasiva1;
+                    passivesAvailables[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasive1;
                     break;
                 }
                 case 1:
                 {
-                    pasivasRondaDisponibles[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasiva2;
+                    passivesAvailables[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasive2;
                     break;
                 }
                 case 2:
                 {
-                    pasivasRondaDisponibles[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasiva3;
+                    passivesAvailables[i].gameObject.transform.position = spawnPassivesTransform.position + offsetPasive3;
                     break;
                 }
 
@@ -98,19 +98,19 @@ public class AbilitiesPerRound : MonoBehaviour
     private void AñadirPasivasTotalesList()
     {
         //inicializamos lista
-        pasivasTotalesList = new List<GameObject>();
+        listAllPasives = new List<GameObject>();
         //añadimos de array pasivasTotales a pasivasTotalesList
         // Puedes hacer lo que necesites con la lista de números seleccionados
-        foreach (GameObject pasiva in pasivasTotales)
+        foreach (GameObject pasiva in allPassives)
         {
             GameObject gameObjectPasiva = pasiva;
-            pasivasTotalesList.Add(pasiva);
+            listAllPasives.Add(pasiva);
         }
         
 
     }
 
-    List<GameObject> SeleccionarNumeros(List<GameObject> opciones, int cantidad)
+    List<GameObject> SelectNumbers(List<GameObject> opciones, int cantidad)
     {
         List<GameObject> numerosSeleccionados = new List<GameObject>();
 
@@ -141,9 +141,9 @@ public class AbilitiesPerRound : MonoBehaviour
     }
 
     //como se ha cogido la pasiva para la ronda se desactivan y destruyen el resto
-    public void PasivaCogidaParaLaRondaDestruirResto()
+    public void destroyOtherPassives()
     {
-        foreach (GameObject pasiva in pasivasRondaDisponibles)
+        foreach (GameObject pasiva in passivesAvailables)
         {
             //si existe
             if(pasiva != null)
