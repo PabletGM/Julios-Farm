@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.TextCore.Text;
 
 public class BasicEnemyAbilityCharacter : AbilityCharacter
 {
@@ -167,6 +168,9 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 StartCoroutine(hitEfect);
             }
             currentHealth -= damage;
+
+            //ponemos animacion Hit
+            Animator.SetTrigger("HitTrigger");
 
 
             if (currentHealth <= 0f)
