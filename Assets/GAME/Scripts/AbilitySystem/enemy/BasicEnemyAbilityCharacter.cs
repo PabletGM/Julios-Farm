@@ -22,6 +22,11 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
     [SerializeField] private EnemyManager enemyManager;
 
+    private float tiempoAnimacionMuerteBasicEnemy = 1f;
+    private float tiempoAnimacionMuerteBossEnemy = 1.85f;
+
+
+
     [HideInInspector]
     public IEnumerator hitEfect;
 
@@ -32,6 +37,15 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             return canDoAbilties;
         }
         set {canDoAbilties = value;}
+    }
+
+    public bool CanMove
+    {
+        get
+        {
+            return canMove;
+        }
+        set { canMove = value; }
     }
 
     public float MaxHealth
@@ -175,25 +189,23 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
             if (currentHealth <= 0f)
             {
-                StopCoroutine(hitEfect);
-                hitEfect = null;
-                ResetCurrentAbility();
-                canDoAbilties = false;
-
-                //se quita enemigo de la lista de enemigos in game
-                GameController.Instance.RemoveEnemyAlive(this);
-                if(GameController.Instance.enemyInGameList.Count == 0)
+                //activamos animacion muerte
+                Animator.SetTrigger("DeathTrigger");
+                //que paren de moverse
+                Animator.SetBool("IsMoving", false);
+                CanMove = false;
+                enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
+                //segun que enemigo sea una pausa u otra
+                if(this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "basicEnemy")
                 {
-                    GameController.Instance.EndRound();
+                    Invoke("StopExistingEnemy", tiempoAnimacionMuerteBasicEnemy);
+                }
+                else if(this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "bossEnemy")
+                {
+                    Invoke("StopExistingEnemy", tiempoAnimacionMuerteBossEnemy);
                 }
 
-                //destruir
-                this.enabled = false;
-                //vida a tope para el futuro respawn
-                resetHealthRespawn();
-                this.gameObject.SetActive(false);
-                //Destroy(this.gameObject);
-                
+
             }
             else
             {
@@ -203,6 +215,32 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         }
 
         
+    }
+
+    private void StopExistingEnemy()
+    {
+        if(hitEfect != null)
+        {
+            StopCoroutine(hitEfect);
+            hitEfect = null;
+        }
+        
+        ResetCurrentAbility();
+        canDoAbilties = false;
+
+        //se quita enemigo de la lista de enemigos in game
+        GameController.Instance.RemoveEnemyAlive(this);
+        if (GameController.Instance.enemyInGameList.Count == 0)
+        {
+            GameController.Instance.EndRound();
+        }
+
+        //destruir
+        this.enabled = false;
+        //vida a tope para el futuro respawn
+        resetHealthRespawn();
+        this.gameObject.SetActive(false);
+        //Destroy(this.gameObject);
     }
 
     public void resetHealthRespawn()

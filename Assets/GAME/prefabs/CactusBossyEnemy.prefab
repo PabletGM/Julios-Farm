@@ -371,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealthBar: {fileID: 5495390660125453882}
   cam: {fileID: 195764495792410822, guid: 9a5e465cd9373464799505438878e281, type: 3}
+  enemyName: 
 --- !u!1 &5667712714323555562
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +404,7 @@ Transform:
   m_GameObject: {fileID: 5667712714323555562}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.715477, y: -0.59, z: 12.48468}
+  m_LocalPosition: {x: 20.715477, y: -1.16, z: 12.48468}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

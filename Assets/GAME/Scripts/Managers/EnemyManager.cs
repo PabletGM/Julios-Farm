@@ -14,6 +14,9 @@ public class EnemyManager : MonoBehaviour
     //Stats management -- Health 
     private float initHealth;
 
+    [HideInInspector]
+    public string enemyName;
+
     private float currentHealth;
     public float CurrentHealth
     {
@@ -46,5 +49,10 @@ public class EnemyManager : MonoBehaviour
             EnemyHealthBar.fillAmount = fillAmount;
         }
        
+    }
+
+    public void UpdateEnemyName(string enemyname)
+    {
+        enemyName = enemyname;
     }
 }

@@ -62,8 +62,8 @@ public class EnemySpawnerBoss : MonoBehaviour
             {
                 GameObject enemyGO = ObjectPooler.instance.GetPooledObject(poolIndex);
                float offsetRandomX = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
-                float offsetRandomY = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
-                enemyGO.transform.position = spawnPoints[spawnPointNumber].position + new Vector3(offsetRandomX, offsetRandomY, 0);
+                float offsetRandomZ = Random.Range(-offsetRangeEnemies, offsetRangeEnemies);
+                enemyGO.transform.position = spawnPoints[spawnPointNumber].position + new Vector3(offsetRandomX,0 , offsetRandomZ);
                 enemyGO.transform.rotation = spawnPoints[spawnPointNumber].rotation;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().enabled =true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;
@@ -74,6 +74,10 @@ public class EnemySpawnerBoss : MonoBehaviour
 
                 enemyGO.SetActive(true);
                 GameController.Instance.AddEnemyAlive(enemyGO.GetComponent<BasicEnemyAbilityCharacter>());
+
+                //le ponemos el nombre
+                enemyGO.GetComponentInChildren<EnemyManager>().UpdateEnemyName("bossEnemy");
+
                 permisoSpawnearEnemy = false;
                 //aumentar numero de enemigos creados
                 numeroEnemiesCreadosSpawnX++;
