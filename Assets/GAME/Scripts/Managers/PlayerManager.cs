@@ -50,4 +50,10 @@ public class PlayerManager : MonoBehaviour
     {
         return playerAbilityCharacter.CharacterStats;
     }
+
+    public void ChangeRakes()
+    {
+        playerAbilityCharacter.normalRake.SetActive(false);
+        playerAbilityCharacter.damageRake.SetActive(true);
+    }
 }

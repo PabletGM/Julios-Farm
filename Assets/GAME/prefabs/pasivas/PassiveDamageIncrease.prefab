@@ -77,7 +77,7 @@ PrefabInstance:
         type: 3}
       propertyPath: PassiveAbility
       value: 
-      objectReference: {fileID: 11400000, guid: c8c75a86e8b99c3408b85f1455c98ce9,
+      objectReference: {fileID: 11400000, guid: 10f022923f2a94944a98f91b62683a73,
         type: 2}
     - target: {fileID: 8631501393929310885, guid: 94ec5766af276e6478bbb12de296c361,
         type: 3}

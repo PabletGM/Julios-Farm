@@ -7,6 +7,10 @@ public class PlayerAbilityCharacter : AbilityCharacter
 {
     private PlayerMovement playerMovement;
 
+    public GameObject normalRake;
+
+    public GameObject damageRake;
+
     public bool CanMovePlayer
     {
         get
@@ -70,9 +74,13 @@ public class PlayerAbilityCharacter : AbilityCharacter
         {
            
         }
-
-       
     }
+
+    //public void ChangeRakes()
+    //{
+    //    normalRake.SetActive(false);
+    //    damageRake.SetActive(true);
+    //}
 
     //al detectar al enemy le añada a la lista
     
