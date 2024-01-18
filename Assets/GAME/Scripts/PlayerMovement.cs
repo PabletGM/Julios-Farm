@@ -33,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private bool leftButtonPressed = false;
 
     //Particulas al andar
-    public GameObject movementParticles;   
+    public GameObject movementParticles;  
+    
 
     public bool CanMovement
     {
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -80,27 +82,42 @@ public class PlayerMovement : MonoBehaviour
         if (agent.velocity != Vector3.zero)
         {
             anim.SetBool("IsMoving", true);
-            //Efecto Particulas
-            if (movementParticles != null)                                                                
-            {
-                int poolIndex = ObjectPooler.instance.SearchPool(movementParticles);
-                if (poolIndex != -1)
-                {
-                    GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
-                    particles.transform.position = character.transform.position;
-                    particles.SetActive(true);
-                }
-            }
+            
+            
         }
         //para quitar animacion correr que no tenga velocidad y que distancia entre punto al que va y player sea 0
         else if (agent.velocity == Vector3.zero || Vector3.Distance(this.transform.position, positionHitPoint) <= positionHitPointOffset)
         {
             anim.SetBool("IsMoving", false);
+           
         }
+
+
+
+        
+
+    }
+
+    public IEnumerator nubesPolvo()
+    {
+        //Efecto Particulas
+        if (movementParticles != null)
+        {
+            int poolIndex = ObjectPooler.instance.SearchPool(movementParticles);
+            if (poolIndex != -1)
+            {
+                GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+                particles.transform.position = character.transform.position;
+                particles.SetActive(true);
+            }
+        }
+        yield return null;
     }
 
     private void OnHoldMovement(InputValue value)
     {
         leftButtonPressed = !leftButtonPressed;
     }
+
+    
 }
