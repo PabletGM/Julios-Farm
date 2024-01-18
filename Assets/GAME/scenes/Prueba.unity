@@ -16253,6 +16253,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   stats: {fileID: 11400000, guid: a849b9d58b8e6fa4f9f63c4dca6f4ab3, type: 2}
+  movementParticles: {fileID: 5473230745075671558, guid: 70a9306b72edfdf4097fc56784359125,
+    type: 3}
 --- !u!4 &847747518
 Transform:
   m_ObjectHideFlags: 0
@@ -33428,6 +33430,10 @@ MonoBehaviour:
   - prefab: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,
       type: 3}
     amountToPool: 20
+    pooledObjects: []
+  - prefab: {fileID: 5473230745075671558, guid: 70a9306b72edfdf4097fc56784359125,
+      type: 3}
+    amountToPool: 10
     pooledObjects: []
 --- !u!1 &1996416775
 GameObject:
