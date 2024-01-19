@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPassive: 1
   abilityDescription: Increases Player Base Damage
-  abilityIcon: {fileID: 21300000, guid: 5d0f6ae4987d02846b822915a7301dfa, type: 3}
+  abilityIcon: {fileID: 21300000, guid: c42105df598feb242b5ee63f5d247b75, type: 3}
   duration: 0
   cooldown: 0
   variableToChange: {fileID: 11400000, guid: 101c44de205617247b6d348d25140b5e, type: 2}
