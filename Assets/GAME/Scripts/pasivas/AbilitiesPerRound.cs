@@ -93,7 +93,11 @@ public class AbilitiesPerRound : MonoBehaviour
             }
            
         }
+
+       
     }
+
+    
 
     private void AñadirPasivasTotalesList()
     {
@@ -151,6 +155,16 @@ public class AbilitiesPerRound : MonoBehaviour
                 pasiva.SetActive(false);
             }
             
+        }
+
+        foreach (GameObject pasiva in listAllPasives)
+        {
+            //si existe
+            if (pasiva != null)
+            {
+                pasiva.SetActive(false);
+            }
+
         }
     }
 }

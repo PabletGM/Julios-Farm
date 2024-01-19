@@ -34,6 +34,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
 
     public  async void attackPlayerParticle(AbilityCharacter character)
     {
+        //como no es monoBeahviour no puedo acceder a corrutinas ni a invoke
         await Task.Delay(250);
         PlayerAbilityCharacter.Instance.attackParticles.SetActive(true);   
     }
