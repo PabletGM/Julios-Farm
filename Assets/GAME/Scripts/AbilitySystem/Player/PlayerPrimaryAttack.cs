@@ -8,15 +8,29 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
     public int ticks;
     private float interval;
 
-    
-
     public override void StartAbility(AbilityCharacter character)
     {
         //conectamos con StartAbility de BasePrimaryAttack
         base.StartAbility(character);
         character.Animator.SetTrigger("AttackTrigger");
+        attackPlayerParticle(character);
         //numero de veces que se ejecuta en una duracion especifica
         interval = duration / ticks;
+    }
+
+    public void attackPlayerParticle(AbilityCharacter character)
+    {
+        //Efecto Particulas
+        if (attackParticles != null)
+        {
+            int poolIndex = ObjectPooler.instance.SearchPool(attackParticles);
+            if (poolIndex != -1)
+            {
+                GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+                particles.transform.position = character.transform.position;
+                particles.SetActive(true);
+            }
+        }
     }
 
     public override void UpdateAbility(AbilityCharacter character, float deltaTime, float elapsedTime)
@@ -44,7 +58,6 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
 
     private void MakeDamage(Transform character)
     {
-        
         //cuando haga daño que ya busque la lista de enemigos y vea cuales están cerca según la posicion
 
         //coges la lista de enemigos en el juego
@@ -63,9 +76,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
                 }
                 
             }
-        }
-
-       
+        }  
     }
 
 
