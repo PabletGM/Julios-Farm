@@ -33535,9 +33535,13 @@ MonoBehaviour:
     pooledObjects: []
   - prefab: {fileID: 5473230745075671558, guid: 70a9306b72edfdf4097fc56784359125,
       type: 3}
-    amountToPool: 10
+    amountToPool: 60
     pooledObjects: []
   - prefab: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+    amountToPool: 10
+    pooledObjects: []
+  - prefab: {fileID: 5473230745075671558, guid: 921e02a456ba2674791d15a149f2aadb,
+      type: 3}
     amountToPool: 10
     pooledObjects: []
 --- !u!1 &1996416775

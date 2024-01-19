@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
         // Inicializar la lista en el Awake
         enemyInGameList = new List<BasicEnemyAbilityCharacter>();
     }
-
+    
 
     #region MurosEachRound
     //se le añade ronda al juego

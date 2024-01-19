@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.TextCore.Text;
@@ -28,6 +29,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     // Death Particles
     public GameObject despawnParticles;
     public GameObject particlesPivot;
+    //Movement Particles
+    public GameObject movementParticles;
 
 
 
@@ -115,8 +118,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             if (IsPlayerAlive())
             {
                 //ponemos como objetivo del enemy la posicion del player
-                agent.SetDestination(destinoAtacar.transform.position);
-                //miramos si la distancia del player <= el attackRange del enemy
+                agent.SetDestination(destinoAtacar.transform.position);              
+               //miramos si la distancia del player <= el attackRange del enemy
                 if (distanceToPlayer <= slotAttackAbility.attackRange.runTimeValue)
                 {
                     //hacemos ataque del enemy
@@ -132,6 +135,22 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         }
 
         Animator.SetBool("IsMoving", IsNearToPlayer(distanceToPlayer) && IsPlayerAlive());
+    }
+    //Movement Particle
+    public IEnumerator movementEnemyParticle()
+    {
+        //Efecto Particulas
+        if (movementParticles != null)
+        {
+            int poolIndex = ObjectPooler.instance.SearchPool(movementParticles);
+            if (poolIndex != -1)
+            {
+                GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+                particles.transform.position = this.transform.position;
+                particles.SetActive(true);
+            }
+        }
+        yield return null;
     }
 
     public override void EnableCharacterMovement()
@@ -197,10 +216,10 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 Animator.SetTrigger("DeathTrigger");
 
                     //que paren de moverse
-                    Animator.SetBool("IsMoving", false);
-                    CanMove = false;
+                    Animator.SetBool("IsMoving", false);                
                     enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
                     //segun que enemigo sea una pausa u otra
+                    agent.isStopped = true;
                     if (this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "basicEnemy")
                     {
                         Invoke("StopExistingEnemy", tiempoAnimacionMuerteBasicEnemy);

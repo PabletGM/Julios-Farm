@@ -504,6 +504,8 @@ MonoBehaviour:
   enemyManager: {fileID: 2354307817957091437}
   despawnParticles: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   particlesPivot: {fileID: 8681628151581606390}
+  movementParticles: {fileID: 5473230745075671558, guid: 921e02a456ba2674791d15a149f2aadb,
+    type: 3}
 --- !u!114 &3104655113890127053
 MonoBehaviour:
   m_ObjectHideFlags: 0
