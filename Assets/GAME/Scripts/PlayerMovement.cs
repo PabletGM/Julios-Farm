@@ -33,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
     private bool leftButtonPressed = false;
 
     //Particulas al andar
-    public GameObject movementParticles;  
+    public GameObject movementParticles;
+
+    private bool puedoAndar = false;
     
 
     public bool CanMovement
@@ -83,13 +85,15 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("IsMoving", true);
             
-            
+
         }
         //para quitar animacion correr que no tenga velocidad y que distancia entre punto al que va y player sea 0
         else if (agent.velocity == Vector3.zero || Vector3.Distance(this.transform.position, positionHitPoint) <= positionHitPointOffset)
         {
             anim.SetBool("IsMoving", false);
-           
+            AudioManagerPlayer.instance.StopWalkSound();
+
+
         }
 
 
@@ -110,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
                 particles.transform.position = character.transform.position;
                 particles.SetActive(true);
             }
+
+            AudioManagerPlayer.instance.RandomWalkSound();
         }
         yield return null;
     }
