@@ -11,6 +11,11 @@ public class PlayerAbilityCharacter : AbilityCharacter
 
     public GameObject damageRake;
 
+    public GameObject attackParticles;
+
+    public static PlayerAbilityCharacter Instance;
+
+
     public bool CanMovePlayer
     {
         get
@@ -25,7 +30,14 @@ public class PlayerAbilityCharacter : AbilityCharacter
     
     private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Método para añadir un enemigo a la lista de enemiesNearPlayer

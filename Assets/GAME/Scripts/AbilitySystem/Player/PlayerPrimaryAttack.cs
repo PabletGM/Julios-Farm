@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
+
 
 [CreateAssetMenu(fileName = "PlayerPrimaryAttack", menuName = "JuliosFarm/Abilities/PlayerPrimaryAttack")]
 public class PlayerPrimaryAttack : BasePrimaryAttack
@@ -8,34 +11,37 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
     public int ticks;
     private float interval;
 
+    
+    
+
+
+    //duracion de vfx attack particle
+    private float durationAttackParticle =0 ;
+    private float MaxDurationAttackParticle;
+
     public override void StartAbility(AbilityCharacter character)
     {
         //conectamos con StartAbility de BasePrimaryAttack
         base.StartAbility(character);
+        MaxDurationAttackParticle = 0.5f;
         character.Animator.SetTrigger("AttackTrigger");
+
+
         attackPlayerParticle(character);
         //numero de veces que se ejecuta en una duracion especifica
         interval = duration / ticks;
     }
 
-    public void attackPlayerParticle(AbilityCharacter character)
+    public  async void attackPlayerParticle(AbilityCharacter character)
     {
-        //Efecto Particulas
-        if (attackParticles != null)
-        {
-            int poolIndex = ObjectPooler.instance.SearchPool(attackParticles);
-            if (poolIndex != -1)
-            {
-                GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
-                particles.transform.position = particlesPivot.transform.position;
-                particles.SetActive(true);
-            }
-        }
+        await Task.Delay(250);
+        PlayerAbilityCharacter.Instance.attackParticles.SetActive(true);   
     }
 
     public override void UpdateAbility(AbilityCharacter character, float deltaTime, float elapsedTime)
     {
         base.UpdateAbility(character, deltaTime, elapsedTime);
+        
 
         if (elapsedTime % interval <= deltaTime)
         {
@@ -44,16 +50,45 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
                 if(character!=null)
                 {
                     //se ejecuta y hace daño 3 veces por segundo
-                    MakeDamage(character.transform);
+                    MakeDamage(character.transform); 
                 }
                 
             }
         }
+
+
+
+        ////cronometro particulas ataque
+        //durationAttackParticle+= Time.deltaTime;
+        //// Verificar si ha pasado 1 segundo
+        //if (durationAttackParticle >=MaxDurationAttackParticle)
+        //{
+           
+        //    // Reiniciar el cronómetro
+        //    durationAttackParticle = 0f;
+        ////}
+
     }
+
+    public override void EndAbility(AbilityCharacter character)
+    {
+        QuitarParticleAttack();
+    }
+
+    private  async void QuitarParticleAttack()
+    {
+        await Task.Delay(1000);
+        PlayerAbilityCharacter.Instance.attackParticles.SetActive(false);
+    }
+
+    
+
+
 
     public override void OnReceiveAnimationEvent(AbilityCharacter character)
     {
-        //MakeDamage(character.transform);
+        //particula de ataque
+        attackPlayerParticle(character);
     }
 
     private void MakeDamage(Transform character)

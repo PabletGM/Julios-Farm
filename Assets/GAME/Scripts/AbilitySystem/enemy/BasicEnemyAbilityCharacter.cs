@@ -236,10 +236,10 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
                     enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
                 }
-            }
-
-
         }
+
+
+    }
     
 
         private void StopExistingEnemy()
@@ -261,14 +261,14 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 GameController.Instance.EndRound();
             }
 
-        //Death Particles 
-        int poolIndex = ObjectPooler.instance.SearchPool(despawnParticles);
-        if (poolIndex != -1)
-        {
-            GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
-            particles.transform.position = particlesPivot.transform.position;
-            particles.SetActive(true);
-        }
+            //Death Particles 
+            int poolIndex = ObjectPooler.instance.SearchPool(despawnParticles);
+            if (poolIndex != -1)
+            {
+                GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+                particles.transform.position = particlesPivot.transform.position;
+                particles.SetActive(true);
+            }
             //destruir
             this.enabled = false;
             //vida a tope para el futuro respawn

@@ -6,8 +6,8 @@ using UnityEngine;
 public class BasePrimaryAttack : AttackAbility
 {
     // Attack Particles
-    public GameObject attackParticles;
-    public GameObject particlesPivot;
+    //public GameObject attackParticles;
+    //public GameObject particlesPivot;
 
     public override void StartAbility(AbilityCharacter character)
     {
@@ -22,4 +22,6 @@ public class BasePrimaryAttack : AttackAbility
 
        
     }
+
+
 }
