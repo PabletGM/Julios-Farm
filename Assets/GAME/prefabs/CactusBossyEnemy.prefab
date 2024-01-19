@@ -502,6 +502,8 @@ MonoBehaviour:
   destinoAtacar: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
     type: 3}
   enemyManager: {fileID: 2354307817957091437}
+  despawnParticles: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  particlesPivot: {fileID: 8681628151581606390}
 --- !u!114 &3104655113890127053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,6 +1087,12 @@ SkinnedMeshRenderer:
 --- !u!4 &7115517772539934473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 51ed1a96caabdfb43a94013d75c97f28,
+    type: 3}
+  m_PrefabInstance: {fileID: 2865927052972858387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8681628151581606390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2324271141525611035, guid: 51ed1a96caabdfb43a94013d75c97f28,
     type: 3}
   m_PrefabInstance: {fileID: 2865927052972858387}
   m_PrefabAsset: {fileID: 0}

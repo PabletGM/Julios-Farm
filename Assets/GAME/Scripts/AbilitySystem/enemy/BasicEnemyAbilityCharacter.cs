@@ -6,7 +6,7 @@ using UnityEngine.TextCore.Text;
 
 public class BasicEnemyAbilityCharacter : AbilityCharacter
 {
-   
+
 
     protected NavMeshAgent agent;
 
@@ -14,7 +14,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     protected EnemyStats enemyStats;
 
     protected float currentHealth;
-    protected float maxHealth; 
+    protected float maxHealth;
 
     [Header("Destino a atacar")]
     [SerializeField]
@@ -25,18 +25,22 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     private float tiempoAnimacionMuerteBasicEnemy = 1f;
     private float tiempoAnimacionMuerteBossEnemy = 1.85f;
 
+    // Death Particles
+    public GameObject despawnParticles;
+    public GameObject particlesPivot;
+
 
 
     [HideInInspector]
     public IEnumerator hitEfect;
 
-    public bool CanDoAbilities 
+    public bool CanDoAbilities
     {
         get
         {
             return canDoAbilties;
         }
-        set {canDoAbilties = value;}
+        set { canDoAbilties = value; }
     }
 
     public bool CanMove
@@ -59,13 +63,13 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
 
 
-   
+
     //iniciamos abilityCharacter, enemyStats y variables del navmesh
     protected override void InitAbilityCharacter()
     {
         base.InitAbilityCharacter();
 
-        
+
         //Init agent paramenters 
         agent = GetComponent<NavMeshAgent>();
         enemyStats = (EnemyStats)characterStats;
@@ -100,7 +104,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         //funcionalidad del update del AbilityCharacter
         base.Update();
 
-        
+
 
         //calculamos distancia entre enemy y edificio pero solo en ejeX
         float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(destinoAtacar.transform.position.x, destinoAtacar.transform.position.y, destinoAtacar.transform.position.z));
@@ -150,7 +154,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     //comprueba si la distancia entre player y enemy es < a el limite establecido y si tiene permiso para moverse(agent.isStopped = false)
     protected bool IsNearToPlayer(float distanceToPlayer)
     {
-        if(enemyStats!=null)
+        if (enemyStats != null)
         {
             return distanceToPlayer <= enemyStats.aggroRadius && !agent.isStopped;
         }
@@ -158,7 +162,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         {
             return false;
         }
-       
+
     }
 
     public override void TakeDamage(float damage, DamageEmiterType emiterType)
@@ -168,7 +172,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             return;
         }
 
-    
+
 
         //si el emisor del daño es el player
         if (emiterType == DamageEmiterType.Player)
@@ -191,68 +195,78 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             {
                 //activamos animacion muerte
                 Animator.SetTrigger("DeathTrigger");
-                //que paren de moverse
-                Animator.SetBool("IsMoving", false);
-                CanMove = false;
-                enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
-                //segun que enemigo sea una pausa u otra
-                if(this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "basicEnemy")
-                {
-                    Invoke("StopExistingEnemy", tiempoAnimacionMuerteBasicEnemy);
-                }
-                else if(this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "bossEnemy")
-                {
-                    Invoke("StopExistingEnemy", tiempoAnimacionMuerteBossEnemy);
-                }
+
+                    //que paren de moverse
+                    Animator.SetBool("IsMoving", false);
+                    CanMove = false;
+                    enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
+                    //segun que enemigo sea una pausa u otra
+                    if (this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "basicEnemy")
+                    {
+                        Invoke("StopExistingEnemy", tiempoAnimacionMuerteBasicEnemy);
+                    }
+                    else if (this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "bossEnemy")
+                    {
+                        Invoke("StopExistingEnemy", tiempoAnimacionMuerteBossEnemy);
+                    }
 
 
+                }
+                else
+                {
+
+                    enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
+                }
             }
-            else
+
+
+        }
+    
+
+        private void StopExistingEnemy()
+        {
+            if (hitEfect != null)
             {
-               
-                enemyManager.UpdateEnemyHealthBar(currentHealth / maxHealth);
+                StopCoroutine(hitEfect);
+                hitEfect = null;
             }
-        }
 
-        
-    }
 
-    private void StopExistingEnemy()
-    {
-        if(hitEfect != null)
+            ResetCurrentAbility();
+            canDoAbilties = false;
+
+            //se quita enemigo de la lista de enemigos in game
+            GameController.Instance.RemoveEnemyAlive(this);
+            if (GameController.Instance.enemyInGameList.Count == 0)
+            {
+                GameController.Instance.EndRound();
+            }
+
+        //Death Particles 
+        int poolIndex = ObjectPooler.instance.SearchPool(despawnParticles);
+        if (poolIndex != -1)
         {
-            StopCoroutine(hitEfect);
-            hitEfect = null;
+            GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+            particles.transform.position = particlesPivot.transform.position;
+            particles.SetActive(true);
         }
-        
-        ResetCurrentAbility();
-        canDoAbilties = false;
+            //destruir
+            this.enabled = false;
+            //vida a tope para el futuro respawn
+            resetHealthRespawn();
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
+        }
 
-        //se quita enemigo de la lista de enemigos in game
-        GameController.Instance.RemoveEnemyAlive(this);
-        if (GameController.Instance.enemyInGameList.Count == 0)
+        public void resetHealthRespawn()
         {
-            GameController.Instance.EndRound();
+            currentHealth = maxHealth;
+            enemyManager.UpdateEnemyHealthBar(maxHealth);
         }
 
-        //destruir
-        this.enabled = false;
-        //vida a tope para el futuro respawn
-        resetHealthRespawn();
-        this.gameObject.SetActive(false);
-        //Destroy(this.gameObject);
-    }
-
-    public void resetHealthRespawn()
-    {
-        currentHealth = maxHealth;
-        enemyManager.UpdateEnemyHealthBar(maxHealth);
-    }
-
-    public void AsociarHitEffectCoroutine()
-    {
-        hitEfect = this.gameObject.GetComponent<hitEffect>().HitEffect();
-    }
-
-  
+        public void AsociarHitEffectCoroutine()
+        {
+            hitEfect = this.gameObject.GetComponent<hitEffect>().HitEffect();
+        }
+    
 }

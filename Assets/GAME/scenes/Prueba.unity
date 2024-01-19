@@ -33537,6 +33537,9 @@ MonoBehaviour:
       type: 3}
     amountToPool: 10
     pooledObjects: []
+  - prefab: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+    amountToPool: 10
+    pooledObjects: []
 --- !u!1 &1996416775
 GameObject:
   m_ObjectHideFlags: 0

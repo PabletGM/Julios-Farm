@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public IEnumerator nubesPolvo()
+    public IEnumerator movementPlayerParticle()
     {
         //Efecto Particulas
         if (movementParticles != null)

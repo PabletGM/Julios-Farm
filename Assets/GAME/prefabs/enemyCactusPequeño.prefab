@@ -1460,6 +1460,8 @@ MonoBehaviour:
   destinoAtacar: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
     type: 3}
   enemyManager: {fileID: 8735885179667544430}
+  despawnParticles: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  particlesPivot: {fileID: 152680270798800340}
 --- !u!114 &2478560130400577682
 MonoBehaviour:
   m_ObjectHideFlags: 0
