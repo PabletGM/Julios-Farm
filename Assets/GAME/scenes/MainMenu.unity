@@ -841,7 +841,9 @@ MonoBehaviour:
   - name: musica3
     clip: {fileID: 8300000, guid: 0c3d110378f59e54d91c6e585a2b1ea6, type: 3}
   sfxSounds: []
-  transitionSounds: []
+  transitionSounds:
+  - name: transition
+    clip: {fileID: 8300000, guid: f091efcb5c4de544894acfd60accae17, type: 3}
   musicSource: {fileID: 462265406}
   sfxSource1: {fileID: 1554162605}
   sfxSource2: {fileID: 1712578085}
@@ -1706,6 +1708,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: hasOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1416383300}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: transitionSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManagerAmbient, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 289467859867262985, guid: 64658abaf61daf64e81b433ed7663233,
+        type: 3}
+      propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1139619376602661881, guid: 64658abaf61daf64e81b433ed7663233,
         type: 3}
       propertyPath: m_Name

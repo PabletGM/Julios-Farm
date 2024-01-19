@@ -253,11 +253,17 @@ public class AudioManagerAmbient : MonoBehaviour
 
 
 
-    #region FuncionalidadExclusiva_Secuencia4
+    #region FuncionalidadExclusiva_GameJuliosFarm
     public void PulsarBotonSound()
     {
         //sonido pala golpe al acabar animacion
         PlaySFX1("clickButton", 1f);
+    }
+
+    public void transitionSound()
+    {
+        //sonido pala golpe al acabar animacion
+        PlayTransition("transition", 1f);
     }
     #endregion
 }
