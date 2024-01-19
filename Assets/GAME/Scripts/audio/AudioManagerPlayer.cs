@@ -6,7 +6,7 @@ using UnityEngine;
 public class AudioManagerPlayer : MonoBehaviour
 {
     public static AudioManagerPlayer instance;
-    public SoundGame[] walkSounds, sfxSounds;
+    public SoundGame[] walkSounds, sfxSounds, attackSounds;
     public AudioSource sfxSource1, sfxSource2, sfxSource3;
 
     private void Awake()
@@ -29,6 +29,7 @@ public class AudioManagerPlayer : MonoBehaviour
         StartCoroutine(RandomWalkCoroutine1());
     }
 
+
     private IEnumerator RandomWalkCoroutine1()
     {
         // Se ejecuta todo el tiempo
@@ -38,7 +39,7 @@ public class AudioManagerPlayer : MonoBehaviour
             //cogemos audioClip de esa pista
             AudioClip randomWalkClip = FindWalkClipByName(randomWalkSound);
             //hacemos que suene esa pista
-            PlaySFX1(randomWalkSound, 0.3f);
+            PlaySFX1(randomWalkSound, 0.1f);
 
             // Esperar a que la pista actual termine
             yield return new WaitForSeconds(randomWalkClip.length);
@@ -74,12 +75,68 @@ public class AudioManagerPlayer : MonoBehaviour
         return randomMusicSound;
     }
 
-    #endregion
-
     public void StopWalkSound()
     {
         StopCoroutine(RandomWalkCoroutine1());
     }
+
+    #endregion
+
+
+
+    #region RandomAttackSound
+    public void RandomAttackSound()
+    {
+        StartCoroutine(RandomAttackCoroutine1());
+    }
+
+
+    private IEnumerator RandomAttackCoroutine1()
+    {
+        // Se ejecuta todo el tiempo
+
+        // Elegir una pista de música aleatoria
+        string randomAttackSound = GetRandomAttackSound();
+        //cogemos audioClip de esa pista
+        AudioClip randomAttackClip = FindAttackClipByName(randomAttackSound);
+        //hacemos que suene esa pista
+        PlayAttackSFX(randomAttackSound, 0.01f);
+
+        // Esperar a que la pista actual termine
+        yield return new WaitForSeconds(randomAttackClip.length);
+
+
+        // Volver a elegir otra pista para reproducir en bucle
+
+    }
+
+    private AudioClip FindAttackClipByName(string AttackName)
+    {
+        // Buscar la instancia de AudioClip en musicSounds usando el nombre
+        foreach (SoundGame sound in attackSounds)
+        {
+            if (sound.name == AttackName)
+            {
+                return sound.clip;
+            }
+        }
+
+        // Si no se encuentra, devolver null o manejar el caso según tus necesidades
+        return null;
+    }
+
+    private string GetRandomAttackSound()
+    {
+        // Elegir un índice aleatorio para la matriz musicSounds
+        int randomIndex = UnityEngine.Random.Range(0, attackSounds.Length);
+
+        // Obtener el elemento de la matriz correspondiente al índice aleatorio
+        string randomAttackSound = attackSounds[randomIndex].name;
+
+        return randomAttackSound;
+    }
+
+    #endregion
 
 
 
@@ -102,6 +159,25 @@ public class AudioManagerPlayer : MonoBehaviour
             sfxSource1.PlayOneShot(s.clip);
         }
     }
+
+    public void PlayAttackSFX(string name, float volume)
+    {
+        //buscamos la musica que queremos poner en el musicSound
+        SoundGame s = Array.Find(attackSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+
+        else
+        {
+            sfxSource1.volume = volume;
+            sfxSource1.PlayOneShot(s.clip);
+        }
+    }
+
+
 
 
 

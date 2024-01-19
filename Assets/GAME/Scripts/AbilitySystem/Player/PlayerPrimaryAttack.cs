@@ -36,7 +36,8 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
     {
         //como no es monoBeahviour no puedo acceder a corrutinas ni a invoke
         await Task.Delay(250);
-        PlayerAbilityCharacter.Instance.attackParticles.SetActive(true);   
+        PlayerAbilityCharacter.Instance.attackParticles.SetActive(true);
+        AudioManagerPlayer.instance.RandomAttackSound();
     }
 
     public override void UpdateAbility(AbilityCharacter character, float deltaTime, float elapsedTime)
@@ -89,7 +90,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
     public override void OnReceiveAnimationEvent(AbilityCharacter character)
     {
         //particula de ataque
-        attackPlayerParticle(character);
+        //attackPlayerParticle(character);
     }
 
     private void MakeDamage(Transform character)
