@@ -27,7 +27,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
             if (poolIndex != -1)
             {
                 GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
-                particles.transform.position = character.transform.position;
+                particles.transform.position = particlesPivot.transform.position;
                 particles.SetActive(true);
             }
         }
