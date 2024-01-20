@@ -79,6 +79,13 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
     public void AddPassiveAbility(BaseAbility passiveAbility)
     {
         passiveAbilities.Add(passiveAbility);
+        for(int i = 0; i < passiveAbilities.Count; i++)
+        {
+            if (passiveAbilities[i] == passiveAbility)
+            {
+                //
+            }
+        }
         passiveAbility.StartAbility(this);
         //llama a metodo del PassiveUIManager y le pasa el icono de la pasiva
         if(passiveAbility.abilityIcon != null)
