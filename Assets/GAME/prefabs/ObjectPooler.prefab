@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1063917308115433077
+--- !u!1 &1216714317599601097
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8612810596855474481}
+  - component: {fileID: 3321411984599019429}
+  - component: {fileID: 3693366350885089080}
   m_Layer: 0
   m_Name: ObjectPooler
   m_TagString: Untagged
@@ -16,18 +17,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8612810596855474481
+--- !u!4 &3321411984599019429
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063917308115433077}
+  m_GameObject: {fileID: 1216714317599601097}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9471836, y: -19.517662, z: 90.37722}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -131.90718, y: -18.427662, z: 34.687218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3693366350885089080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216714317599601097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5993695af8e9e994eb1ab1862b982db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPool:
+  - prefab: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+      type: 3}
+    amountToPool: 20
+    pooledObjects: []
+  - prefab: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+      type: 3}
+    amountToPool: 20
+    pooledObjects: []
+  - prefab: {fileID: 5473230745075671558, guid: 70a9306b72edfdf4097fc56784359125,
+      type: 3}
+    amountToPool: 60
+    pooledObjects: []
+  - prefab: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+    amountToPool: 10
+    pooledObjects: []
+  - prefab: {fileID: 5473230745075671558, guid: 921e02a456ba2674791d15a149f2aadb,
+      type: 3}
+    amountToPool: 10
+    pooledObjects: []
+  - prefab: {fileID: 2630727110794422432, guid: 4c484360662538f48946f0d77eb2c84a,
+      type: 3}
+    amountToPool: 1
+    pooledObjects: []
+  - prefab: {fileID: 5035945247045292663, guid: 40e9c26b4fb5ece46aec0b08d269dd01,
+      type: 3}
+    amountToPool: 15
+    pooledObjects: []

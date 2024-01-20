@@ -117,6 +117,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             //mira si el player está vivo
             if (IsPlayerAlive())
             {
+                VeryCloseToPlayer(distanceToPlayer);
                 //ponemos como objetivo del enemy la posicion del player
                 agent.SetDestination(destinoAtacar.transform.position);              
                //miramos si la distancia del player <= el attackRange del enemy
@@ -124,6 +125,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 {
                     //hacemos ataque del enemy
                     ExecutePrimaryAbility();
+                    //sound
+                    AttackEnemy(distanceToPlayer);
                 }
             }
             //si el jugador no esta vivo paramos el characterMovement
@@ -184,6 +187,82 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
 
     }
 
+    //random sounds
+    private void VeryCloseToPlayer(float distancePlayer)
+    {
+        int numPosibilidades = 80;
+        int numElegido = 2;
+        int randomValue = UnityEngine.Random.Range(0, numPosibilidades);
+
+        if (randomValue == numElegido)
+        {
+            if (enemyStats != null)
+            {
+                if (distancePlayer <= 10)
+                {
+                    this.gameObject.GetComponentInChildren<AudioManagerEnemy>().RandomWalkSound();
+                }
+            }
+        }
+        
+    }
+
+
+    private void AttackEnemy(float distancePlayer)
+    {
+        int numPosibilidades = 5;
+        int numElegido = 2;
+        int randomValue = UnityEngine.Random.Range(0, numPosibilidades);
+
+        if (randomValue == numElegido)
+        {
+            if (enemyStats != null)
+            {
+                if (distancePlayer <= 10)
+                {
+                    this.gameObject.GetComponentInChildren<AudioManagerEnemy>().RandomAttackSound();
+                }
+            }
+        }
+
+    }
+
+    private void AttackHitEnemy()
+    {
+        int numPosibilidades = 2;
+        int numElegido = 1;
+        int randomValue = UnityEngine.Random.Range(0, numPosibilidades);
+
+        if (randomValue == numElegido)
+        {
+            if (enemyStats != null)
+            {
+                
+                    this.gameObject.GetComponentInChildren<AudioManagerEnemy>().RandomAttackVoice();
+                
+            }
+        }
+
+    }
+
+    private void AttackDeathEnemy()
+    {
+        int numPosibilidades = 2;
+        int numElegido = 1;
+        int randomValue = UnityEngine.Random.Range(0, numPosibilidades);
+
+        if (randomValue == numElegido)
+        {
+            if (enemyStats != null)
+            {
+
+                this.gameObject.GetComponentInChildren<AudioManagerEnemy>().RandomDeath();
+
+            }
+        }
+
+    }
+
     public override void TakeDamage(float damage, DamageEmiterType emiterType)
     {
         if (emiterType == DamageEmiterType.Enemy || currentHealth < 0f)
@@ -205,6 +284,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                 StartCoroutine(hitEfect);
             }
             currentHealth -= damage;
+            //sonido hit
+            AttackHitEnemy();
 
             //ponemos animacion Hit
             Animator.SetTrigger("HitTrigger");
@@ -214,6 +295,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             {
                 //activamos animacion muerte
                 Animator.SetTrigger("DeathTrigger");
+                AttackDeathEnemy();
 
                     //que paren de moverse
                     Animator.SetBool("IsMoving", false);                
