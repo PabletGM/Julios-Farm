@@ -80,6 +80,7 @@ public class FarmAbilityCharacter : AbilityCharacter
             {
                 currentHealth -= damage;
                 UIManager.Instance.UpdateHealthBar(currentHealth / maxHealth);
+                AudioManagerPlayer.instance.RandomHouseHit();
             }
 
            
@@ -96,6 +97,7 @@ public class FarmAbilityCharacter : AbilityCharacter
         currentShield = characterStats.shield.runTimeValue;
         maxShield = characterStats.maxShield.runTimeValue;
         farmShield.SetActive(true);
+        AudioManagerPlayer.instance.PassiveEscudo();
     }
 
 }

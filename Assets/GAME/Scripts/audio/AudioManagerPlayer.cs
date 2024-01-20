@@ -6,8 +6,8 @@ using UnityEngine;
 public class AudioManagerPlayer : MonoBehaviour
 {
     public static AudioManagerPlayer instance;
-    public SoundGame[] walkSounds, sfxSounds, attackSounds, attackVoice;
-    public AudioSource sfxSource1, sfxSource2, sfxSource3;
+    public SoundGame[] walkSounds, houseHit, attackSounds, attackVoice, sfxSounds;
+    public AudioSource sfxSource1, sfxSource2, sfxSource3, sfxSource4, sfxSource5, sfxSource6;
 
     private void Awake()
     {
@@ -193,6 +193,87 @@ public class AudioManagerPlayer : MonoBehaviour
     #endregion
 
 
+    #region RandomHouseHit
+    public void RandomHouseHit()
+    {
+        StartCoroutine(RandomHouseHitCoroutine1());
+    }
+
+
+    private IEnumerator RandomHouseHitCoroutine1()
+    {
+        // Se ejecuta todo el tiempo
+
+        // Elegir una pista de música aleatoria
+        string randomHouseHitSound = GetRandomHouseHitSound();
+        //cogemos audioClip de esa pista
+        AudioClip randomHouseHitClip = FindHouseHitClipByName(randomHouseHitSound);
+        //hacemos que suene esa pista
+        PlaySFX4(randomHouseHitSound, 0.15f);
+
+        // Esperar a que la pista actual termine
+        yield return new WaitForSeconds(randomHouseHitClip.length);
+
+
+        // Volver a elegir otra pista para reproducir en bucle
+
+    }
+
+    private AudioClip FindHouseHitClipByName(string walkName)
+    {
+        // Buscar la instancia de AudioClip en musicSounds usando el nombre
+        foreach (SoundGame sound in houseHit)
+        {
+            if (sound.name == walkName)
+            {
+                return sound.clip;
+            }
+        }
+
+        // Si no se encuentra, devolver null o manejar el caso según tus necesidades
+        return null;
+    }
+
+    private string GetRandomHouseHitSound()
+    {
+        // Elegir un índice aleatorio para la matriz musicSounds
+        int randomIndex = UnityEngine.Random.Range(0, houseHit.Length);
+
+        // Obtener el elemento de la matriz correspondiente al índice aleatorio
+        string randomMusicSound = houseHit[randomIndex].name;
+
+        return randomMusicSound;
+    }
+
+    #endregion
+    
+
+    public void NextRound()
+    {
+        PlaySFX4("nextRound", 0.4f);
+    }
+
+    public void TakePassive()
+    {
+        PlaySFX5("takepasiva", 0.4f);
+    }
+
+    public void PassiveEscudo()
+    {
+        PlaySFX6("escudo", 0.4f);
+    }
+
+    public void Win()
+    {
+        PlaySFX4("win", 0.4f);
+    }
+
+    public void Lose()
+    {
+        PlaySFX4("lose", 0.4f);
+    }
+
+
 
 
 
@@ -285,6 +366,60 @@ public class AudioManagerPlayer : MonoBehaviour
         {
             sfxSource3.volume = volume;
             sfxSource3.PlayOneShot(s.clip);
+        }
+    }
+
+    //tercer sonido VFX
+    public void PlaySFX4(string name, float volume)
+    {
+        //buscamos la musica que queremos poner en el musicSound
+        SoundGame s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+
+        else
+        {
+            sfxSource4.volume = volume;
+            sfxSource4.PlayOneShot(s.clip);
+        }
+    }
+
+    //tercer sonido VFX
+    public void PlaySFX5(string name, float volume)
+    {
+        //buscamos la musica que queremos poner en el musicSound
+        SoundGame s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+
+        else
+        {
+            sfxSource5.volume = volume;
+            sfxSource5.PlayOneShot(s.clip);
+        }
+    }
+
+    //tercer sonido VFX
+    public void PlaySFX6(string name, float volume)
+    {
+        //buscamos la musica que queremos poner en el musicSound
+        SoundGame s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+
+        else
+        {
+            sfxSource6.volume = volume;
+            sfxSource6.PlayOneShot(s.clip);
         }
     }
 

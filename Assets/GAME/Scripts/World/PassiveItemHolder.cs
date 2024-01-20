@@ -41,6 +41,7 @@ public class PassiveItemHolder : MonoBehaviour
         //aparecer enemigos funcionalidad spawnEnemy
         GameController.Instance.initializeEnemySpawner();
         GameController.Instance.EfectoPasivaIniciarFuncionalidadEnemySpawnerBossEnemy();
+        AudioManagerPlayer.instance.TakePassive();
     }
 }
 

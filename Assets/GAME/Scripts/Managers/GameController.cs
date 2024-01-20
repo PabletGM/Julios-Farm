@@ -101,9 +101,7 @@ public class GameController : MonoBehaviour
 
         // Inicializar la lista en el Awake
         enemyInGameList = new List<BasicEnemyAbilityCharacter>();
-        AddRoundToGame();
-        AddRoundToGame();
-        AddRoundToGame();
+
     }
     
 
@@ -111,6 +109,8 @@ public class GameController : MonoBehaviour
     //se le añade ronda al juego
     public void AddRoundToGame()
     {
+        //sonido de ronda
+        AudioManagerPlayer.instance.NextRound();
         actualRound++;
         //modificar en UIManager
         UIManager.Instance.UpdateRoundNumber(actualRound);
