@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    private int actualRound = 5;
+    private int actualRound = 0;
 
     private string mainMenu = "MainMenu";
 
