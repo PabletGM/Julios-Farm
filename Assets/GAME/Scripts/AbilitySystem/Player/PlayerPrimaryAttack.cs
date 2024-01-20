@@ -120,13 +120,12 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
     {
         //cuando haga daño que ya busque la lista de enemigos y vea cuales están cerca según la posicion
         //coges la lista de enemigos en el juego
-        List<BarrelAbilityCharacter> barrelInGame = GameController.Instance.barrelInGameList;
+        List<DamageableBarrel> barrelInGame = GameController.Instance.barrelInGameList;
         //compruebas en cada enemigo de la lista su posicion
         for (int i = 0; i < barrelInGame.Count; i++)
         {
             //si su posicion del enemy - posicion del player <= attackRange ---> está cerca
             float distancePlayerBarrel = Vector3.Distance(barrelInGame[i].transform.position, character.transform.position);
-            Debug.Log(distancePlayerBarrel);
             if (distancePlayerBarrel <= attackRange.runTimeValue)
             {
                 if (barrelInGame[i] != null)

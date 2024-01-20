@@ -1,15 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class BarrelAbilityCharacter : AbilityCharacter
+public class DamageableBarrel : MonoBehaviour, IDamageable
 {
-
     [SerializeField]
     private GameObject brokenBarrel;
 
-    public override void TakeDamage(float damage, DamageEmiterType emiterType)
+    public void TakeDamage(float damage, DamageEmiterType emiterType)
     {
         //if (destroyParticles != null)
         //{
@@ -22,7 +20,6 @@ public class BarrelAbilityCharacter : AbilityCharacter
         //    }
 
         //}
-        Debug.Log("Damage Barrel");
         brokenBarrel.transform.SetParent(null);
         brokenBarrel.gameObject.SetActive(true);
         Destroy(gameObject);

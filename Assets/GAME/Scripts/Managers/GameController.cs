@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     //Lista de enemigos que están en juego
     public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
-    public List<BarrelAbilityCharacter> barrelInGameList;
+    public List<DamageableBarrel> barrelInGameList;
 
     [Header("Enemies per round and road")]
     [Header("Round 1")]
