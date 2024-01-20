@@ -72,6 +72,7 @@ public class EnemySpawner : MonoBehaviour
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanDoAbilities = true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanMove = true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().resetHealthRespawn();
+                enemyGO.GetComponent<BasicEnemyAbilityCharacter>().isDead = false;
 
                 //activas corrutina
                 EnemyPrefabSimple.GetComponent<BasicEnemyAbilityCharacter>().AsociarHitEffectCoroutine();

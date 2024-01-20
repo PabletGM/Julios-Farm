@@ -45,10 +45,37 @@ public class AbilitiesPerRound : MonoBehaviour
         // Llamada al método para obtener 3 números sin repetición de pasivasTotales
         passivesAvailables = SelectNumbers(listAllPasives, 3);
 
-       
+        //que se compruebe si hay mas de 3 pasives y que si las hay elimines las sobrantes
+        DeleteExtraPassives();
 
         //spawnear las 3 pasivas en una posicion del array del Vector3
         SpawnPositionPassives();
+
+        
+    }
+
+
+   
+
+
+    private void DeleteExtraPassives()
+    {
+        int passivesExtra = passivesAvailables.Count - 3;
+        if (passivesExtra > 0)
+        {
+            //eliminar las de indice 0 
+            if (passivesAvailables.Count == 1)
+            {
+                passivesAvailables.RemoveAt(0);
+            }
+            //eliminar las de indice 0 y 1
+            else if (passivesAvailables.Count == 2)
+            {
+                passivesAvailables.RemoveAt(0);
+                passivesAvailables.RemoveAt(1);
+            }
+            
+        }
     }
 
     private void Awake()

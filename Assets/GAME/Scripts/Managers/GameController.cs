@@ -181,11 +181,11 @@ public class GameController : MonoBehaviour
                 switch (actualRound)
                 {
                     case 1:
-                        {
-                            //do this
-                            BehaviourRound1();
-                            break;
-                        }
+                    {
+                        //do this
+                        BehaviourRound1();
+                        break;
+                    }
                     case 2:
                         {
                             //do this

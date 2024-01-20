@@ -29,6 +29,9 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     public GameObject particlesPivot;
     //Movement Particles
     public GameObject movementParticles;
+
+    [HideInInspector]
+    public bool isDead = false;
     
 
     //public static BasicEnemyAbilityCharacter Instance;
@@ -302,11 +305,12 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
             Animator.SetTrigger("HitTrigger");
 
 
-            if (currentHealth <= 0f)
+            if (currentHealth <= 0f && !isDead)
             {
                 //activamos animacion muerte
                 Animator.SetTrigger("DeathTrigger");
                 AttackDeathEnemy();
+                isDead = true;
 
                     //que paren de moverse
                     Animator.SetBool("IsMoving", false);                
@@ -323,7 +327,7 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
                     }
 
 
-                }
+            }
                 else
                 {
 
