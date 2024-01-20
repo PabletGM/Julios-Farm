@@ -26928,6 +26928,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432ecc24e92172742a96e3410c8f960e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabEnemyNormal: {fileID: 7580144431915309500, guid: 55fab922456d63849b25c48e2eb3f2c3,
+    type: 3}
+  prefabEnemyBoss: {fileID: 6529492690942168981, guid: 5a3d8a7762a68c04980da0899b9a25c7,
+    type: 3}
   enemyInGameList: []
   barrelInGameList:
   - {fileID: 70479460}

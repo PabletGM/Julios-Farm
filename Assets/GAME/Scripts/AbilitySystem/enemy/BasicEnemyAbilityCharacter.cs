@@ -10,7 +10,8 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     protected NavMeshAgent agent;
 
     private PlayerManager playerManager;
-    protected EnemyStats enemyStats;
+    [HideInInspector]
+    public EnemyStats enemyStats;
 
     protected float currentHealth;
     protected float maxHealth;
@@ -180,6 +181,23 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     {
         base.StopCharacterMovement();
         agent.isStopped = true;
+    }
+
+    public void AssociateEnemyStats()
+    {
+        //Init agent paramenters 
+        agent = GetComponent<NavMeshAgent>();
+        enemyStats = (EnemyStats)characterStats;
+        if (enemyStats != null)
+        {
+            maxHealth = enemyStats.maxHealth;
+            resetHealthRespawn();
+
+            //agent.speed = enemyStats.speed.runTimeValue;
+            agent.angularSpeed = enemyStats.angularSpeed;
+            agent.stoppingDistance = enemyStats.stoppingDistance;
+            agent.autoBraking = enemyStats.autoBraking;
+        }
     }
 
     protected virtual bool IsPlayerAlive()

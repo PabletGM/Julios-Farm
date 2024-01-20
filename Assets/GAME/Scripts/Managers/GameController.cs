@@ -7,6 +7,11 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class GameController : MonoBehaviour
 {
+
+    [SerializeField]
+    private GameObject prefabEnemyNormal;
+    [SerializeField]
+    private GameObject prefabEnemyBoss;
     private string sceneNameGame = "Game";
     private string sceneNameSurvival = "Survival";
 
@@ -76,7 +81,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    private int actualRound = 0;
+    private int actualRound = 5;
 
     private string mainMenu = "MainMenu";
 
@@ -241,13 +246,26 @@ public class GameController : MonoBehaviour
 
     private void UpdateVariablesEnemy(int enemiesExtraSmall, int enemiesExtraBoss)
     {
+
         enemiesRoundFiveSmallRoad1 += enemiesExtraSmall;
         enemiesRoundFiveSmallRoad2 += enemiesExtraSmall;
         enemiesRoundFiveSmallRoad3 += enemiesExtraSmall;
 
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
+
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue *= 1.2f;
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth *= 1.2f;
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue *= 1.05f;
+
         enemiesRoundFiveBigRoad1 += enemiesExtraBoss;
         enemiesRoundFiveBigRoad2 += enemiesExtraBoss;
         enemiesRoundFiveBigRoad3 += enemiesExtraBoss;
+
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
+
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue *= 1.1f;
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth *= 1.1f;
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue *= 1.05f;
 
         int enemiesTotalRound1 = enemiesRoundFiveSmallRoad1 + enemiesRoundFiveSmallRoad2 + enemiesRoundFiveSmallRoad3 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesExtraSmall + enemiesExtraBoss;
         //actualizamos el UI
