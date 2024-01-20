@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/GAME/scenes/MainMenu.unity
     guid: 24675211b1ef641418c78c0513d7776f
   - enabled: 1
-    path: Assets/GAME/scenes/Prueba.unity
+    path: Assets/GAME/scenes/Game.unity
     guid: 1d454f5508d17f84ca017b9f1bc07461
+  - enabled: 1
+    path: Assets/GAME/scenes/Survival.unity
+    guid: 0d32adccd2d15a5429b7a941edd31235
   m_configObjects: {}

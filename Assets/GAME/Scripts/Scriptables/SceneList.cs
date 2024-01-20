@@ -21,6 +21,8 @@ public class SceneList : ScriptableObject
 
     [SerializeField]
     public string firstSceneName;
+    [SerializeField]
+    public string secondSceneName;
 
     private void OnValidate()
     {

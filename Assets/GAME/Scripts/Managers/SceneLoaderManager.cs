@@ -28,6 +28,11 @@ public class SceneLoaderManager : MonoBehaviour
         LoadScene(SceneList.firstSceneName);
     }
 
+    public void LoadSurvivalScene()
+    {
+        LoadScene(SceneList.secondSceneName);
+    }
+
     public void ReturnToMainMenu()
     {
         LoadScene("MainMenu");
