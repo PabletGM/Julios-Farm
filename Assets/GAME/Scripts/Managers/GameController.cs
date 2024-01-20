@@ -235,21 +235,21 @@ public class GameController : MonoBehaviour
         QuitWallsOfTheRound(-1, -1);
 
         //elegir tiempo de spawneo de enemigos
-        ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundOneSmallRoad1, enemiesRoundOneSmallRoad2, enemiesRoundOneSmallRoad3, enemiesRoundOneTimeToSpawnSmall);
-        ChangeSpawnTimeEachRoundBoss(enemiesRoundOneBigRoad1, enemiesRoundOneBigRoad2, enemiesRoundOneBigRoad3, enemiesRoundOneTimeToSpawnBig);
+        ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundFiveSmallRoad1, enemiesRoundFiveSmallRoad2, enemiesRoundFiveSmallRoad3, enemiesRoundFiveTimeToSpawnSmall);
+        ChangeSpawnTimeEachRoundBoss(enemiesRoundFiveBigRoad1, enemiesRoundFiveBigRoad2, enemiesRoundFiveBigRoad3, enemiesRoundFiveTimeToSpawnBig);
     }
 
     private void UpdateVariablesEnemy(int enemiesExtraSmall, int enemiesExtraBoss)
     {
-        enemiesRoundOneSmallRoad1 += enemiesExtraSmall;
-        enemiesRoundOneSmallRoad2 += enemiesExtraSmall;
-        enemiesRoundOneSmallRoad3 += enemiesExtraSmall;
+        enemiesRoundFiveSmallRoad1 += enemiesExtraSmall;
+        enemiesRoundFiveSmallRoad2 += enemiesExtraSmall;
+        enemiesRoundFiveSmallRoad3 += enemiesExtraSmall;
 
-        enemiesRoundOneBigRoad1 += enemiesExtraBoss;
-        enemiesRoundOneBigRoad2 += enemiesExtraBoss;
-        enemiesRoundOneBigRoad3 += enemiesExtraBoss;
+        enemiesRoundFiveBigRoad1 += enemiesExtraBoss;
+        enemiesRoundFiveBigRoad2 += enemiesExtraBoss;
+        enemiesRoundFiveBigRoad3 += enemiesExtraBoss;
 
-        int enemiesTotalRound1 = enemiesRoundOneSmallRoad1 + enemiesRoundOneSmallRoad2 + enemiesRoundOneSmallRoad3 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1 + enemiesExtraSmall + enemiesExtraBoss;
+        int enemiesTotalRound1 = enemiesRoundFiveSmallRoad1 + enemiesRoundFiveSmallRoad2 + enemiesRoundFiveSmallRoad3 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesExtraSmall + enemiesExtraBoss;
         //actualizamos el UI
         UpdateTotalEnemiesInRound(enemiesTotalRound1);
     }
