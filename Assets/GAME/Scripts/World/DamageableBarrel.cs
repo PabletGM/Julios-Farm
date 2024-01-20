@@ -52,6 +52,7 @@ public class DamageableBarrel : MonoBehaviour, IDamageable
     // VFX  Barrel Breaking  
     private void destroyingBarrel()
     {
+        AudioManagerPlayer.instance.BarrelDestroy();
         // VFX Barrel Picking 
         int poolIndex = ObjectPooler.instance.SearchPool(BarrelParticles);
         if (poolIndex != -1)

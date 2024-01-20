@@ -7,7 +7,7 @@ public class AudioManagerPlayer : MonoBehaviour
 {
     public static AudioManagerPlayer instance;
     public SoundGame[] walkSounds, houseHit, attackSounds, attackVoice, sfxSounds;
-    public AudioSource sfxSource1, sfxSource2, sfxSource3, sfxSource4, sfxSource5, sfxSource6;
+    public AudioSource sfxSource1, sfxSource2, sfxSource3, sfxSource4, sfxSource5, sfxSource6, sfxSource7;
 
     private void Awake()
     {
@@ -247,7 +247,14 @@ public class AudioManagerPlayer : MonoBehaviour
 
     #endregion
     
-
+    public void BarrelDestroy()
+    {
+        PlaySFX7("barreldestroy", 0.4f);
+    }
+    public void PotionTake()
+    {
+        PlaySFX6("escudo", 0.4f);
+    }
     public void NextRound()
     {
         PlaySFX4("nextRound", 0.4f);
@@ -422,6 +429,24 @@ public class AudioManagerPlayer : MonoBehaviour
             sfxSource6.PlayOneShot(s.clip);
         }
     }
+
+    public void PlaySFX7(string name, float volume)
+    {
+        //buscamos la musica que queremos poner en el musicSound
+        SoundGame s = Array.Find(sfxSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+
+        else
+        {
+            sfxSource7.volume = volume;
+            sfxSource7.PlayOneShot(s.clip);
+        }
+    }
+
 
     public void StopSFX()
     {
