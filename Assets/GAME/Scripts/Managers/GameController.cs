@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     //Lista de enemigos que están en juego
     public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
+    public List<BarrelAbilityCharacter> barrelInGameList;
+
     [Header("Enemies per round and road")]
     [Header("Round 1")]
     public int enemiesRoundOneSmallRoad1;
@@ -101,7 +103,6 @@ public class GameController : MonoBehaviour
 
         // Inicializar la lista en el Awake
         enemyInGameList = new List<BasicEnemyAbilityCharacter>();
-
     }
     
 

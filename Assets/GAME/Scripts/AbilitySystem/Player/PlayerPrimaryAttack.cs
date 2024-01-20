@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.TextCore.Text;
 
 
 [CreateAssetMenu(fileName = "PlayerPrimaryAttack", menuName = "JuliosFarm/Abilities/PlayerPrimaryAttack")]
@@ -10,10 +11,6 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
 {
     public int ticks;
     private float interval;
-
-    
-    
-
 
     //duracion de vfx attack particle
     private float durationAttackParticle =0 ;
@@ -51,8 +48,9 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
             {
                 if(character!=null)
                 {
-                    //se ejecuta y hace daño 3 veces por segundo
-                    MakeDamage(character.transform); 
+                    //se ejecuta y hace daño x veces por segundo
+                    MakeDamage(character.transform);
+                    MakeDamageBarrel(character.transform);
                 }
                 
             }
@@ -96,7 +94,6 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
     private void MakeDamage(Transform character)
     {
         //cuando haga daño que ya busque la lista de enemigos y vea cuales están cerca según la posicion
-
         //coges la lista de enemigos en el juego
         List<BasicEnemyAbilityCharacter> enemyInGame= GameController.Instance.enemyInGameList;
         //compruebas en cada enemigo de la lista su posicion
@@ -117,6 +114,33 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
                 
             }
         }  
+    }
+
+    private void MakeDamageBarrel(Transform character)
+    {
+        //cuando haga daño que ya busque la lista de enemigos y vea cuales están cerca según la posicion
+        //coges la lista de enemigos en el juego
+        List<BarrelAbilityCharacter> barrelInGame = GameController.Instance.barrelInGameList;
+        //compruebas en cada enemigo de la lista su posicion
+        for (int i = 0; i < barrelInGame.Count; i++)
+        {
+            //si su posicion del enemy - posicion del player <= attackRange ---> está cerca
+            float distancePlayerBarrel = Vector3.Distance(barrelInGame[i].transform.position, character.transform.position);
+            Debug.Log(distancePlayerBarrel);
+            if (distancePlayerBarrel <= attackRange.runTimeValue)
+            {
+                if (barrelInGame[i] != null)
+                {
+                    //está cerca de player
+                    barrelInGame[i].TakeDamage(totalDamageAmount, damageEmiterType);
+                    barrelInGame.Remove(barrelInGame[i]);
+
+                    //cuando hace daño a un enemy, una posibilidad de 1/5 de que haga un grito de guerra
+                    //WarShoutMaybe();
+                }
+
+            }
+        }
     }
 
     private void WarShoutMaybe()

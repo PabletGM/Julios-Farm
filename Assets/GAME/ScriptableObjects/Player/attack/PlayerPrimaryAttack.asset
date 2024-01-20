@@ -26,8 +26,7 @@ MonoBehaviour:
   damageEmiterType: 0
   movementStopTime: 0
   tiempoAtaqueAnimacion: 0.2
-  attackParticles: {fileID: 691815496921307648, guid: a27ad7e8a8497974bacd67a37660f308,
-    type: 3}
-  particlesPivot: {fileID: 1470435483095206210, guid: 748bcf0b7de7446408bb0f38efd8d292,
-    type: 3}
   ticks: 1
+  barrelLayer:
+    serializedVersion: 2
+    m_Bits: 65536
