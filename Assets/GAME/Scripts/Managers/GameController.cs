@@ -101,6 +101,9 @@ public class GameController : MonoBehaviour
 
         // Inicializar la lista en el Awake
         enemyInGameList = new List<BasicEnemyAbilityCharacter>();
+        AddRoundToGame();
+        AddRoundToGame();
+        AddRoundToGame();
     }
     
 
