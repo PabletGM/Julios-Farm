@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPrimaryAttack : BasePrimaryAttack
 {
+  
     public override void StartAbility(AbilityCharacter character)
     {
         //conectamos con StartAbility de BasePrimaryAttack

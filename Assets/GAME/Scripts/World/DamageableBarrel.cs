@@ -17,6 +17,9 @@ public class DamageableBarrel : MonoBehaviour, IDamageable
     [SerializeField]
     private int dropRate;
 
+    // VFX Barrell 
+    public GameObject BarrelParticles;
+
     public void TakeDamage(float damage, DamageEmiterType emiterType)
     {
         //if (destroyParticles != null)
@@ -39,9 +42,23 @@ public class DamageableBarrel : MonoBehaviour, IDamageable
     private void ChanceToDropPotion()
     {
         int randomChance = Random.Range(0, 10);
-        if(randomChance < dropRate)
+        destroyingBarrel();
+        if (randomChance < dropRate)
         {
             Instantiate(healthPotionPrefab, this.transform.position + offset, this.transform.rotation);
+        }
+    }
+
+    // VFX  Barrel Breaking  
+    private void destroyingBarrel()
+    {
+        // VFX Barrel Picking 
+        int poolIndex = ObjectPooler.instance.SearchPool(BarrelParticles);
+        if (poolIndex != -1)
+        {
+            GameObject particles = ObjectPooler.instance.GetPooledObject(poolIndex);
+            particles.transform.position = this.transform.position;
+            particles.SetActive(true);
         }
     }
 }

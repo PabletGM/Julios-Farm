@@ -13,6 +13,8 @@ public class PlayerAbilityCharacter : AbilityCharacter
 
     public GameObject attackParticles;
 
+    public GameObject rangeParticles; 
+
     public static PlayerAbilityCharacter Instance;
 
 

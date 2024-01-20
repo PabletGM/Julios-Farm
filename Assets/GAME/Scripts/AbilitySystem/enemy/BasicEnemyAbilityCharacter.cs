@@ -7,8 +7,6 @@ using UnityEngine.TextCore.Text;
 
 public class BasicEnemyAbilityCharacter : AbilityCharacter
 {
-
-
     protected NavMeshAgent agent;
 
     private PlayerManager playerManager;
@@ -31,7 +29,9 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
     public GameObject particlesPivot;
     //Movement Particles
     public GameObject movementParticles;
+    
 
+    //public static BasicEnemyAbilityCharacter Instance;
 
 
     [HideInInspector]
@@ -64,6 +64,17 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         set { maxHealth = value; }
     }
 
+    //private void Awake()
+    //{
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //    }
+    //    else if (Instance != this)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
 
 

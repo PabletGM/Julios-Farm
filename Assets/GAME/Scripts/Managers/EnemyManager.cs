@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
+
+ 
+
     [SerializeField]
     private Image EnemyHealthBar;
 
