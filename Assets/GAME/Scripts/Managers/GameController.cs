@@ -7,6 +7,13 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class GameController : MonoBehaviour
 {
+    private string sceneNameGame = "Game";
+    private string sceneNameSurvival = "Survival";
+
+
+    private int enemiesExtraSmall = 2;
+    private int enemiesExtraBoss = 1;
+
     //Lista de enemigos que están en juego
     public List<BasicEnemyAbilityCharacter> enemyInGameList;
 
@@ -125,45 +132,126 @@ public class GameController : MonoBehaviour
     //comportamiento de cada ronda
     private void BehaviourOnEachRound()
     {
-        if (actualRound <= maxRounds)
+        if(SceneManager.GetActiveScene().name == sceneNameGame)
         {
-            switch (actualRound)
+            if (actualRound <= maxRounds)
             {
-                case 1:
+                switch (actualRound)
                 {
-                    //do this
-                    BehaviourRound1();
-                    break;
-                }
-                case 2:
-                {
-                    //do this
-                    BehaviourRound2();
-                    break;
-                }
-                case 3:
-                {
-                    //do this
-                    BehaviourRound3();
-                    break;
-                }
-                case 4:
-                {
-                    //do this
-                    BehaviourRound4();
-                    break;
-                }
-                case 5:
-                {
-                    //do this
-                    BehaviourRound5();
-                    break;
-                }
+                    case 1:
+                        {
+                            //do this
+                            BehaviourRound1();
+                            break;
+                        }
+                    case 2:
+                        {
+                            //do this
+                            BehaviourRound2();
+                            break;
+                        }
+                    case 3:
+                        {
+                            //do this
+                            BehaviourRound3();
+                            break;
+                        }
+                    case 4:
+                        {
+                            //do this
+                            BehaviourRound4();
+                            break;
+                        }
+                    case 5:
+                        {
+                            //do this
+                            BehaviourRound5();
+                            break;
+                        }
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
         }
+        else if(SceneManager.GetActiveScene().name == sceneNameSurvival)
+        {
+            if (actualRound <= maxRounds)
+            {
+                switch (actualRound)
+                {
+                    case 1:
+                        {
+                            //do this
+                            BehaviourRound1();
+                            break;
+                        }
+                    case 2:
+                        {
+                            //do this
+                            BehaviourRound2();
+                            break;
+                        }
+                    case 3:
+                        {
+                            //do this
+                            BehaviourRound3();
+                            break;
+                        }
+                    case 4:
+                        {
+                            //do this
+                            BehaviourRound4();
+                            break;
+                        }
+                    case 5:
+                        {
+                            //do this
+                            BehaviourRound5();
+                            break;
+                        }
+
+                    default:
+                        break;
+                }
+            }
+            //inifiniteMode
+            else
+            {
+                InfiniteMode();
+            }
+        }
+        
+    }
+
+    private void InfiniteMode()
+    {
+        //sin muros
+
+        //actualizar en cada ronda extra las variables
+        UpdateVariablesEnemy(enemiesExtraSmall, enemiesExtraBoss);
+        
+        //desactivamos walls
+        QuitWallsOfTheRound(-1, -1);
+
+        //elegir tiempo de spawneo de enemigos
+        ChangeSpawnTimeEachRoundSimpleEnemies(enemiesRoundOneSmallRoad1, enemiesRoundOneSmallRoad2, enemiesRoundOneSmallRoad3, enemiesRoundOneTimeToSpawnSmall);
+        ChangeSpawnTimeEachRoundBoss(enemiesRoundOneBigRoad1, enemiesRoundOneBigRoad2, enemiesRoundOneBigRoad3, enemiesRoundOneTimeToSpawnBig);
+    }
+
+    private void UpdateVariablesEnemy(int enemiesExtraSmall, int enemiesExtraBoss)
+    {
+        enemiesRoundOneSmallRoad1 += enemiesExtraSmall;
+        enemiesRoundOneSmallRoad2 += enemiesExtraSmall;
+        enemiesRoundOneSmallRoad3 += enemiesExtraSmall;
+
+        enemiesRoundOneBigRoad1 += enemiesExtraBoss;
+        enemiesRoundOneBigRoad2 += enemiesExtraBoss;
+        enemiesRoundOneBigRoad3 += enemiesExtraBoss;
+
+        int enemiesTotalRound1 = enemiesRoundOneSmallRoad1 + enemiesRoundOneSmallRoad2 + enemiesRoundOneSmallRoad3 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1 + enemiesRoundOneBigRoad1 + enemiesExtraSmall + enemiesExtraBoss;
+        //actualizamos el UI
+        UpdateTotalEnemiesInRound(enemiesTotalRound1);
     }
 
     private void BehaviourRound1()
@@ -304,7 +392,7 @@ public class GameController : MonoBehaviour
     {
         AbilitiesPerRound.Instance.spawnRoundPassives();
         breakTime = true;
-        IsGameWon();
+        //IsGameWon();
         UIManager.Instance.HideEnemiesLeft();
     }
     public void RedirectMainMenu()
