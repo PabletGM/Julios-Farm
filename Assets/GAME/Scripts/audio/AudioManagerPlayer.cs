@@ -292,7 +292,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+          
         }
 
         else
@@ -309,7 +309,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+          
         }
 
         else
@@ -326,7 +326,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+           
         }
 
         else
@@ -348,7 +348,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+          
         }
 
         else
@@ -366,7 +366,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+           
         }
 
         else
@@ -384,7 +384,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+           
         }
 
         else
@@ -402,7 +402,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+          
         }
 
         else
@@ -420,7 +420,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+           
         }
 
         else
@@ -437,7 +437,7 @@ public class AudioManagerPlayer : MonoBehaviour
 
         if (s == null)
         {
-            Debug.Log("Sound Not Found");
+            
         }
 
         else
