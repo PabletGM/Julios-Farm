@@ -126,6 +126,7 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
         {
             //si su posicion del enemy - posicion del player <= attackRange ---> está cerca
             float distancePlayerBarrel = Vector3.Distance(barrelInGame[i].transform.position, character.transform.position);
+            //Debug.Log(distancePlayerBarrel);
             if (distancePlayerBarrel <= attackRange.runTimeValue)
             {
                 if (barrelInGame[i] != null)

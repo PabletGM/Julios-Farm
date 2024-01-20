@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         playerAbilityCharacter = GetComponent<PlayerAbilityCharacter>();
-        initHealth = playerAbilityCharacter.CharacterStats.health;
+        initHealth = playerAbilityCharacter.CharacterStats.health.runTimeValue;
         currentHealth = initHealth;
     }
 

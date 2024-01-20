@@ -7,13 +7,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81223a63628102e4b890e8203741ba97, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  health: 3
+  health: {fileID: 11400000, guid: 00511a46c27e87849b37e69a3a6d3ca3, type: 2}
   maxHealth: 3
+  shield: {fileID: 0}
+  maxShield: {fileID: 0}
   speed: {fileID: 11400000, guid: 966c05ce20bdd4741aaa859b8e2559b3, type: 2}
   rotationSpeed: 10
   baseDamage: {fileID: 11400000, guid: 101c44de205617247b6d348d25140b5e, type: 2}

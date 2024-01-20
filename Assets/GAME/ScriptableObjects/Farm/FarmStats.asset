@@ -7,12 +7,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34dec194471398e48964947ab013f80b, type: 3}
   m_Name: FarmStats
   m_EditorClassIdentifier: 
-  health: 20
+  health: {fileID: 11400000, guid: 8acec5378858b5c4ebca79c3ecaaa685, type: 2}
   maxHealth: 20
   shield: {fileID: 11400000, guid: e2f909089e7b9884285d54ba4670c88b, type: 2}
   maxShield: {fileID: 11400000, guid: 2efe2f83efbc7bc4ba6719f263e8e5c5, type: 2}

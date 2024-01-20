@@ -137,6 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenBarrel: {fileID: 3415388202563236075}
+  healthPotionPrefab: {fileID: 5136774830467082593, guid: e89c43c386f166b42942a8a93cc30fdd,
+    type: 3}
+  offset: {x: 0, y: 0.5, z: 0}
+  dropRate: 6
 --- !u!1001 &3926150880565239821
 PrefabInstance:
   m_ObjectHideFlags: 0

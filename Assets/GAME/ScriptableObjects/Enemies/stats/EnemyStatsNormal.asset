@@ -7,12 +7,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ddc6c587c7838145b1b14e32cfbcb9a, type: 3}
   m_Name: EnemyStatsNormal
   m_EditorClassIdentifier: 
-  health: 6
+  health: {fileID: 11400000, guid: 0496aa7d713cfc6429bc7f27c25ef215, type: 2}
   maxHealth: 6
   shield: {fileID: 0}
   maxShield: {fileID: 0}

@@ -7,6 +7,16 @@ public class DamageableBarrel : MonoBehaviour, IDamageable
     [SerializeField]
     private GameObject brokenBarrel;
 
+    [Header("Potion Parameters")]
+    [SerializeField]
+    private GameObject healthPotionPrefab;
+    [SerializeField]
+    private Vector3 offset;
+    [Header("Number between 0-10, 0 is never drop, 10 is always drop")]
+    [Range(0, 10)]
+    [SerializeField]
+    private int dropRate;
+
     public void TakeDamage(float damage, DamageEmiterType emiterType)
     {
         //if (destroyParticles != null)
@@ -20,8 +30,18 @@ public class DamageableBarrel : MonoBehaviour, IDamageable
         //    }
 
         //}
+        ChanceToDropPotion();
         brokenBarrel.transform.SetParent(null);
         brokenBarrel.gameObject.SetActive(true);
         Destroy(gameObject);
+    }
+
+    private void ChanceToDropPotion()
+    {
+        int randomChance = Random.Range(0, 10);
+        if(randomChance < dropRate)
+        {
+            Instantiate(healthPotionPrefab, this.transform.position + offset, this.transform.rotation);
+        }
     }
 }

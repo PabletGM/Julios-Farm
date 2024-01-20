@@ -35,7 +35,7 @@ public class FarmAbilityCharacter : AbilityCharacter
 
         //Init agent paramenters 
         maxHealth = characterStats.maxHealth;
-        currentHealth = characterStats.health;
+        currentHealth = characterStats.health.runTimeValue;
         UpdateCurrentShield(0f);
         maxShield = characterStats.maxShield.runTimeValue;
         UIManager.Instance.UpdateHealthBar(1f);
@@ -52,7 +52,6 @@ public class FarmAbilityCharacter : AbilityCharacter
         }
         //funcionalidad del update del AbilityCharacter
         base.Update();
-        
     }
 
 
@@ -85,6 +84,16 @@ public class FarmAbilityCharacter : AbilityCharacter
 
            
         }
+    }
+
+    public void Heal(float health)
+    {
+        currentHealth += health;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        UIManager.Instance.UpdateHealthBar(currentHealth / maxHealth);
     }
 
     public void UpdateCurrentShield(float currentshield)

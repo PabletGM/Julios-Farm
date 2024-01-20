@@ -67,7 +67,7 @@ namespace CreatorKitCodeInternal
         void UpdatePlayerUI()
         {
         
-            PlayerHealthSlider.value = PlayerCharacter.health / (float) PlayerCharacter.health;
+            PlayerHealthSlider.value = PlayerCharacter.health.runTimeValue / (float) PlayerCharacter.health.runTimeValue;
             MaxHealth.text = PlayerCharacter.maxHealth.ToString();
             CurrentHealth.text = PlayerCharacter.health.ToString();
         

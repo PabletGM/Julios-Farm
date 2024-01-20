@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GenericStats", menuName = "JuliosFarm/Stats/GenericStats")]
 public class GenericStats : ScriptableObject
 {
-    public float health;
+    public FloatVariable health;
     public float maxHealth;
     public FloatVariable shield;
     public FloatVariable maxShield;
@@ -19,7 +19,7 @@ public class GenericStats : ScriptableObject
 
     private void Awake()
     {
-        maxHealth = health;
+        maxHealth = health.runTimeValue;
     }
 
     public virtual void ResetStats()

@@ -81,7 +81,10 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
         passiveAbilities.Add(passiveAbility);
         passiveAbility.StartAbility(this);
         //llama a metodo del PassiveUIManager y le pasa el icono de la pasiva
-        PassiveUIManager.instance.AddPassiveIconToCanvas(passiveAbility.abilityIcon);
+        if(passiveAbility.abilityIcon != null)
+        {
+            PassiveUIManager.instance.AddPassiveIconToCanvas(passiveAbility.abilityIcon);
+        }
     }
 
     //metodo que elimine todas las pasivas de golpe si queremos

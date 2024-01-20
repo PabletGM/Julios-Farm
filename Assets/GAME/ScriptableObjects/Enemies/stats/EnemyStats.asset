@@ -7,14 +7,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42b5be22c815b94479cf473a3031049c, type: 3}
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
+  health: {fileID: 11400000, guid: 0496aa7d713cfc6429bc7f27c25ef215, type: 2}
+  maxHealth: 0
+  shield: {fileID: 0}
+  maxShield: {fileID: 0}
   speed: {fileID: 11400000, guid: d447aac56801db24196d79329c3b91be, type: 2}
   rotationSpeed: 0
   baseDamage: {fileID: 11400000, guid: a57fa7215272ee3448e7e939dea24139, type: 2}
   angularSpeed: 120
   stoppingDistance: 2
   autoBraking: 0
+  aggroRadius: 5
