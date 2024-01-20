@@ -39719,6 +39719,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4316c4fe27ec59d4493c10b1762219e7, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[0].name
+      value: attackVoice1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 90a4f587769605447b70915b62ce0859, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[1].name
+      value: attackVoice2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a5f18b40193552a4792d7e4c62c19df5, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[2].name
+      value: attackVoice3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d5c9198f10e33c448ebc5b72230e65e, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[3].name
+      value: attackVoice4
+      objectReference: {fileID: 0}
     - target: {fileID: 8572023247472727254, guid: c4dde5c34e709a949ac1eea65ef8dabf,
         type: 3}
       propertyPath: cam

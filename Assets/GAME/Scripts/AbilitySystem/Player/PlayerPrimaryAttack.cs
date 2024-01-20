@@ -110,10 +110,25 @@ public class PlayerPrimaryAttack : BasePrimaryAttack
                 {
                     //está cerca de player
                     enemyInGame[i].TakeDamage(totalDamageAmount, damageEmiterType);
+
+                    //cuando hace daño a un enemy, una posibilidad de 1/5 de que haga un grito de guerra
+                    WarShoutMaybe();
                 }
                 
             }
         }  
+    }
+
+    private void WarShoutMaybe()
+    {
+        int numPosibilidades = 8;
+        int numElegido = 2;
+        int randomValue = UnityEngine.Random.Range(0,numPosibilidades);
+        if(randomValue == numElegido)
+        {
+            AudioManagerPlayer.instance.RandomAttackVoice();
+        }
+
     }
 
 
