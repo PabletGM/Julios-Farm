@@ -39669,6 +39669,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 6567570478619724380, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7576224023335200445, guid: c4dde5c34e709a949ac1eea65ef8dabf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39722,7 +39727,7 @@ PrefabInstance:
     - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
         type: 3}
       propertyPath: attackVoice.Array.size
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
         type: 3}
@@ -39763,6 +39768,66 @@ PrefabInstance:
         type: 3}
       propertyPath: attackVoice.Array.data[3].name
       value: attackVoice4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2d5c9198f10e33c448ebc5b72230e65e, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[4].name
+      value: attackVoice4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f3b35f5e2fb57784aa68f5d74bfab0f8, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[5].name
+      value: attackVoice5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ba97ec3df7d134478bdd6b26f9e9ea5, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[6].name
+      value: attackVoice6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: d6963389f7879504491f6c3d143b4638, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[7].name
+      value: attackVoice7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 85ac7e271954a1249a3be847e02f0bf3, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[8].name
+      value: attackVoice8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[9].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 697e3da06ba757d4e8080f113ae56ce2, type: 3}
+    - target: {fileID: 7641923448164341320, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: attackVoice.Array.data[9].name
+      value: attackVoice9
       objectReference: {fileID: 0}
     - target: {fileID: 8572023247472727254, guid: c4dde5c34e709a949ac1eea65ef8dabf,
         type: 3}
