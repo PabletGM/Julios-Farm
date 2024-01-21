@@ -11075,6 +11075,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5115311139328115065, guid: 32695873568dfd149b83eaec94075c15, type: 3}
+    - {fileID: 5115311139671255931, guid: 32695873568dfd149b83eaec94075c15, type: 3}
+    - {fileID: 5115311140253566332, guid: 32695873568dfd149b83eaec94075c15, type: 3}
+    - {fileID: 5115311139633769823, guid: 32695873568dfd149b83eaec94075c15, type: 3}
+    - {fileID: 1106785859, guid: 32695873568dfd149b83eaec94075c15, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5115311139583091577, guid: 32695873568dfd149b83eaec94075c15,
         type: 3}
@@ -23246,6 +23250,8 @@ MonoBehaviour:
     type: 3}
   prefabFarm: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
     type: 3}
+  sceneNameGame: Game
+  sceneNameSurvival: Survival
   enemyInGameList: []
   barrelInGameList:
   - {fileID: 70479460}

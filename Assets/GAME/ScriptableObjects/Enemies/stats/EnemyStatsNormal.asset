@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyStatsNormal
   m_EditorClassIdentifier: 
   health: {fileID: 11400000, guid: 0496aa7d713cfc6429bc7f27c25ef215, type: 2}
-  maxHealth: 6
+  maxHealth: 8.64
   shield: {fileID: 0}
   maxShield: {fileID: 0}
   speed: {fileID: 11400000, guid: d447aac56801db24196d79329c3b91be, type: 2}
