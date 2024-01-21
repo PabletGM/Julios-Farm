@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2992757628831574652, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b019ee69f2cd534a9b0dc976f1665e0,
+        type: 2}
     - target: {fileID: 4048178789390051907, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: m_Color.b
@@ -21,6 +27,21 @@ PrefabInstance:
     - target: {fileID: 4048178789390051907, guid: 12069a4bbbe66284f8a9a22eda310e5e,
         type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555560, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555560, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667712714323555560, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+        type: 3}
+      propertyPath: m_StoppingDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,

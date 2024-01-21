@@ -73,10 +73,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7912180927812132716, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+        type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c4d272bcc1dca35489148307a7be70e7,
+        type: 2}
     - target: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
         type: 3}
       propertyPath: m_Name
       value: enemyCactusSurvival
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153841106258824656, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+        type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153841106258824656, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8153841106258824656, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+        type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
