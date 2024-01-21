@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawnerBoss : MonoBehaviour
 {
@@ -78,6 +79,10 @@ public class EnemySpawnerBoss : MonoBehaviour
 
                 //le ponemos el nombre
                 enemyGO.GetComponentInChildren<EnemyManager>().UpdateEnemyName("bossEnemy");
+                if (SceneManager.GetActiveScene().name == GameController.Instance.sceneNameGame)
+                {
+                    enemyGO.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
+                }
 
                 permisoSpawnearEnemy = false;
                 //aumentar numero de enemigos creados

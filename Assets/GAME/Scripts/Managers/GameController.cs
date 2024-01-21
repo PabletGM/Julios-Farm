@@ -22,8 +22,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject prefabFarm;
 
-    private string sceneNameGame = "Game";
-    private string sceneNameSurvival = "Survival";
+    [HideInInspector]
+    public string sceneNameGame = "Game";
+    [HideInInspector]
+    public string sceneNameSurvival = "Survival";
 
 
     private int enemiesExtraSmall = 2;

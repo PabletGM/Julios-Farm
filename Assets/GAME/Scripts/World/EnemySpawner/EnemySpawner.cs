@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -73,6 +74,9 @@ public class EnemySpawner : MonoBehaviour
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().CanMove = true;
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().resetHealthRespawn();
                 enemyGO.GetComponent<BasicEnemyAbilityCharacter>().isDead = false;
+                
+
+
 
                 //activas corrutina
                 EnemyPrefabSimple.GetComponent<BasicEnemyAbilityCharacter>().AsociarHitEffectCoroutine();
@@ -82,6 +86,10 @@ public class EnemySpawner : MonoBehaviour
 
                 //le ponemos el nombre
                 enemyGO.GetComponentInChildren<EnemyManager>().UpdateEnemyName("basicEnemy");
+                if (SceneManager.GetActiveScene().name == GameController.Instance.sceneNameGame)
+                {
+                    enemyGO.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
+                }
 
                 allowSpawnEnemy = false;
 
