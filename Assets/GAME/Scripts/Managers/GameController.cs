@@ -13,6 +13,11 @@ public class GameController : MonoBehaviour
     private GameObject prefabEnemyNormal;
     [SerializeField]
     private GameObject prefabEnemyBoss;
+    [SerializeField]
+    private GameObject prefabPlayer;
+    [SerializeField]
+    private GameObject prefabFarm;
+
     private string sceneNameGame = "Game";
     private string sceneNameSurvival = "Survival";
 
@@ -416,11 +421,37 @@ public class GameController : MonoBehaviour
     }
     public void RedirectMainMenu()
     {
+        //prefabEnemyNormal
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue = 1;
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth = 1;
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue = 1;
+        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.baseDamage.runTimeValue = 1;
+
+
+        //prefabBoss
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue = 1;
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth = 1;
+        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue = 1;
+
+        //player
+        prefabPlayer.GetComponent<PlayerAbilityCharacter>().AssociatePlayerStats();
+        prefabPlayer.GetComponent<PlayerAbilityCharacter>().playerStats.health.runTimeValue = 1;
+        prefabPlayer.GetComponent<PlayerAbilityCharacter>().playerStats.maxHealth = 1;
+        prefabPlayer.GetComponent<PlayerAbilityCharacter>().playerStats.speed.runTimeValue = 1;
+
+        //farm
+        prefabFarm.GetComponent<FarmAbilityCharacter>().AssociateFarmStats();
+        prefabFarm.GetComponent<FarmAbilityCharacter>().farmStats.health.runTimeValue = 1;
+        prefabFarm.GetComponent<FarmAbilityCharacter>().farmStats.maxHealth = 1;
+        prefabFarm.GetComponent<FarmAbilityCharacter>().farmStats.speed.runTimeValue = 1;
+
         //SceneManager.LoadScene(mainMenu);
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #endif
-        Application.Quit();
+        //Application.Quit();
     }
 
     public void initializeEnemySpawner()

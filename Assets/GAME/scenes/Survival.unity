@@ -7849,6 +7849,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 367515550}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &367710520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 569260515859608712, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3598661350916824174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &369513357
 GameObject:
   m_ObjectHideFlags: 0
@@ -27646,6 +27652,8 @@ MonoBehaviour:
     type: 3}
   prefabEnemyBoss: {fileID: 6529492690942168981, guid: 5a3d8a7762a68c04980da0899b9a25c7,
     type: 3}
+  prefabPlayer: {fileID: 367710520}
+  prefabFarm: {fileID: 34777108}
   enemyInGameList: []
   barrelInGameList:
   - {fileID: 70479460}
@@ -40400,7 +40408,7 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   tweenTargetIsTargetGO: 1
   delay: 0
-  duration: 20
+  duration: 5
   easeType: 1
   easeCurve:
     serializedVersion: 2
@@ -55529,6 +55537,11 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9051834588436486681, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 9128799910209341630, guid: 6e182870c203c2a469c0b70b6f1b75f5,
         type: 3}
       propertyPath: m_fontColor.b
@@ -55543,6 +55556,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128799910209341630, guid: 6e182870c203c2a469c0b70b6f1b75f5,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

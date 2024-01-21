@@ -14,6 +14,9 @@ public class FarmAbilityCharacter : AbilityCharacter
     [SerializeField]
     private GameObject farmShield;
 
+    [HideInInspector]
+    public FarmStats farmStats;
+
     public static FarmAbilityCharacter Instance;
 
     private void Awake()
@@ -25,6 +28,20 @@ public class FarmAbilityCharacter : AbilityCharacter
         else if (Instance != this)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void AssociateFarmStats()
+    {
+        //Init agent paramenters 
+       
+        farmStats = (FarmStats)characterStats;
+        if (farmStats != null)
+        {
+            maxHealth = characterStats.maxHealth;
+            currentHealth = characterStats.health.runTimeValue;
+            UpdateCurrentShield(0f);
+            maxShield = characterStats.maxShield.runTimeValue;
         }
     }
 
