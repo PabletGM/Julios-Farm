@@ -79,18 +79,22 @@ public class AbilityCharacter : MonoBehaviour, IDamageable
     public void AddPassiveAbility(BaseAbility passiveAbility)
     {
         passiveAbilities.Add(passiveAbility);
+
+        bool pasivaRepe = false;
         for(int i = 0; i < passiveAbilities.Count; i++)
         {
+            //si esta repe
             if (passiveAbilities[i] == passiveAbility)
             {
-                //
+                pasivaRepe = true;
             }
         }
+
         passiveAbility.StartAbility(this);
         //llama a metodo del PassiveUIManager y le pasa el icono de la pasiva
         if(passiveAbility.abilityIcon != null)
         {
-            PassiveUIManager.instance.AddPassiveIconToCanvas(passiveAbility.abilityIcon);
+            PassiveUIManager.instance.AddPassiveIconToCanvas(passiveAbility.abilityIcon, pasivaRepe);
         }
     }
 
