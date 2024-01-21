@@ -933,6 +933,7 @@ MonoBehaviour:
   passiveAbilities: []
   canMove: 0
   farmShield: {fileID: 719810762}
+  farmStats: {fileID: 0}
 --- !u!65 &34777119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12779,7 +12780,7 @@ PrefabInstance:
     - target: {fileID: 4526789118110734651, guid: 076d7f91ec2b4684589a76973d94c978,
         type: 3}
       propertyPath: m_Name
-      value: Llama (1)
+      value: Adri, the Llama
       objectReference: {fileID: 0}
     - target: {fileID: 8379695618124650207, guid: 076d7f91ec2b4684589a76973d94c978,
         type: 3}
@@ -23578,8 +23579,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432ecc24e92172742a96e3410c8f960e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabEnemyNormal: {fileID: 0}
-  prefabEnemyBoss: {fileID: 0}
+  prefabEnemyNormal: {fileID: 8074680643696254249, guid: 8addc9db33a3ba046a25bbeac1e5b123,
+    type: 3}
+  prefabEnemyBoss: {fileID: 5667712714323555562, guid: 12069a4bbbe66284f8a9a22eda310e5e,
+    type: 3}
+  prefabFarm: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
+    type: 3}
+  prefabPlayer: {fileID: 569260515859608712, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+    type: 3}
   enemyInGameList: []
   barrelInGameList:
   - {fileID: 70479460}
@@ -23595,6 +23602,10 @@ MonoBehaviour:
   - {fileID: 1271234048}
   - {fileID: 1848893165}
   - {fileID: 1523229486}
+  playerStats: {fileID: 11400000, guid: a849b9d58b8e6fa4f9f63c4dca6f4ab3, type: 2}
+  enemyStatsNormal: {fileID: 11400000, guid: c4d272bcc1dca35489148307a7be70e7, type: 2}
+  enemyStatsBoss: {fileID: 11400000, guid: 2b019ee69f2cd534a9b0dc976f1665e0, type: 2}
+  farmStats: {fileID: 11400000, guid: cc60fc80eac093d48ac2171eeb71457f, type: 2}
   enemiesRoundOneSmallRoad1: 3
   enemiesRoundOneSmallRoad2: 6
   enemiesRoundOneSmallRoad3: 3
@@ -42340,6 +42351,24 @@ PrefabInstance:
       propertyPath: rangeParticles
       value: 
       objectReference: {fileID: 1999125117}
+    - target: {fileID: 2620843950895635913, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: playerBaseDamage
+      value: 
+      objectReference: {fileID: 11400000, guid: 101c44de205617247b6d348d25140b5e,
+        type: 2}
+    - target: {fileID: 2620843950895635913, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: playerAttackRange
+      value: 
+      objectReference: {fileID: 11400000, guid: 2137942b0c7953e4e983fa662011245a,
+        type: 2}
+    - target: {fileID: 2620843950895635913, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+        type: 3}
+      propertyPath: playerMovementSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: 966c05ce20bdd4741aaa859b8e2559b3,
+        type: 2}
     - target: {fileID: 4399153704816966942, guid: c4dde5c34e709a949ac1eea65ef8dabf,
         type: 3}
       propertyPath: m_Camera

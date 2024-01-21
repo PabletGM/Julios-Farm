@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -415,7 +416,11 @@ public class GameController : MonoBehaviour
     }
     public void RedirectMainMenu()
     {
-        SceneManager.LoadScene(mainMenu);
+        //SceneManager.LoadScene(mainMenu);
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+        Application.Quit();
     }
 
     public void initializeEnemySpawner()
