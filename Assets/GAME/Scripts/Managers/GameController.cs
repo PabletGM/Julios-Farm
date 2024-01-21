@@ -14,6 +14,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject prefabEnemyBoss;
     [SerializeField]
+    private GameObject prefabEnemyBossSurvival;
+    [SerializeField]
+    private GameObject prefabEnemyNormalSurvival;
+    [SerializeField]
     private GameObject prefabPlayer;
     [SerializeField]
     private GameObject prefabFarm;
@@ -257,21 +261,21 @@ public class GameController : MonoBehaviour
         enemiesRoundFiveSmallRoad2 += enemiesExtraSmall;
         enemiesRoundFiveSmallRoad3 += enemiesExtraSmall;
 
-        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
+        prefabEnemyNormalSurvival.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
 
-        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue *= 1.2f;
-        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth *= 1.2f;
-        prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue *= 1.05f;
+        prefabEnemyNormalSurvival.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue *= 1.2f;
+        prefabEnemyNormalSurvival.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth *= 1.2f;
+        prefabEnemyNormalSurvival.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue *= 1.05f;
 
         enemiesRoundFiveBigRoad1 += enemiesExtraBoss;
         enemiesRoundFiveBigRoad2 += enemiesExtraBoss;
         enemiesRoundFiveBigRoad3 += enemiesExtraBoss;
 
-        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
+        prefabEnemyBossSurvival.GetComponent<BasicEnemyAbilityCharacter>().AssociateEnemyStats();
 
-        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue *= 1.1f;
-        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth *= 1.1f;
-        prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue *= 1.05f;
+        prefabEnemyBossSurvival.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.health.runTimeValue *= 1.1f;
+        prefabEnemyBossSurvival.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.maxHealth *= 1.1f;
+        prefabEnemyBossSurvival.GetComponent<BasicEnemyAbilityCharacter>().enemyStats.speed.runTimeValue *= 1.05f;
 
         int enemiesTotalRound1 = enemiesRoundFiveSmallRoad1 + enemiesRoundFiveSmallRoad2 + enemiesRoundFiveSmallRoad3 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesRoundFiveBigRoad1 + enemiesExtraSmall + enemiesExtraBoss;
         //actualizamos el UI
@@ -421,11 +425,17 @@ public class GameController : MonoBehaviour
     }
     public void RedirectMainMenu()
     {
-        this.gameObject.GetComponentInChildren<EnemyManager>().UpdateEnemyName("basicEnemy");
+        prefabEnemyBoss.GetComponentInChildren<EnemyManager>().UpdateEnemyName("bossEnemy");
         prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
 
-        this.gameObject.GetComponentInChildren<EnemyManager>().UpdateEnemyName("bossEnemy");
+        prefabEnemyNormal.GetComponentInChildren<EnemyManager>().UpdateEnemyName("basicEnemy");
         prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
+
+        prefabEnemyBossSurvival.GetComponentInChildren<EnemyManager>().UpdateEnemyName("bossEnemy");
+        prefabEnemyBossSurvival.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
+
+        prefabEnemyNormalSurvival.GetComponentInChildren<EnemyManager>().UpdateEnemyName("basicEnemy");
+        prefabEnemyNormalSurvival.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
 
         prefabFarm.GetComponent<FarmAbilityCharacter>().ResetFarmStats();
 
