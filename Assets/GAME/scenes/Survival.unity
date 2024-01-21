@@ -1056,6 +1056,7 @@ MonoBehaviour:
   passiveAbilities: []
   canMove: 0
   farmShield: {fileID: 719810762}
+  farmStats: {fileID: 0}
 --- !u!65 &34777119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7848,12 +7849,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 817e34176458c0f4294afd2025e0cb24,
     type: 3}
   m_PrefabInstance: {fileID: 367515550}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &367710520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 569260515859608712, guid: c4dde5c34e709a949ac1eea65ef8dabf,
-    type: 3}
-  m_PrefabInstance: {fileID: 3598661350916824174}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &369513357
 GameObject:
@@ -27652,8 +27647,10 @@ MonoBehaviour:
     type: 3}
   prefabEnemyBoss: {fileID: 6529492690942168981, guid: 5a3d8a7762a68c04980da0899b9a25c7,
     type: 3}
-  prefabPlayer: {fileID: 367710520}
-  prefabFarm: {fileID: 34777108}
+  prefabPlayer: {fileID: 569260515859608712, guid: c4dde5c34e709a949ac1eea65ef8dabf,
+    type: 3}
+  prefabFarm: {fileID: 298031663381540368, guid: 995fda3136cb0a248a10828fd92571e6,
+    type: 3}
   enemyInGameList: []
   barrelInGameList:
   - {fileID: 70479460}

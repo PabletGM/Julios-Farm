@@ -421,9 +421,14 @@ public class GameController : MonoBehaviour
     }
     public void RedirectMainMenu()
     {
+        this.gameObject.GetComponentInChildren<EnemyManager>().UpdateEnemyName("basicEnemy");
         prefabEnemyBoss.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
+
+        this.gameObject.GetComponentInChildren<EnemyManager>().UpdateEnemyName("bossEnemy");
         prefabEnemyNormal.GetComponent<BasicEnemyAbilityCharacter>().ResetEnemyStats();
+
         prefabFarm.GetComponent<FarmAbilityCharacter>().ResetFarmStats();
+
         prefabPlayer.GetComponent<PlayerAbilityCharacter>().ResetPlayerStats();
 
         SceneManager.LoadScene(mainMenu);
