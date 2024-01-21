@@ -17,6 +17,11 @@ public class PlayerAbilityCharacter : AbilityCharacter
 
     public static PlayerAbilityCharacter Instance;
 
+    [HideInInspector]
+    public PlayerStats playerStats;
+
+    [SerializeField]
+    private FloatVariable playerAttackRange;
 
     public bool CanMovePlayer
     {
@@ -90,16 +95,25 @@ public class PlayerAbilityCharacter : AbilityCharacter
         }
     }
 
-    //public void ChangeRakes()
-    //{
-    //    normalRake.SetActive(false);
-    //    damageRake.SetActive(true);
-    //}
+    public void ResetPlayerStats()
+    {
+        playerStats = (PlayerStats)characterStats;
+        playerStats.baseDamage.runTimeValue = 1f;
+        playerStats.speed.runTimeValue = 10f;
+        playerAttackRange.runTimeValue = 4f;
+    }
 
-    //al detectar al enemy le añada a la lista
-    
 
-    private IEnumerator AtaqueAutomaticoPlayer()
+//public void ChangeRakes()
+//{
+//    normalRake.SetActive(false);
+//    damageRake.SetActive(true);
+//}
+
+//al detectar al enemy le añada a la lista
+
+
+private IEnumerator AtaqueAutomaticoPlayer()
     {
         //se ejecuta todo el rato mientras player exista
         while (this.gameObject!=null)

@@ -126,4 +126,12 @@ public class FarmAbilityCharacter : AbilityCharacter
         AudioManagerPlayer.instance.PassiveEscudo();
     }
 
+    public void ResetFarmStats()
+    {
+        farmStats = (FarmStats)characterStats;
+        farmStats.health.runTimeValue = 20f;
+        farmStats.maxHealth = 20f;
+        farmStats.shield.runTimeValue = 0f;
+        farmStats.maxShield.runTimeValue = 0f;
+    }
 }

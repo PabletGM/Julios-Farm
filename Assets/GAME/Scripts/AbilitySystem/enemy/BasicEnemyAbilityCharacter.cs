@@ -200,6 +200,23 @@ public class BasicEnemyAbilityCharacter : AbilityCharacter
         }
     }
 
+    public void ResetEnemyStats()
+    {
+        enemyStats = (EnemyStats)characterStats;
+        if (this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "basicEnemy")
+        {
+            enemyStats.health.runTimeValue = 6f;
+            enemyStats.maxHealth = 6f;
+            enemyStats.speed.runTimeValue = 4f;
+        }
+        else if (this.gameObject.GetComponentInChildren<EnemyManager>().enemyName == "bossEnemy")
+        {
+            enemyStats.health.runTimeValue = 20f;
+            enemyStats.maxHealth = 20f;
+            enemyStats.speed.runTimeValue = 2f;
+        }
+    }
+
     protected virtual bool IsPlayerAlive()
     {
         return playerManager.CurrentHealth > 0;
