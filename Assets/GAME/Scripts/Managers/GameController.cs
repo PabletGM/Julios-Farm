@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    private int actualRound = 0;
+    private int actualRound = 4;
 
     private string mainMenu = "MainMenu";
 
@@ -412,7 +412,10 @@ public class GameController : MonoBehaviour
     {
         if (actualRound == maxRounds && breakTime)
         {
-            UIManager.Instance.ShowYouWinCanvas();
+            if(SceneManager.GetActiveScene().name == sceneNameGame)
+            {
+                UIManager.Instance.ShowYouWinCanvas();
+            }
         }
     }
 
@@ -420,7 +423,7 @@ public class GameController : MonoBehaviour
     {
         AbilitiesPerRound.Instance.spawnRoundPassives();
         breakTime = true;
-        //IsGameWon();
+        IsGameWon();
         UIManager.Instance.HideEnemiesLeft();
     }
     public void RedirectMainMenu()
